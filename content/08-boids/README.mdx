@@ -1,0 +1,123 @@
+---
+title: Boids Simulation
+description: A real-time simulation of flocking behavior using the Boids algorithm.
+status: published
+tags: ['simulation']
+date: 2024-11-03
+---
+
+<FrontMatter />
+
+import Visualization from './components/visualization';
+
+This small real time simulation aims to capture some of the emerging dynamics of simple rules.
+In the boids algoririthm, developed by Craig Reynolds in 1986, rules about alignment, separation, and cohesion cause swarm behaviour. Its the same behaviour observed in birds and schools of fish.
+
+<Visualization />
+
+> _Figure 1: Real time simulation running in your browser._
+
+
+Boids algorithm which leads to emergent behaviour like flocking/school formation, implemented in this simulation as follows:
+
+## 1. Alignment
+
+Boids steer towards the average direction of their neighbors within a set perception radius:
+
+$$
+\vec{a} = \frac{1}{N} \sum_{ i = 1 }^{N} \vec{v}_i 
+$$
+
+where: 
+
+- $\vec{a}$ is the alignment force.
+- $N$ is the number of nearest neighbours.
+- $\vec{v}_i$ is the velocity of each neighbouring boid.
+
+## 2. Cohesion
+
+Boids move towards the center of mass of their neighbors:
+
+$$
+\vec{c} = \frac{1}{N} \sum_{ i = 1 }^{N} \vec{p}_i - \vec{p}_{boid}
+$$
+
+- $\vec{c}$ is the cohesion force.
+- $\vec{p}_i$ is the position of each neighbouring boid.
+- $\vec{p}_{boid}$ is the current boid’s position.
+
+## 3. Separation
+
+Boids avoid collisions by steering away from close neighbors:
+
+$$
+\vec{s} = \sum_{ i = 1 }^{N} \frac{ \vec{p}_{boid} - \vec{p}_{i} }{ \lvert \vec{p}_{boid} - \vec{p}_{i} \rvert }
+$$
+
+- $\vec{s}$ is the separation force.
+- $\vec{p}_i$ is the position of each neighbouring boid.
+- $\vec{p}_{boid}$ is the current boid’s position.
+
+## 4. Predator Avoidance
+
+Boids flee from predators by steering away from those within a `fleeRadius`:
+
+$$
+\vec{f} = \sum_{ i = 1 }^{M} \frac{ \vec{p}_{boid} - \vec{p}_{predator} }{ \lvert \vec{p}_{boid} - \vec{p}_{predator} \rvert } \cdot F_s
+$$
+
+- $\vec{f}$ is the avoidance force.
+- $M$ is the number of predators within the flee radius.
+- $F_s$ is a set flee strength.
+
+## 5. Hotzone Attraction
+
+Hotzones emit a Gaussian potential field that attracts boids:
+
+$$
+\vec{h} = \sum_{j=1}^K \text{strength}_j \cdot \exp\left(-\frac{\Delta x^2}{2\sigma_x^2} - \frac{\Delta y^2}{2\sigma_y^2}\right) 
+\begin{bmatrix} 
+-\Delta x / \sigma_x^2 \\ 
+-\Delta y / \sigma_y^2 
+\end{bmatrix}
+$$
+
+where: 
+
+- $K$ is the number of hotzones.
+- $\Delta x = x_{boid} - x_{hotzone}$, similarly for $\Delta y$.
+- $\sigma_x, \sigma_y$ are the Gaussian spread parameters.
+
+## Combined Behavior
+
+The final velocity update for a boid is a weighted sum of all these forces:
+
+$$
+\vec{v}_{boid} += ( \vec{a} + \vec{c} + \vec{s} + \vec{f} + \vec{h} ) \cdot dt
+$$
+
+Velocities are then capped at a max speed, and positions are updated using:
+
+$$
+\vec{p}_{boid} += \vec{v}_{boid} \cdot dt
+$$
+
+Wrapping is used to ensure that boids remain within the bounds of the simulation.
+
+## Predators
+
+Predators pursue boids based on proximity and separate from other predators. Their pursuit force is similar to cohesion:
+
+$$
+\vec{p} = \frac{1}{N} \sum_{ i = 1 }^{N} \vec{p}_i - \vec{p}_{predator}
+$$
+
+where:
+
+- $N$ is the number of prey boids inside the predator’s perception radius.
+
+---
+
+The simulation was created with Typescript, plotted using Observable Plot and rendered inside this Next.js notebook.
+
+This combination of rules creates lifelike, emergent flocking behavior, balancing attraction, repulsion, and external influences. The prey flee the predators and the predators pursue the prey, and the visualisation just looks nice along the way!

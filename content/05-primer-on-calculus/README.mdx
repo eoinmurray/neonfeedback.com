@@ -1,0 +1,243 @@
+---
+title: "Primer on Common Derivatives and Integrals"
+description: "A comprehensive guide to basic derivatives, integrals, and vector calculus operations."
+status: "published"
+tags: ["primer"]
+date: "2024-10-11"
+---
+
+<FrontMatter />
+
+import GradientPlot from './components/gradient-plot';
+import DivergencePlot from './components/divergence-plot';
+import CurlPlot from './components/curl-plot';
+import LaplacianPlot from './components/laplacian-plot';
+
+# Primer on Common Derivatives and Integrals
+
+---
+
+# 1. Basic Derivatives
+
+| Function $ f(x) $ | Derivative $ f'(x) $ |
+|:--------------------|:------------------------|
+| Constant $ c $ | $ 0 $ |
+| $ x^n $ | $ n x^{n-1} $ |
+| $ \frac{1}{x} $ | $ -\frac{1}{x^2} $ |
+| $ e^{cx} $ | $ ce^{cx} $ |
+| $ a^x $ | $ a^x \ln(a) $ |
+| $ \ln(x) $ | $ \frac{1}{x} $ |
+| $ \log_a(x) $ | $ \frac{1}{x \ln(a)} $ |
+| $ \sin(x) $ | $ \cos(x) $ |
+| $ \cos(x) $ | $ -\sin(x) $ |
+| $ \tan(x) $ | $ \sec^2(x) $ |
+---
+
+# 2. Common Derivative Rules
+
+- **Sum Rule**  
+  $$
+  \frac{d}{dx} [f(x) + g(x)] = f'(x) + g'(x)
+  $$
+
+- **Product Rule**  
+  $$
+  \frac{d}{dx} [f(x)g(x)] = f'(x)g(x) + f(x)g'(x)
+  $$
+
+- **Quotient Rule**  
+  $$
+  \frac{d}{dx} \left[ \frac{f(x)}{g(x)} \right] = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}
+  $$
+
+- **Chain Rule**  
+  $$
+  \frac{d}{dx} [f(g(x))] = f'(g(x))g'(x)
+  $$
+
+---
+
+# 3. Common Special Derivatives
+
+- $$
+  \frac{d}{dx} (\sin^{-1}(x)) = \frac{1}{\sqrt{1-x^2}}
+  $$
+- $$
+  \frac{d}{dx} (\cos^{-1}(x)) = \frac{-1}{\sqrt{1-x^2}}
+  $$
+  
+- $$
+  \frac{d}{dx} (\tan^{-1}(x)) = \frac{1}{1+x^2}
+  $$
+
+---
+
+# 4. Derivatives as Limits
+
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$
+
+---
+
+# 5. Basic Integrals
+
+| Function $ f(x) $ | Indefinite Integral $ \int f(x) \, dx $ |
+|:--------------------|:------------------------------------------|
+| $ 0 $ | $ C $ (arbitrary constant) |
+| $ x^n $ | $ \frac{x^{n+1}}{n+1} + C $ (for $ n \neq -1 $) |
+| $ \frac{1}{x} $ | $\ln( \mid x \mid) + C$ |
+| $ e^{cx} $ | $ \frac{1}{c}e^{cx} + C $ |
+| $ a^x $ | $ \frac{a^x}{\ln(a)} + C $ |
+| $ \sin(x) $ | $ -\cos(x) + C $ |
+| $ \cos(x) $ | $ \sin(x) + C $ |
+| $ \sec^2(x) $ | $ \tan(x) + C $ |
+| $ \csc^2(x) $ | $ -\cot(x) + C $ |
+| $ \sec(x)\tan(x) $ | $ \sec(x) + C $ |
+| $ \csc(x)\cot(x) $ | $ -\csc(x) + C $ |
+
+---
+
+# 6. Common Integral Rules
+
+- **Sum Rule**:
+  $$
+  \int (f(x) + g(x)) \, dx = \int f(x) \, dx + \int g(x) \, dx
+  $$
+
+- **Constant Multiple Rule**:
+  $$
+  \int c f(x) \, dx = c \int f(x) \, dx
+  $$
+
+- **Substitution Rule (u-substitution)**:
+  If $ u = g(x) $, then
+  $$
+  \int f(g(x))g'(x) \, dx = \int f(u) \, du
+  $$
+
+---
+
+# 7. Integration by Parts
+
+- **Integration by Parts Formula**:
+  $$
+  \int u \, dv = uv - \int v \, du
+  $$
+  where $ u $ and $ dv $ are chosen parts of the integrand.
+  This method is useful when the integrand is a product of two functions.
+  The choice of $ u $ and $ dv $ can significantly affect the complexity of the resulting integral. 
+
+Example:
+  Let $ u = x $ and $ dv = e^x \, dx $.
+  Then, $ du = dx $ and $ v = e^x $.
+  Thus,
+  $$
+  \int x e^x \, dx = x e^x - \int e^x \, dx = x e^x - e^x + C
+  $$
+  where $ C $ is the constant of integration.
+
+---
+
+# 8. Gradient, Divergence, Curl and Laplacian
+
+## Gradient
+  The gradient of a scalar function $ f(x, y, z) $ is a vector field that points in the direction of the greatest rate of increase of the function. It is denoted as:
+  $$
+  \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right)
+  $$
+  where $ \nabla $ is the del operator.
+  The gradient is used in optimization problems to find local maxima and minima of functions.
+
+<div className="flex flex-row">
+  <div className="min-w-[300px]">
+    The function 
+    $$
+    f(x, y) = x^2 + y^2 
+    $$
+    has gradient
+    $$
+    \nabla f = (2x, 2y)
+    $$
+
+    which can be plotted as a vector field.
+
+  </div>
+
+  <GradientPlot />
+</div>
+
+## Divergence
+  The divergence of a vector field $ \mathbf{F} = (F_x, F_y, F_z) $ is a scalar function that measures the rate at which "stuff" is expanding or contracting at a point. It is given by:
+  $$
+  \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}
+  $$
+  Divergence is used in fluid dynamics to describe the behavior of fluid flow.
+
+<div className="flex flex-row">
+  <div className="min-w-[300px]">
+    The vector field 
+    $$
+    \mathbf{F}(x, y) = (x^2, -y^2)
+    $$
+    has divergence
+    $$
+    \nabla \cdot \mathbf{F} = 2x - 2y
+    $$
+
+    which can be plotted as a scalar field.
+
+  </div>
+
+  <DivergencePlot />
+</div>
+
+## Curl
+  The curl of a vector field $ \mathbf{F} = (F_x, F_y, F_z) $ is a vector that describes the rotation or "twisting" of the field. It is given by:
+  $$
+  \nabla \times \mathbf{F} = \left( \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}, \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}, \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y} \right)
+  $$
+  Curl is used in electromagnetism and fluid dynamics to describe rotational motion.
+
+<div className="flex flex-row">
+  <div className="min-w-[300px]">
+    The vector field 
+    $$
+    \mathbf{F}(x, y) = (-y^2, x^2)
+    $$
+    has curl
+    $$
+    \nabla \times \mathbf{F} = (0, 0, 2x + 2y)
+    $$
+
+    which can be plotted as a vector field.
+
+  </div>
+
+  <CurlPlot />
+</div>
+
+## Laplacian
+  The Laplacian of a scalar function $ f(x, y, z) $ is a scalar that measures the "curvature" or "spread" of the function. It is given by:
+  $$
+  \nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
+  $$
+  The Laplacian is used in physics to describe diffusion and wave propagation.
+
+<div className="flex flex-row">
+  <div className="min-w-[300px]">
+    The function 
+    $$
+    f(x, y) = \sin(x) + \cos(y)
+    $$
+    has Laplacian
+    $$
+    \nabla^2 f = -\sin(x) - \cos(y)
+    $$
+
+    which can be plotted as a scalar field.
+
+  </div>
+
+  <LaplacianPlot />
+</div>

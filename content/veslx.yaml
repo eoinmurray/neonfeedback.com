@@ -1,0 +1,8 @@
+dir: .
+site:
+  name: EM
+  description: "My notebooks - all works in progress."
+  github: "eoinmurray/notebooks"
+
+posts:
+  sort: date

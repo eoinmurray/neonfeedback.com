@@ -1,0 +1,111 @@
+<div className="max-w-6xl mx-auto grid grid-cols-3 gap-4 text-xs">
+
+<div>
+**Restricted Boltzmann Machines (RBMs)** are a type of stochastic neural network that can 
+learn a probability distribution over its set of inputs. An RBM is a restricted form of 
+the more general Boltzmann Machine. It has a bipartite structure, where there are no 
+connections between units in the same layer, or said conversely, there are only connections 
+between units in the visible layer and units in the hidden layer. This restriction allows 
+for efficient training and sampling. RBMs are used in various applications, including dimensionality reduction, classification, 
+regression, collaborative filtering, feature learning, and topic modeling.
+
+**Energy based model**
+
+The energy of a configuration of the visible and hidden units is defined as:
+
+$$
+  E(v,h) = -\sum_{i=1}^{m} \sum_{j=1}^{n} w_{ij} v_i h_j - \sum_{i=1}^{m} b_i v_i - \sum_{j=1}^{n} c_j h_j
+$$
+
+where $v$ is the visible layer, $h$ is the hidden layer, $w$ is the weight matrix, and $b$ and $c$ are the biases for the visible 
+and hidden layers, respectively. The lower the energy of a configuration, the more likely it is under the model.
+
+The probability of a configuration of visible and hidden units is given by the Boltzmann distribution:
+$$
+  P(v,h) = \frac{1}{Z} e^{-E(v,h)}
+$$
+
+where $Z$ is the partition function, which normalizes the distribution:
+
+$$
+  Z = \sum_{v,h} e^{-E(v,h)}
+$$
+
+**Training**
+
+The training of an RBM is done using contrastive divergence, which is a way to approximate the gradient of the log-likelihood of the data.
+The idea is to sample from the model and use the samples to update the weights and biases. The steps are as follows:
+
+
+</div>
+
+<div>
+
+1. Initialize the weights and biases randomly.
+2. For each training example, perform a positive phase where the visible units are clamped to the training data and the hidden units are sampled.
+3. Perform a negative phase where the hidden units are sampled from the model and the visible units are reconstructed.
+4. Update the weights and biases based on the difference between the positive and negative phases.
+5. Repeat the process for a number of epochs until convergence.
+
+The update rules for the weights and biases are as follows:
+$$
+  \Delta w_{ij} = \eta (h_j^{(pos)} v_i^{(pos)} - h_j^{(neg)} v_i^{(neg)})
+$$
+
+$$
+  \Delta b_i = \eta (v_i^{(pos)} - v_i^{(neg)})
+$$
+
+$$
+  \Delta c_j = \eta (h_j^{(pos)} - h_j^{(neg)})
+$$
+
+where $\eta$ is the learning rate, $h_j^{(pos)}$ and $h_j^{(neg)}$ are the hidden units in the positive and negative phases,
+and $v_i^{(pos)}$ and $v_i^{(neg)}$ are the visible units in the positive and negative phases.
+
+**Simulation**
+
+The above simulation shows the real time evolution of an RBM during training. The algorithm is as follows:
+
+Create some fake input data, here is a binary sequence seen in the figure named **Input Sample**. The goal 
+of the algorithm is to learn the distribution of this data, and to then create new samples from the 
+learned distribution, as seen in the figure named **Reconstruction**.
+
+The simulation then runs the training algorithm for a number of epochs (an epoch is one full cycle of the input dataset).
+Then the contrastive divergence algorithm is run for a number of steps and a new reconstructed sample is generated.
+
+</div>
+<div>
+
+
+The main network visualisation above shows the network neurons as nodes where their value is the color of the node. 
+The weights are shown as edges between the nodes, where the color of the edge is the weight value. Positive weights are 
+shown in green and negative weights are shown in red, and the thickenss corresponds to the size of the weight.
+
+In the figure named **Reconstruction Accuracy** we see a time evolving plot of the similarity between the input sample 
+and the reconstructed sample. The Reconstruction Accuracy will be low at the beginning of the training, and will increase over time.
+
+The figure named **Free Energy** shows the free energy of the network, which is a measure of how well the network is able to represent 
+the input data, defined as:
+
+$$
+  F(v) = -\sum_{i=1}^{m} b_i v_i - \sum_{j=1}^{n} \log(1 + e^{c_j + \sum_{i=1}^{m} w_{ij} v_i})
+$$
+
+The free energy starts high and will decrease over time.
+
+The figure named **Weights** shows the distribution of the weights of the network, which are the connections between the visible and hidden layers. The weights
+in this simulation typically start small and increase in size over time as the network learns.
+
+**Notes on running the simulation**
+
+The simulation runs rather quickly, you can pause it with the pause toggle in the control panel, and slow it
+down by setting the parameter "Frame Timeout" to a higher value, this will insert a millisecond delay between frames.
+
+
+**Conclusion**
+
+This was a fun educational project for me to learn about RBMs and how they work. I hope you enjoy the simulation.
+
+</div>
+</div>

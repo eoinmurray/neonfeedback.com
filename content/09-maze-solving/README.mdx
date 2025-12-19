@@ -1,0 +1,108 @@
+---
+title: 'Maze Solving with Free Energy Principle'
+description: 'A simulation of an agent navigating a maze using the Free Energy Principle.'
+status: 'published'
+tags: ['simulation']
+date: '2024-11-29'
+---
+
+<FrontMatter />
+
+The Free Energy Principle, widely used in neuroscience and machine learning, provides a framework for decision-making under uncertainty. This simulation demonstrates how an agent can navigate a randomly generated maze using this principle. The agent forms beliefs about its environment, updates them based on observations, and selects actions that minimize expected free energy.
+
+
+## Maze and Terrain Generation
+
+We use **Prim's algorithm** to generate a random maze. The maze is represented as a 2D grid where `1` denotes walls and `0` represents free paths.
+
+$$
+M(x,y) =
+\begin{cases} 
+1, & \text{if (x, y) is a wall} \\
+0, & \text{if (x, y) is a free path} 
+\end{cases}
+$$
+
+The agent starts at $(1,1)$ and aims to reach $(N-2, N-2)$, where $N$ is the maze size.
+
+For terrain we represent the cells the same way, but just fill random cells on a grid.
+
+
+## Prior Preferences
+
+The agent assigns a preference value to each position in the grid, decreasing with distance from the goal:
+
+$$
+P(x, y) = \frac{P_{\text{goal}}}{d(x, y) + 1}
+$$
+
+where $ P_{\text{goal}} $ is the goal preference weight and $ d(x, y) $ is the Euclidean distance to the goal.
+
+Indeed we are encoding directions here for the agent to find the goal, but its the pathfinding using the FEP we are interested in.
+
+
+## Belief Representation
+
+The agent maintains a belief matrix $ B(x, y) $ about the environment:
+
+$$
+B(x, y) =
+\begin{cases} 
+-1, & \text{if (x, y) is unknown} \\
+0, & \text{if (x, y) is believed to be blocked} \\
+1, & \text{if (x, y) is believed to be free}
+\end{cases}
+$$
+
+Observations update beliefs in a local neighborhood around the agent’s current position.
+
+
+## Expected Free Energy (EFE)
+
+At each step, the agent calculates the **expected free energy** (EFE) for each possible move:
+
+$$
+G(x, y) = P(x, y) - \lambda V(x, y)
+$$
+
+where:
+- $ P(x, y) $ is the prior preference value,
+- $ V(x, y) $ is the visit penalty (increased for frequently visited positions), and
+- $ \lambda $ is a scaling factor.
+
+
+## Action Selection via Softmax
+
+The agent selects its next action based on a **softmax function** over the negative EFE values:
+
+$$
+p(a) = \frac{e^{-\gamma G(a)}}{\sum_{b} e^{-\gamma G(b)}}
+$$
+
+where $ \gamma $ is an inverse temperature parameter controlling randomness.
+
+
+## Simulation and Visualization
+
+The agent explores the maze, updating its beliefs and path history. The animation below illustrates the agent's movement towards the goal.
+
+import anim_HZhYJnUBQb from './images/anim-HZhYJnUBQb.gif';
+import anim_q1p6I3niVC from './images/anim-q1p6I3niVC.gif';
+
+<img
+  src={anim_HZhYJnUBQb}
+  width={500}
+  height={500}
+  alt="Agent navigating the maze"
+/>
+
+<img
+  src={anim_q1p6I3niVC}
+  width={500}
+  height={500}
+  alt="Agent navigating the maze"
+/>
+
+## Conclusion
+
+This simulation demonstrates how an agent can navigate an unknown environment by minimizing free energy. The method blends exploration and exploitation, making it a robust approach for pathfinding under uncertainty. Future extensions could include dynamic obstacles and multi-agent scenarios.

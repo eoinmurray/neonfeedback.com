@@ -1,0 +1,97 @@
+---
+title: "Derivation of the Boltzmann Distribution"
+description: "A step-by-step derivation of the Boltzmann distribution from statistical mechanics principles."
+status: "published"
+tags: ["primer"]
+date: "2024-10-13"
+---
+
+<FrontMatter />
+
+The Boltzmann distribution describes the probability of a system being in a particular energy state $ E_i $ at thermal equilibrium. It arises from statistical mechanics by maximizing entropy subject to constraints.
+
+
+## 1. Entropy and Probability Distribution
+
+The entropy $ S $ of a system is defined as:
+
+$$
+S = -k_B \sum_i p_i \ln p_i
+$$
+
+where:
+- $ k_B $ is Boltzmann's constant,
+- $ p_i $ is the probability of the system being in state $ i $,
+- The sum is over all possible states $ i $.
+
+
+## 2. Constraints
+
+Two constraints are imposed:
+1. **Probabilities must sum to 1**:
+   $$
+   \sum_i p_i = 1
+   $$
+
+  This ensures the probabilities $ p_i $ form a valid distribution. Without this, the solution wouldn’t represent meaningful probabilities for the system's states.
+
+2. **Energy conservation**:
+   $$
+   \langle E \rangle = \textnormal{constant} =  \sum_i p_i E_i
+   $$
+   where $ E_i $ is the energy of state $ i $. This constraint ensures that while individual particles may exchange energy, the total energy across all particles in the system remains constant.
+
+
+## 3. Maximizing Entropy
+
+To find the probability distribution $ \{p_i\} $, maximize the entropy $ S $ under the constraints using the method of Lagrange multipliers. Define the function:
+$$
+\mathcal{L} = -k_B \sum_i p_i \ln p_i + \alpha \left( \sum_i p_i - 1 \right) + \beta \left( \sum_i p_i E_i - \langle E \rangle \right)
+$$
+where $ \alpha $ and $ \beta $ are Lagrange multipliers.
+
+
+## 4. Solving the Optimization Problem
+
+Take the derivative of $ \mathcal{L} $ with respect to $ p_i $:
+$$
+\frac{\partial \mathcal{L}}{\partial p_i} = -k_B (1 + \ln p_i) + \alpha + \beta E_i
+$$
+Set $ \frac{\partial \mathcal{L}}{\partial p_i} = 0 $:
+$$
+-k_B (1 + \ln p_i) + \alpha + \beta E_i = 0
+$$
+Simplify to express $ p_i $:
+$$
+\ln p_i = -\frac{\alpha}{k_B} - \frac{\beta E_i}{k_B} - 1
+$$
+Exponentiate both sides:
+$$
+p_i = \exp\left(-\frac{\alpha}{k_B} - 1\right) \exp\left(-\frac{\beta E_i}{k_B}\right)
+$$
+Define $ Z = \exp\left(-\frac{\alpha}{k_B} - 1\right) $, known as the **partition function**:
+$$
+Z = \sum_i \exp\left(-\frac{\beta E_i}{k_B}\right)
+$$
+Thus:
+$$
+p_i = \frac{\exp\left(-\frac{\beta E_i}{k_B}\right)}{Z}
+$$
+
+
+## 5. Interpretation of Parameters
+
+- $ \beta $ is related to the temperature $ T $ by $ \beta = 1/T $ (in natural units).
+- The partition function $ Z $ ensures normalization of probabilities:
+  $$
+  \sum_i p_i = 1
+  $$
+
+
+## 6. Final Result
+
+The Boltzmann distribution is:
+$$
+p_i = \frac{\exp\left(-\frac{E_i}{k_B T}\right)}{\sum_i \exp\left(-\frac{E_i}{k_B T}\right)}
+$$
+This describes the probability of the system occupying the energy state $ E_i $ at temperature $ T $.
