@@ -1,8 +1,7 @@
 dir: .
 site:
-  name: EM
-  description: "My notebooks - all works in progress."
-  github: "eoinmurray/notebooks"
+  name: neonfeedback
+  description: "All works in progress."
 
 posts:
   sort: date
