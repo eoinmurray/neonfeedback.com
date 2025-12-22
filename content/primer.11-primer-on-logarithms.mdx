@@ -1,0 +1,170 @@
+---
+title: "Primer on Logarithms"
+description: "A comprehensive guide to understanding logarithms, their properties, and applications."
+status: "published"
+tags: ["primer"]
+date: "2025-02-01"
+---
+
+<VeslxFrontMatter />
+
+Logarithms are the "inverse of exponentiation." If you’ve ever wondered **“what power of a number produces another number?”**, you’re working with logarithms. This primer introduces logarithms, explains their properties, and proves those properties step by step.
+
+## **What is a Logarithm?**
+
+The logarithm answers the question:  
+**"To what power must the base be raised to produce a given number?"**
+
+Mathematically:
+$$
+\log_b(x) = y \quad \text{means} \quad b^y = x
+$$
+- $b$: the **base** of the logarithm (e.g., 2, 10, or $e$).
+- $x$: the number you’re taking the logarithm of.
+- $y$: the exponent.
+
+### Example:
+$\log_2(8) = 3$ because $2^3 = 8$.
+
+
+## **Key Properties of Logarithms**
+
+Logarithms simplify complex operations. Below are the fundamental properties, along with proofs.
+
+
+### **1. Product Rule**  
+$$
+\log_b(xy) = \log_b(x) + \log_b(y)
+$$
+
+**Proof**:  
+1. Let $\log_b(x) = p$ and $\log_b(y) = q$. By the definition of logarithms:
+   $$
+   b^p = x \quad \text{and} \quad b^q = y
+   $$
+2. The product $xy$ is:
+   $$
+   xy = b^p \cdot b^q
+   $$
+3. By the laws of exponents, $b^p \cdot b^q = b^{p+q}$, so:
+   $$
+   xy = b^{p+q}
+   $$
+4. Take $\log_b$ of both sides:
+   $$
+   \log_b(xy) = \log_b(b^{p+q})
+   $$
+5. By the property $\log_b(b^k) = k$, we get:
+   $$
+   \log_b(xy) = p + q
+   $$
+6. Substitute back $p = \log_b(x)$ and $q = \log_b(y)$:
+   $$
+   \log_b(xy) = \log_b(x) + \log_b(y)
+   $$
+
+
+### **2. Quotient Rule**  
+$$
+\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)
+$$
+
+**Proof**:  
+1. Let $\log_b(x) = p$ and $\log_b(y) = q$. By the definition of logarithms:
+   $$
+   b^p = x \quad \text{and} \quad b^q = y
+   $$
+2. The quotient $\frac{x}{y}$ is:
+   $$
+   \frac{x}{y} = \frac{b^p}{b^q}
+   $$
+3. By the laws of exponents, $\frac{b^p}{b^q} = b^{p-q}$, so:
+   $$
+   \frac{x}{y} = b^{p-q}
+   $$
+4. Take $\log_b$ of both sides:
+   $$
+   \log_b\left(\frac{x}{y}\right) = \log_b(b^{p-q})
+   $$
+5. By the property $\log_b(b^k) = k$, we get:
+   $$
+   \log_b\left(\frac{x}{y}\right) = p - q
+   $$
+6. Substitute back $p = \log_b(x)$ and $q = \log_b(y)$:
+   $$
+   \log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)
+   $$
+
+
+### **3. Power Rule**  
+$$
+\log_b(x^k) = k \cdot \log_b(x)
+$$
+
+**Proof**:  
+1. Let $\log_b(x) = p$. By the definition of logarithms:
+   $$
+   b^p = x
+   $$
+2. Raise both sides to the power $k$:
+   $$
+   (b^p)^k = x^k
+   $$
+3. By the laws of exponents, $(b^p)^k = b^{pk}$, so:
+   $$
+   x^k = b^{pk}
+   $$
+4. Take $\log_b$ of both sides:
+   $$
+   \log_b(x^k) = \log_b(b^{pk})
+   $$
+5. By the property $\log_b(b^k) = k$, we get:
+   $$
+   \log_b(x^k) = pk
+   $$
+6. Substitute back $p = \log_b(x)$:
+   $$
+   \log_b(x^k) = k \cdot \log_b(x)
+   $$
+
+
+### **4. Change of Base Formula**  
+$$
+\log_b(x) = \frac{\log_k(x)}{\log_k(b)}
+$$
+
+**Proof**:  
+1. Let $\log_b(x) = p$. By the definition of logarithms:
+   $$
+   b^p = x
+   $$
+2. Take $\log_k$ of both sides (using a new base $k$):
+   $$
+   \log_k(b^p) = \log_k(x)
+   $$
+3. By the power rule, $\log_k(b^p) = p \cdot \log_k(b)$:
+   $$
+   p \cdot \log_k(b) = \log_k(x)
+   $$
+4. Solve for $p$:
+   $$
+   p = \frac{\log_k(x)}{\log_k(b)}
+   $$
+5. Recall that $p = \log_b(x)$, so:
+   $$
+   \log_b(x) = \frac{\log_k(x)}{\log_k(b)}
+   $$
+
+
+## **Applications of Logarithms**
+
+Logarithms have widespread applications:
+- **Growth and Decay**: Population dynamics, radioactive decay, and compound interest.
+- **Scales**: Decibels (sound), pH (acidity), and earthquake magnitudes.
+- **Computing**: Algorithm efficiency (e.g., $O(\log n)$), binary trees, and compression.
+
+
+### **Quick Practice Problems**
+1. Prove $\log_b(1) = 0$.
+2. Simplify $\log_2(16)$.
+3. Solve for $x$: $10^{\log(x)} = 1000$.

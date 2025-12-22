@@ -1,0 +1,203 @@
+---
+title: "Backpropagation Through Time in SNNs"
+description: "A primer on training spiking neural networks using BPTT with surrogate gradients."
+status: "published"
+tags: ["primer"]
+date: "2025-04-13"
+---
+
+<VeslxFrontMatter />
+
+## Overview
+
+This model trains a two-layer spiking neural network using Backpropagation Through Time (BPTT) with surrogate gradients. The SNN consists of:
+- **Input layer**: Poisson-encoded spike trains from image pixels
+- **Hidden layer**: Leaky Integrate-and-Fire (LIF) neurons
+- **Output layer**: LIF neurons, with spike counts integrated over time
+- **Decoder**: Softmax classifier on accumulated output spikes
+
+The spiking neurons produce binary outputs $ S \in \{0, 1\} $, and are trained using surrogate gradients to approximate the non-differentiable spike function.
+
+
+## 1. Spiking Neuron Dynamics
+
+### 1.1. Membrane Potential Update (LIF Model)
+
+The membrane potential $ V_i^t $ of neuron $ i $ at time $ t $ evolves as:
+
+$$
+V_i^t = \alpha V_i^{t-1} + I_i^{t-1}
+$$
+
+- $ \alpha = \exp(-\Delta t / \tau_m) $: membrane decay factor  
+- $ I_i^{t-1} $: input current at previous timestep  
+- At spike, $ V_i^t $ resets to zero (or baseline, depending on model)
+
+### 1.2. Spike Generation
+
+A neuron emits a spike if its membrane potential exceeds a threshold $ V_{\text{th}} $:
+
+$$
+S_i^t = H(V_i^t - V_{\text{th}})
+$$
+
+Where $ H(x) $ is the Heaviside step function:
+$$
+H(x) = 
+\begin{cases}
+1 & \text{if } x \geq 0 \\
+0 & \text{if } x < 0
+\end{cases}
+$$
+
+This function is non-differentiable, so we approximate its derivative for learning.
+
+
+## 2. Surrogate Gradient Approximation
+
+To allow gradient-based optimization, we use a **surrogate derivative** for $ H $. One common choice is a fast sigmoid:
+
+$$
+\frac{dS_i^t}{dV_i^t} \approx \sigma'(V_i^t - V_{\text{th}}) = \frac{1}{(1 + \beta |V_i^t - V_{\text{th}}|)^2}
+$$
+
+- $ \beta $: controls the steepness of the surrogate gradient
+- Implemented via `lif_step()` in simulation
+
+
+## 3. Forward Pass (Unrolled in Time)
+
+Let:
+- $ X \in \mathbb{R}^{B \times T \times N_{\text{in}}} $: encoded input spike trains
+- $ W_{\text{in}} \in \mathbb{R}^{N_{\text{in}} \times N_{\text{hid}}} $: input-to-hidden weights
+- $ W_{\text{out}} \in \mathbb{R}^{N_{\text{hid}} \times N_{\text{out}}} $: hidden-to-output weights
+
+### At each timestep $ t = 1, \dots, T $:
+
+1. Hidden layer input current:
+   $$
+   I_{\text{hid}}^t = X^t \cdot W_{\text{in}}
+   $$
+2. Hidden layer LIF step:
+   $$
+   V_{\text{hid}}^t = \alpha V_{\text{hid}}^{t-1} + I_{\text{hid}}^t
+   $$
+   $$
+   S_{\text{hid}}^t = H(V_{\text{hid}}^t - V_{\text{th}})
+   $$
+3. Output layer input current:
+   $$
+   I_{\text{out}}^t = S_{\text{hid}}^t \cdot W_{\text{out}}
+   $$
+4. Output layer LIF step:
+   $$
+   V_{\text{out}}^t = \alpha V_{\text{out}}^{t-1} + I_{\text{out}}^t
+   $$
+   $$
+   S_{\text{out}}^t = H(V_{\text{out}}^t - V_{\text{th}})
+   $$
+5. Accumulate spikes across time:
+   $$
+   \text{logits} = \sum_{t=1}^T S_{\text{out}}^t
+   $$
+
+
+## 4. Loss Function
+
+We use softmax cross-entropy loss on the accumulated output spikes:
+
+1. Softmax probabilities:
+   $$
+   \hat{y}_i = \frac{\exp(z_i)}{\sum_j \exp(z_j)}, \quad z_i = \text{logits}_i
+   $$
+2. Cross-entropy loss:
+   $$
+   L = -\frac{1}{B} \sum_{i=1}^B \sum_{c=1}^{C} y_{ic} \log \hat{y}_{ic}
+   $$
+
+- $ y_{ic} $: ground-truth one-hot labels
+- $ \hat{y}_{ic} $: predicted probability for class $ c $
+
+
+## 5. Backpropagation Through Time (BPTT)
+
+We compute the gradient of the loss with respect to the weights, unrolling the network over $ T $ time steps.
+
+### 5.1. Derivative of Loss w.r.t. Logits
+
+$$
+\frac{\partial L}{\partial z_i} = \hat{y}_i - y_i
+$$
+
+This error is constant over all timesteps since $ z_i = \sum_t S_i^t $
+
+### 5.2. Backward Pass Over Time
+
+Loop over $ t = T, T-1, \dots, 1 $:
+
+#### Output Layer
+
+1. Recompute:
+   $$
+   I_{\text{out}}^t = S_{\text{hid}}^t \cdot W_{\text{out}}
+   $$
+2. Get surrogate gradient:
+   $$
+   \frac{\partial S_{\text{out}}^t}{\partial I_{\text{out}}^t} \approx \sigma'(V_{\text{out}}^t - V_{\text{th}})
+   $$
+3. Chain rule for gradient of loss wrt output weights:
+   $$
+   \delta_{\text{out}}^t = \frac{\partial L}{\partial z} \cdot \frac{\partial S_{\text{out}}^t}{\partial I_{\text{out}}^t}
+   $$
+   $$
+   \frac{\partial L}{\partial W_{\text{out}}} += S_{\text{hid}}^{t^\top} \cdot \delta_{\text{out}}^t
+   $$
+
+4. Backpropagate to hidden spike space:
+   $$
+   \delta_{\text{hid}}^t = \delta_{\text{out}}^t \cdot W_{\text{out}}^\top
+   $$
+
+#### Hidden Layer
+
+1. Get surrogate gradient:
+   $$
+   \frac{\partial S_{\text{hid}}^t}{\partial I_{\text{hid}}^t} \approx \sigma'(V_{\text{hid}}^t - V_{\text{th}})
+   $$
+2. Chain rule:
+   $$
+   \Delta W_{\text{in}} += X^{t^\top} \cdot \left( \delta_{\text{hid}}^t \circ \frac{\partial S_{\text{hid}}^t}{\partial I_{\text{hid}}^t} \right)
+   $$
+
+
+## 6. Weight Update (SGD)
+
+After gradients have been accumulated across all timesteps:
+
+$$
+W_{\text{in}} \leftarrow W_{\text{in}} - \eta \cdot \frac{\partial L}{\partial W_{\text{in}}}
+$$
+$$
+W_{\text{out}} \leftarrow W_{\text{out}} - \eta \cdot \frac{\partial L}{\partial W_{\text{out}}}
+$$
+
+- $ \eta $: learning rate
+
+
+## Summary
+
+- The network is unfolded in time; membrane and spike histories are stored.
+- Surrogate gradients allow training through discrete spike events.
+- Gradients are propagated backward in time from output to input.
+- The learning rule is effectively a spike-based BPTT with temporal credit assignment.
+
+
+## Implementation Notes
+
+- `lif_step()` encapsulates membrane update, spike generation, and surrogate gradient.
+- Gradient flow:
+  $$
+  \text{loss} \rightarrow \text{logits} \rightarrow S_{\text{out}}^t \rightarrow S_{\text{hid}}^t \rightarrow X^t
+  $$
+- All steps are implemented explicitly using NumPy, no autograd used.
+

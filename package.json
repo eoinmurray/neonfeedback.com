@@ -41,7 +41,7 @@
     "remark-mdx-frontmatter": "^5.2.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17",
-    "veslx": "^0.1.40",
+    "veslx": "^0.1.45",
     "vite-plugin-mdx": "^3.6.1"
   },
   "devDependencies": {
