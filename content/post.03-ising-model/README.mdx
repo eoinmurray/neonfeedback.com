@@ -6,13 +6,6 @@ date: 2024-12-12
 
 <VeslxFrontMatter />
 
-import ising_model_image_1T from './images/ising_model-1.0T.gif';
-import ising_model_image_2T from './images/ising_model-2.0T.gif';
-import ising_model_image_10T from './images/ising_model-10.0T.gif';
-import ising_model_magnetization from './images/magnetization.png';
-import ising_model_specific_heat from './images/specific_heat.png';
-import ising_model_susceptibility from './images/susceptibility.png';
-
 The Ising is a tool used in statistical physics to study phase transitions and collective dynamics in systems with
 many interacting parts. Initially designed to represent ferromagnetism, it models spins on a lattice that can take one of two states, interacting with their neighbors. Its applications extend to areas like neural network activity, protein folding and quantum cluster states. The model's simplicity allows for analytical solutions in certain cases and computational approaches in others, making it broadly applicable for exploring the connection between microscopic interactions and macroscopic phenomena.
 
@@ -67,53 +60,32 @@ The simulation calculates the lattice states using Glauber dynamics in the `upda
 
 At low temperatures, we often see large, stable clusters where spins align and rarely flip, indicating an ordered phase. Near critical temperature ($T_c$), these clusters form and dissolve in a more balanced manner, and we catch glimpses of interesting domain structures. At high temperatures, spins will flip frequently and produce a more disordered or “noisy” lattice with low magnetization.
 
-<img
-  src={ising_model_image_1T}
-  width={500}
-  height={500}
-  alt="Ising Model at 1.0T"
-/>
-
-<img
-  src={ising_model_image_2T}
-  width={500}
-  height={500}
-  alt="Ising Model at 2.0T"
-/>
-
-<img
-  src={ising_model_image_10T}
-  width={500}
-  height={500}
-  alt="Ising Model at 10.0T"
+<VeslxGallery 
+  path="./images"
+  globs={["ising_*"]}
 />
 
 ## Identifying the critical point
 
 We can plot the following graphs: magnetization, average_energy, susceptibility, and specific_heat.
+
 - For magnetization we should see magnetization drop at the critical point
 
-<img
-  src={ising_model_magnetization}
-  width={500}
-  height={500}
-  alt="Ising Model Magnetization"
+<VeslxGallery 
+  path="./images"
+  globs={["specific_heat*"]}
 />
 
 - For specific heat we should see the center of an $S$ curve at the critical point.
 
-<img
-  src={ising_model_specific_heat}
-  width={500}
-  height={500}
-  alt="Ising Model Specific Heat"
+<VeslxGallery 
+  path="./images"
+  globs={["mag*"]}
 />
 
 - For susceptibility we should see a peak at the critical point.
 
-<img
-  src={ising_model_susceptibility}
-  width={500}
-  height={500}
-  alt="Ising Model Susceptibility"
+<VeslxGallery 
+  path="./images"
+  globs={["sus*"]}
 />

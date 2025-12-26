@@ -21,6 +21,7 @@
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@react-spring/web": "^10.0.3",
+    "@react-three/fiber": "^9.4.2",
     "@tailwindcss/vite": "^4.1.17",
     "@visx/responsive": "^3.12.0",
     "@visx/xychart": "^3.12.0",
@@ -41,11 +42,13 @@
     "remark-mdx-frontmatter": "^5.2.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17",
-    "veslx": "^0.1.45",
+    "three": "^0.165.0",
+    "veslx": "^0.1.50",
     "vite-plugin-mdx": "^3.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
