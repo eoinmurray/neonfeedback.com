@@ -6,13 +6,3 @@ Everything a work in progress.
 </div>
 
 <VeslxPostList globs={["post*"]}/>
-
-{import.meta.env.DEV && (
-  <div className="mt-8">
-    <h1 id="neonfeedback" className="text-2xl font-semibold tracking-tight mt-12 mb-4 first:mt-0">Drafts</h1>
-    <div className="mb-4 text-sm text-muted-foreground">
-      <em>Note: drafts are visible locally only.</em>
-    </div>
-    <VeslxPostList globs={["draft*"]}/>
-  </div>
-)}
