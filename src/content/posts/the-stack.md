@@ -1,5 +1,5 @@
 ---
-title: A stack
+title: The stack
 date: 2026-04-01
 ---
 
@@ -9,6 +9,8 @@ Why define a stack? The stack exists to turn "is this just the way things are?" 
 
 Why a reality stack and not _the_ reality stack? Because "the" would imply there is one correct way to slice reality, there isn't. This is just one lens.
 
+## Layers of reality
+
 The **physical layer** is invariant law. Gravity, thermodynamics, the speed of light. You cannot negotiate with it, and it does not care what you think. The physical layer gives rise to the material: thermodynamics means that bodies need energy, which means that humans need food. Nobody chose this. If you could rerun the universe, the laws of physics would be the same. **Examples:** gravity, the speed of light, the fact that water freezes at 0°C.
 
 The **material layer** is the physical world as experienced through human need. Food, shelter, climate, geography, the body. You must eat, you must stay warm, you can die. For most of human history, the material layer ran the show — almost everything people did was dictated by what the land and the climate would allow. The material gives rise to the social: food can be stored, which creates surplus, which creates the possibility of someone deciding the surplus is theirs. **Examples:** a human body's need for calories, the climate where you were born, the fact that there is a river here and not there.
@@ -17,15 +19,19 @@ The **social layer** is where it gets interesting. This is the constructed layer
 
 The **agent layer** is the individual — a slight exception, because an agent is not a separate layer in the way the others are. An agent contains all the layers below: a physical body, material needs, the social layer carried inside you as language, shame, politeness. The agent is a convergence — the entire stack folded into a single person. What remains that is purely agent? Very little — a flinch, a heartbeat, a gasp for air. And yet the agent is the only point from which any of it can be questioned. Agents, acting together, reshape the social layer — which reshapes the material — which reshapes what is possible. **Examples:** choosing to skip breakfast, deciding to emigrate, staying silent when you disagree.
 
-A note on two words we avoid.
+## Natural and real
 
 We avoid the word **natural**. It is honorific — it carries approval. To call something natural is to move it from the social layer down to the physical, where it cannot be argued with. If hierarchy is natural, it is like gravity: you can complain but you cannot change it. If it is social, it is like driving on the left: consequential, but invented, and changeable.
 
 We also avoid the word **real**. Everything in the stack is real. Money is real. Borders are real. The question is never whether something is real but which layer it belongs to. "But it's real!" is not an argument. It is a refusal to have one.
 
+## Boundaries between layers
+
 The boundaries between layers are fuzzy.
 
 The **physical/material boundary** is where physics becomes relevant to human life. A hurricane is physical; it becomes material when it threatens a city. The **material/social boundary** is where the physical world becomes a social one. A river is material; whether it is a border or a highway is social. The **social/agent boundary** is the fuzziest. The social is constructed by agents and absorbed by agents — where does one end and the other begin? This is the boundary where human arrangements start to feel like nature, where they become part of who you are rather than something you do.
+
+## Three axes
 
 Several spectrums run through the stack, each increasing as you move upward:
 
@@ -36,6 +42,8 @@ Several spectrums run through the stack, each increasing as you move upward:
 **Accountability** — who bears responsibility. Nobody is responsible for gravity. The material layer starts to involve human choices — we chose fossil fuels. The social layer is fully a product of collective choice, even if no one chose it deliberately. Moving up the stack is moving from "no one's fault" to "someone's fault" — which is exactly why people try to push social outcomes down to the physical layer.
 
 Contingency is the theoretical axis: could it be otherwise? Mutability is the practical axis: can we change it? Accountability is the moral axis: who bears responsibility? A thing can be contingent but hard to change — path-dependent lock-in, for instance. The interesting arguments are always about which axis you are on.
+
+## How the layers interact
 
 The layers do not sit passively on top of each other. They interact, and the interesting stuff — most of politics, most of history — happens at the boundaries.
 
@@ -53,10 +61,15 @@ The layers do not sit passively on top of each other. They interact, and the int
 
 **Inter-layer feedback.** A material difference — say, upper body strength — becomes a social category (gender roles), which is internalised by agents (gender identity), who then perform it in ways that reinforce the social category, which then gets mistaken for a physical fact. The signal bounces up and down the stack, amplifying at each pass. By the time it has made a few trips, nobody remembers that it started as a small difference rather than an immutable law of nature.
 
-Two examples to make the stack concrete.
+## Two examples
 
 **Walking.** _Physical_: bipedalism, gravity, friction. _Material_: terrain — mud, mountain, flat plain, river crossing. _Social_: sidewalks, which side of the pavement you walk on, where women can walk alone at night, borders, trespass law. _Agent_: where you choose to go, whether you jaywalk, whether you cross a border illegally. A border is invisible at the _physical_ and _material_ layers — the ground is the same on both sides — but at the _social_ layer it is one of the most powerful structures on earth. People die crossing borders. The dirt does not know.
 
 **Oil.** _Physical_: chemistry — heat and pressure convert buried organisms into hydrocarbons. _Material_: the oil sits in specific places — the Persian Gulf, the North Sea, West Texas — unevenly distributed by geological accident. _Social_: who owns it, who profits, the decision to build a civilisation around the internal combustion engine. The same barrel could power a public bus or a private jet — that is a _social_ choice. _Agent_: you drive to work, you fly for a holiday, you cycle instead. But here the layers fold back: _agent_-level consumption, aggregated across billions, reshapes the _material_ layer — CO₂ accumulates, the climate warms — which constrains future _social_ choices — coastal cities flood, migration begins. The stack operating as a loop.
 
+## Science and the layers
+
 Science's power decreases as you move up the stack — each layer adds contingency, and science is best at the necessary. The physical layer is the most understood and still deeply incomplete. The material layer is well-covered by biology and earth science but cannot predict tipping points. The social layer is where science thins out dramatically — economics claims to be a science but its predictions are poor, sociology is descriptive more than predictive, and there is no reliable theory of why some societies become egalitarian and others hierarchical. At the social and agent layers, where this argument lives, science offers tools but not answers. The rest has to come from somewhere else.
+
+<!-- [sable] -->
+So when you catch yourself asking "is this just the way things are?" — locate the thing in the stack. If it sits at the physical layer, accept it. If it sits anywhere above, the question has an answer: it is this way because of the layer it sits at, the path it took, and the feedback that locked it in. None of that is destiny. That is the whole point of naming the layers.

@@ -37,11 +37,7 @@ const toc: Heading[] = headings.filter((h: Heading) => h.depth >= 2 && h.depth <
 
     <main class="px-6 pt-16 pb-48 lg:pl-[25%] lg:pr-16">
       <div class="max-w-[46rem]">
-        <div class="text-sm text-[color:var(--muted)]">
-          <a href="/">Neon Feedback</a>
-        </div>
-
-        <article class="prose max-w-none mt-8" style="font-family: var(--font-serif);">
+        <article class="prose max-w-none" style="font-family: var(--font-serif);">
           <slot />
         </article>
       </div>

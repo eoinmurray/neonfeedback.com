@@ -1,31 +1,17 @@
 ---
-title: Shadow
+title: Wiki
 date: 2026-03-01
 ---
 
-# How this document is made.
-
-I speak into a microphone and an AI transcribes what I say. Then I use an AI to organise the transcripts into an document. The AI arranges my words into a shadow document, sections them thematically, finds citations, and writes the mathematical appendices. The personal and argumentative parts are my voice — cleaned up from spoken rambling, but not rewritten. Where the AI has added connective tissue, it is marked in the source. Then I take this shadow document as inspiration and write the main piece. I am not hiding the process. This is how it is made. *This is the shadow document*.
-
-# Introduction
-
 Inequality is a social choice and it is a bad one, that is what this document is about.
 
-I started writing this document with the title "Why I believe in equality", and my (scientific) friends accused me of starting with the conclusion. Here is why I think the title stands.
-
-**It is not a scientific argument.** Scientific thinking says: gather evidence, form a hypothesis, test it, accept or reject. Starting from the conclusion is confirmation bias. This is correct — for science. But equality is not a hypothesis to be tested. It is a value. You do not arrive at values the way you arrive at the boiling point of water. There is no experiment you can run on a civilisation, no control group, no reproducible result. We do not have a social physics. Applying the empirical method to the question "should we organise society around equality of power?" is not rigorous. It is the wrong epistemology.
-
-**It is phenomenological and experiential.** I arrived at this belief through experience — through education, relationships, reading, and reflection. I am not proving equality is correct. I am describing why I believe in it, what led me there, and what the world looks like from that position. This is how most people actually form their deepest convictions, and pretending otherwise — pretending that values are derived from data — is itself a kind of dishonesty. The honest thing is to say: I hold this belief. Here is where it came from. Here is what I see when I look at the world through it.
-
-**Pragmatics.** I feel this document needs to be written. Not because I have discovered something new, but because the case for equality needs to be made plainly, in ordinary language, by ordinary people who hold the belief and can say why. The question is not "is this true in some abstract sense?" but "what happens if you live as though it is?" If equality of power leads to a society where more people can take risks, where more experiments are run, where more of the possible space of human arrangements is explored — then it is worth believing in, and worth arguing for.
-
-**Some deductive scaffolding.** The document is not purely experiential. The nine anti-egalitarian games are deductive: they start from axioms (identical agents, symmetric rules) and derive consequences (inequality). The stack is a framework. The definitions are precise. These sections do not start from the conclusion — they start from premises and show what follows. The scaffolding supports the experiential argument without replacing it. The games show that the belief is not naive. The stack shows that it is not confused about which layer it is operating on.
-
-# Emergent inequality
+## Emergent inequality
 
 Emergent inequality is inequality that arises from the interaction of agents following rules, where no single agent intended the outcome, no single rule is unfair, and yet the result is unequal. Nobody cheated. Nobody planned it. It emerged. The defining feature is that accountability is diffuse — you cannot point to a person, a decision, or a moment where the inequality was created. It is a property of the system, not of any participant. The following anti-egalitarian games — the yard-sale model, the growth trap, the Pólya urn, and the rest — are all examples of emergent inequality: identical agents, symmetric rules, and the outcome is oligarchy. Whose fault is it? Nobody's. The rules did it. This does not mean nobody is responsible — it means that the remedy is not punishment but design. The only corrective is a deliberate restoring force at the social layer.
 
-## Anti-egalitarian games.
+### Anti-egalitarian games
+
+A formal mathematical definition of each game below is given in [Appendix B](#appendix-b-mathematical-statements).
 
 In the **yard-sale model**, two people bet a fraction of the poorer person's wealth on a fair coin flip, over and over. Total wealth never changes, but one person ends up with nearly everything. The reason is that the same sized bet means different things to different people. Losing ten dollars when you have ten dollars is ruin. Losing ten dollars when you have ten thousand is nothing. The game is fair in absolute terms but brutal in relative terms. Boghosian fitted the model to US wealth data and found it closely tracks the observed Gini coefficient from 1989 to 2016.
 
@@ -45,7 +31,7 @@ In the **zero-range condensate**, identical particles hop between identical site
 
 In the **BTW sandpile**, identical grains are dropped onto a grid. The system self-organises to a critical state where most grains do nothing but occasionally one triggers a cascade spanning the entire grid. The inequality is entirely in consequences, not in the grains themselves. Power-law distributions consistent with this have been observed in earthquake magnitudes, forest fire sizes, and stock market crashes.
 
-## Feedback loops.
+### Feedback loops
 
 A small advantage compounds through the dynamics. Nobody cheats. The mechanism just amplifies whatever difference already exists.
 
@@ -79,7 +65,7 @@ A small advantage compounds through the dynamics. Nobody cheats. The mechanism j
 
 **Algorithm feedback.** A recommendation algorithm shows you what people like you clicked on. You click on it. Now it shows more of it. Your feed narrows. Multiply this across millions and you get polarisation, filter bubbles, radicalisation. Nobody programmed the algorithm to polarise. It optimised for engagement and polarisation emerged.
 
-## Path dependence.
+### Path dependence
 
 Early accidents become permanent structure. The outcome was not inevitable — it could have gone the other way — but once it happened, it locked in.
 
@@ -95,7 +81,7 @@ Early accidents become permanent structure. The outcome was not inevitable — i
 
 **Noise as destiny.** In any system that evaluates — exams, job interviews, performance reviews — there is measurement error. Sometimes the error favours you, sometimes it does not. In a system with positive feedback, a lucky early evaluation compounds into a real advantage. The noise becomes the signal. Your career was shaped by whether the interviewer had a good lunch.
 
-## Structural sorting.
+### Structural sorting
 
 The built environment and material conditions filter people. Nobody designed the filter as a filter. It emerged from the interaction of economics, geography, and accumulated social decisions.
 
@@ -115,7 +101,7 @@ The built environment and material conditions filter people. Nobody designed the
 
 **Dental health as class marker.** Access to dentistry in childhood determines your teeth for life. Your teeth affect how people perceive you — trustworthiness, intelligence, employability. A child whose parents could not afford a dentist carries that in their mouth for decades. It is visible, permanent, and nobody's individual fault.
 
-## Information cascades.
+### Information cascades
 
 Everyone watches what everyone else does and copies. The initial signal may be wrong but it becomes self-fulfilling. This is distinct from feedback loops because the mechanism is not compounding an advantage — it is copying under uncertainty.
 
@@ -125,7 +111,7 @@ Everyone watches what everyone else does and copies. The initial signal may be w
 
 **Fashion and trends.** A few visible people wear something. Others copy. The thing becomes a trend. The trend becomes a norm. The people who started it may have had no particular reason. But now the norm exists and deviating from it carries a social cost. The cascade manufactured a consensus that nobody individually held.
 
-## Threshold effects.
+### Threshold effects
 
 Some inequalities are stable until a critical point, then collapse suddenly. The system looks fine until it is not. The inequality is invisible until it is irreversible.
 
@@ -135,7 +121,7 @@ Some inequalities are stable until a critical point, then collapse suddenly. The
 
 **Ecological collapse.** A fishery is overfished gradually. Yields decline but the system holds. Then the population drops below the point where it can reproduce faster than it is caught. The fishery collapses. The same stock that sustained a community for centuries is gone in a decade. The damage accumulated invisibly and became irreversible at a threshold nobody could see.
 
-## Asymmetric risk exposure.
+### Asymmetric risk exposure
 
 The same event hits everyone but the damage is distributed unequally. The risk is shared. The consequences are not. This is distinct from the other categories because the mechanism is not feedback or path dependence — it is that the same shock is filtered differently by different positions in the social and material layers.
 
@@ -145,11 +131,11 @@ The same event hits everyone but the damage is distributed unequally. The risk i
 
 **Climate change.** The atmosphere warms for everyone. But the people who contributed least to the emissions — subsistence farmers in the Global South — bear the worst consequences: drought, flooding, crop failure, displacement. The people who contributed most are the most insulated from the effects. The physics is global. The damage is local, and it falls along pre-existing lines of inequality.
 
-# Adversarial inequality
+## Adversarial inequality
 
 Adversarial inequality is inequality that is created or maintained by agents who benefit from it and act to preserve it. Someone is at fault. The inequality exists not because of emergent dynamics but because specific people, institutions, or classes actively extract advantage and resist redistribution. The emergence created the concentration. The adversary locked it in. Most real inequality is both. The initial divergence is often emergent — path dependence, multiplicative dynamics, preferential attachment. But once someone is ahead, they have the means and the motive to keep it that way: they fund think tanks that naturalise the arrangement, they capture the regulatory process, they build material lock-in. The emergent phase creates the inequality. The adversarial phase prevents the restoring force. This is why the "nobody is at fault" framing is incomplete even when it is technically true at the origin. The emergence may be blameless. The maintenance rarely is.
 
-## Extraction.
+### Extraction
 
 Taking value without creating it. Sitting between others and collecting a cut.
 
@@ -163,7 +149,7 @@ Taking value without creating it. Sitting between others and collecting a cut.
 
 **Privatisation of public goods.** Selling off public utilities, transport, housing stock, then allowing the private owner to extract profit from what was built with public money. The public paid for the asset. The private owner collects the rent.
 
-## Capture.
+### Capture
 
 Getting control of the rules. The people the rules are supposed to constrain end up writing them.
 
@@ -177,7 +163,7 @@ Getting control of the rules. The people the rules are supposed to constrain end
 
 **Shareholder primacy.** The legal and cultural doctrine that a company exists to maximise shareholder value above all else. This is not a law of nature. It is a social-layer choice, made in the 1970s and 80s, that redirected the gains of productivity from workers to owners. Milton Friedman wrote the document. Corporations followed.
 
-## Suppression.
+### Suppression
 
 Preventing others from gaining power. The direct approach.
 
@@ -191,7 +177,7 @@ Preventing others from gaining power. The direct approach.
 
 **NDA culture.** Using non-disclosure agreements to silence employees who experience harassment, discrimination, or unsafe conditions. The NDA does not resolve the problem. It hides it. The adversary buys silence and continues.
 
-## Enclosure.
+### Enclosure
 
 Taking what was shared and making it private.
 
@@ -201,7 +187,7 @@ Taking what was shared and making it private.
 
 **Credentialism as gatekeeping.** Requiring a degree for jobs that do not need one, when the institution knows that degree access correlates with class. This overlaps with emergent credential cascades, but becomes adversarial when the requirement is maintained because it filters for class, not despite it.
 
-## Debt and dependency.
+### Debt and dependency
 
 Structuring relationships so the weaker party cannot leave.
 
@@ -213,7 +199,7 @@ Structuring relationships so the weaker party cannot leave.
 
 **Algorithmic pricing.** Charging different prices to different people based on what data suggests they will pay. Uber surge pricing in poor neighbourhoods. Insurance premiums based on postcode. The algorithm optimises extraction, not fairness.
 
-## Externalisation.
+### Externalisation
 
 Keeping the profit, exporting the harm.
 
@@ -225,7 +211,7 @@ Keeping the profit, exporting the harm.
 
 **Austerity as class war.** Cutting public services during a downturn, when the poor need them most, to balance budgets that were unbalanced by tax cuts for the wealthy. The sequence is: cut taxes for the rich, borrow to cover the shortfall, then cut services for the poor to pay the debt. The deficit was manufactured.
 
-## Narrative control.
+### Narrative control
 
 Shaping the story so the arrangement seems inevitable.
 
@@ -235,13 +221,13 @@ Shaping the story so the arrangement seems inevitable.
 
 **Violence and threat.** The most direct form. Union-busting. Intimidation of whistleblowers. Police protecting property over people. Colonial extraction backed by military force. Sometimes the adversary does not bother with mechanisms — they just use force.
 
-# Appendix A: Miscellaneous definitions
+## Appendix A: Miscellaneous definitions
 
-**Contingent**
+### Contingent
 
 A thing is contingent if it could have been otherwise. It is the opposite of necessary. Rain tomorrow is contingent — it might not rain. The speed of light is not — it could not have been different. When we say a social arrangement is contingent, we mean that it is not the only possible outcome of the underlying conditions. It exists, but it did not have to exist in this form. Not all contingent things are social constructions — which asteroid struck the Earth 66 million years ago was contingent, but it is not a social construction. What makes a contingent thing a **social** construction is that it is maintained by collective human practice.
 
-**Schismogenesis**
+### Schismogenesis
 
 Schismogenesis, as used by Graeber and Wengrow in _The Dawn of Everything_, is the process by which neighbouring peoples define themselves in opposition to each other. A society that encounters a hierarchical neighbour may adopt radical egalitarianism — not by accident, but as a conscious rejection. One that borders a society of farmers may refuse agriculture, not because they haven't heard of it, but because they have, and want no part of it. Social structures are not stages on a ladder of progress. They are positions taken in dialogue with what a society's neighbours are doing. The diversity of social arrangements in the historical record is not noise. It is evidence that human beings have always been experimenting with how to live.
 
@@ -249,19 +235,19 @@ Social psychology provides the micro-level mechanism. Henri Tajfel's minimal gro
 
 Schismogenesis, social identity, and self-categorisation are descriptions of the same process at different scales. Bateson saw it between societies. Tajfel saw it between strangers in a lab. The mechanism is the same: categorise, identify, differentiate, reinforce.
 
-**Teleology**
+### Teleology
 
 Teleology is explanation by purpose — the claim that something exists because of what it is for, or where it is heading. "The eye exists in order to see." "History is progressing toward democracy." Teleological thinking is seductive because it gives everything a direction, a reason, a destination. But it is also dangerous, because it smuggles design into systems that have none. Evolution does not have a purpose. History does not have a destination. Markets do not tend toward equilibrium because they are supposed to. When someone says inequality is "the price of progress," they are making a teleological claim — they are assuming that the current arrangement is a stage on the way to something, rather than a contingent outcome that could have been otherwise. This document rejects teleological explanations of social arrangements. Things are not the way they are because they are meant to be. They are the way they are because of the layers they emerged from, the path they happened to take, and the feedback loops that locked them in.
 
-**Ergodicity**
+### Ergodicity
 
 A system is ergodic when you can learn everything about it from a single trajectory over time, because the time-average for one participant equals the ensemble average across all participants at a single moment. Follow one person for long enough and you will see the same distribution of outcomes that you would see by looking at everyone at once.
 
-When this fails, the system exhibits broken ergodicity. You cannot infer what will happen to *you* from what is happening to *everyone*. The population statistic and the individual experience come apart. A red flag is when the median diverges from the mean — the mean can rise (dragged up by a few extreme winners) while the median falls (because most people are losing). But the divergence of median and mean is a symptom, not the definition. Any skewed distribution can have a different mean and median. What makes broken ergodicity specific is that the gap grows with time: the longer the system runs, the less the average across people tells you about any single person's trajectory.
+When this fails, the system exhibits broken ergodicity. You cannot infer what will happen to _you_ from what is happening to _everyone_. The population statistic and the individual experience come apart. A red flag is when the median diverges from the mean — the mean can rise (dragged up by a few extreme winners) while the median falls (because most people are losing). But the divergence of median and mean is a symptom, not the definition. Any skewed distribution can have a different mean and median. What makes broken ergodicity specific is that the gap grows with time: the longer the system runs, the less the average across people tells you about any single person's trajectory.
 
 Most economic models assume ergodicity. Expected utility theory, for instance, evaluates gambles by averaging over possible outcomes at a single moment — the ensemble average. If the system is ergodic, this is fine: the ensemble average equals the time average, so maximising expected value also maximises long-run growth. But many real economic processes are multiplicative, not additive, and multiplicative processes are generically non-ergodic. In such systems, the standard economic prescription — maximise expected value — can lead almost every participant to ruin while the population average rises. Ole Peters has argued that this single error, the uncritical assumption of ergodicity, underpins much of what is wrong with mainstream economic theory.
 
-**Avoidance before understanding**
+### Avoidance before understanding
 
 The brain processes threats faster than it processes understanding. Joseph LeDoux's work on fear circuitry showed that sensory input can go straight to the amygdala, which triggers an avoidance response — flinch, freeze, flee — before the signal reaches the cortex for conscious processing. You jump away from a snake-shaped stick before you know it is a stick. The avoidance is pre-cognitive. Understanding comes after, if at all.
 
@@ -271,9 +257,9 @@ The pattern is: detect, avoid, then maybe understand. Not detect, understand, de
 
 This matters for the document's argument in several ways. It is a physical-layer mechanism (amygdala response) that operates at the agent layer and has social-layer consequences — prejudice, moral intuitions, resistance to new ideas. It explains why naturalisation works: if someone feels that hierarchy is natural, the feeling came first and the reasoning was retrofitted. And it explains why arguments for equality are hard to land. People avoid the conclusion — that things must change, that someone is accountable — before they have processed the evidence, because the implication feels threatening. The avoidance arrives before the understanding, and often prevents it entirely.
 
-# Appendix B: Mathematical statements.
+## Appendix B: Mathematical statements
 
-**Yard-Sale.**
+### Yard-sale
 
 $N$ agents begin with equal wealth $w_i(0) = W/N$. At each discrete time step, two agents $i$ and $j$ are chosen uniformly at random. They wager a fraction $f$ of the poorer agent's wealth:
 
@@ -291,7 +277,7 @@ $$\langle \Delta \text{Var}(w) \rangle > 0$$
 
 The Gini coefficient $G(t) \to 1$ monotonically. In the continuum limit, the wealth distribution satisfies a Fokker-Planck equation whose only absorbing state is complete concentration: one agent holds $W$, all others hold zero.
 
-**Multiplicative growth.**
+### Multiplicative growth
 
 Each of $N$ agents has wealth evolving independently under multiplicative noise:
 
@@ -311,7 +297,7 @@ $$\text{median } w(t) = w_0 \cdot e^{(\mu - \sigma^2/2)\, t} \to 0$$
 
 while the mean is pulled upward by a vanishing fraction of extreme winners. This is broken ergodicity: the ensemble average and the time average diverge, so the "typical" agent's experience is nothing like the population statistic.
 
-**Pólya urn.**
+### Pólya urn
 
 An urn initially contains one red ball and one blue ball. At each step $t = 1, 2, \dots$: draw a ball uniformly at random, return it, and add one new ball of the same colour. Let $R_t$ denote the number of red balls after $t$ draws. The total number of balls is $t + 2$.
 
@@ -325,7 +311,7 @@ $$X_t \xrightarrow{\text{a.s.}} X, \quad X \sim \text{Beta}(1, 1) = \text{Unifor
 
 The limiting fraction $X$ is uniformly distributed: any split from 0-100 to 100-0 is equally likely. Yet once the process runs for many steps, the ratio is effectively frozen. The variance of $X_t$ decreases as $1 / (t + 3)$, meaning early draws determine the long-run composition with increasing certainty.
 
-**Minority game.**
+### Minority game
 
 $N$ agents (odd) simultaneously choose action $A$ or $B$ each round. Let $n_A$ be the number choosing $A$. The payoff function is:
 
@@ -345,7 +331,7 @@ $$\text{Var}_i(S_i(T)) \sim T$$
 
 so the standard deviation of cumulative winnings grows as $\sqrt{T}$, producing unbounded inequality in accumulated reward.
 
-**Schelling segregation.**
+### Schelling segregation
 
 $N$ agents of two types, $+1$ and $-1$, are placed on a lattice with some fraction of vacant cells. Each agent $i$ evaluates its neighbourhood $\mathcal{N}_i$ and computes the fraction of like-type neighbours:
 
@@ -359,7 +345,7 @@ $$\langle f_i \rangle \gg \tau$$
 
 The gap between the individual threshold $\tau$ and the emergent segregation $\langle f_i \rangle$ is the signature of a coordination failure: each agent's mild local preference amplifies through spatial feedback into macroscopic separation.
 
-**Preferential attachment.**
+### Preferential attachment
 
 A graph $G_t$ grows by adding one node at each time step. The new node connects to $m$ existing nodes. The probability that the new node attaches to existing node $i$ is proportional to its current degree:
 
@@ -375,7 +361,7 @@ $$P(k) \sim k^{-3}$$
 
 The exponent $-3$ is universal for the basic model. Most nodes have degree close to $m$; a vanishing fraction become hubs with degree orders of magnitude larger.
 
-**Bonabeau hierarchy.**
+### Bonabeau hierarchy
 
 $N$ agents have initial confidence $c_i(0) = 0$ for all $i$. At each step, a pair $(i, j)$ is chosen uniformly at random. Agent $i$ wins with probability:
 
@@ -387,7 +373,7 @@ $$c_\text{winner} \leftarrow c_\text{winner} + \delta, \quad c_\text{loser} \lef
 
 When $\eta = 0$, all fights are fair coin flips, and confidences perform symmetric random walks. For $\eta > 0$, positive feedback sets in: a small lead in confidence increases the probability of further wins. The system undergoes a phase transition at a critical $\eta^*$. Above $\eta^*$, a strict linear hierarchy emerges from initially identical agents. The hierarchy's steepness, measured by the variance of the stationary confidence distribution, diverges as $\eta$ increases.
 
-**Zero-range condensation.**
+### Zero-range condensation
 
 $M$ identical particles occupy $L$ identical sites on a lattice. Each particle hops independently to a uniformly chosen target site at rate $u(n)$, where $n$ is the number of particles at its current site. The steady-state probability of finding $n$ particles at a given site factorises:
 
@@ -399,7 +385,7 @@ $$n_\text{max} \sim M - \rho_c L = O(M)$$
 
 while all other sites have occupancy $O(1)$. Every site and every particle obeys the same rules; the condensate forms by fluctuation alone.
 
-**BTW sandpile.**
+### BTW sandpile
 
 On a $d$-dimensional grid of $L^d$ cells, grains are added one at a time to a randomly chosen cell. The height $z_i$ of cell $i$ increases by one. When $z_i \geq z_c = 2d$, the cell topples:
 

@@ -20,14 +20,12 @@ const formatDate = (d: Date) => d.toISOString().split("T")[0];
   <body>
     <main class="px-6 py-16 lg:pl-[25%] lg:pr-16">
       <div class="max-w-[46rem]">
-        <h1 class="text-2xl font-bold">Neon Feedback</h1>
-
-        <p class="mt-10 mb-2 text-xs uppercase tracking-wider text-[color:var(--muted)]">Posts</p>
-        <ul class="pl-0 list-none space-y-1.5">
+        <h1 class="text-2xl font-bold">neonfeedback</h1>
+        <ul class="mt-6 pl-0 list-none space-y-1.5">
           {posts.map((post) => (
             <li class="grid grid-cols-[1fr_auto] gap-x-6 items-baseline">
               <a href={`/posts/${post.id}/`}>{post.data.title}</a>
-              <span class="text-[0.9em] tabular-nums text-[color:var(--muted)]">{formatDate(post.data.date)}</span>
+              
             </li>
           ))}
         </ul>
