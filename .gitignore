@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Python / uv
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+.uv-cache/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Editors
+.vscode/
+
+# Node / Astro
+node_modules/
+dist/
+.astro/
+
+# Recordings are local-only
+src/recordings/**
+
+# Claude Code runtime state
+.claude
