@@ -8,7 +8,7 @@ date: 2026-03-01
 I may have been cruel, O Holy Father.\
 I may have broken what none can restore.\
 I may have sinned and forgotten.\
-Unworthy of mercy, condemned from then on.
+Unworthy of mercy, condemned.
 
 Oh, god, of shame,\
 you grant no absolution,\

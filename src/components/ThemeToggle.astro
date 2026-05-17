@@ -1,0 +1,23 @@
+---
+---
+<div class="theme-toggle">
+  <select aria-label="Theme" id="theme-select">
+    <option value="system">system</option>
+    <option value="light">light</option>
+    <option value="dark">dark</option>
+  </select>
+</div>
+
+<script is:inline>
+  (function () {
+    const select = document.getElementById("theme-select");
+    if (!select) return;
+    select.value = localStorage.getItem("theme") || "system";
+    select.addEventListener("change", () => {
+      const mode = select.value;
+      if (mode === "system") localStorage.removeItem("theme");
+      else localStorage.setItem("theme", mode);
+      window.__applyTheme(mode);
+    });
+  })();
+</script>

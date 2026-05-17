@@ -1,5 +1,5 @@
 ---
-title: Wiki
+title: Types of inequality
 date: 2026-03-01
 ---
 
@@ -11,9 +11,7 @@ Emergent inequality is inequality that arises from the interaction of agents fol
 
 ### Anti-egalitarian games
 
-A formal mathematical definition of each game below is given in [Appendix B](#appendix-b-mathematical-statements).
-
-In the **yard-sale model**, two people bet a fraction of the poorer person's wealth on a fair coin flip, over and over. Total wealth never changes, but one person ends up with nearly everything. The reason is that the same sized bet means different things to different people. Losing ten dollars when you have ten dollars is ruin. Losing ten dollars when you have ten thousand is nothing. The game is fair in absolute terms but brutal in relative terms. Boghosian fitted the model to US wealth data and found it closely tracks the observed Gini coefficient from 1989 to 2016.
+In the **yard-sale model**, two people bet a fraction of the poorer person's wealth on a fair coin flip, over and over. Total wealth never changes, but one person ends up with nearly everything. The reason is that the same sized bet means different things to different people. Losing ten dollars when you have ten dollars is ruin. Losing ten dollars when you have ten thousand is nothing. The game is fair in absolute terms but brutal in relative terms.
 
 In the **multiplicative growth trap**, everyone independently invests their wealth, and each year it grows or shrinks by a random percentage. The average return is positive, but almost every individual goes broke. A 50% loss followed by a 50% gain leaves you at 75%, not 100%. Losses hit harder than equivalent gains. The population looks healthy. The individuals do not. This is broken ergodicity: the average across people and the average across time for one person are not the same thing.
 
@@ -21,15 +19,9 @@ In the **Pólya urn**, an urn holds one red and one blue ball. Draw one at rando
 
 In the **minority game**, an odd number of people choose one of two doors; only the minority get paid. The only equilibrium is to choose randomly, but then cumulative winnings drift apart like random walks. There is no strategy that makes everyone equal. The game has been applied to financial markets, where contrarian traders face exactly this structure.
 
-In **Schelling's neighbourhood model**, people of two types live on a grid with the same mild preference: they are fine being in the local minority, as long as at least a third of their neighbours are like them. Despite this modest threshold, the outcome is severe segregation. Each person's move changes the composition of both the place they left and the place they arrived, triggering further relocations. Empirical studies of US cities show that even as stated racial tolerance increased, segregation indices remained stubbornly high.
-
 In the **preferential attachment model**, people arrive one at a time and form connections proportional to how many connections others already have. Early arrivals become hubs, not because they are better, but because they were there first. Power-law degree distributions have been measured in the web, citation networks, and social media follower counts.
 
 In the **Bonabeau hierarchy**, identical agents fight randomly. The winner gets a confidence boost, the loser a penalty. Future fights are biased by confidence. A strict dominance hierarchy forms from perfect equality. In crayfish, winners of early fights have elevated serotonin that makes them more aggressive in subsequent fights — a biological implementation of the feedback loop.
-
-In the **zero-range condensate**, identical particles hop between identical sites. The more particles a site has, the slower they leave. Beyond a critical density, one site accumulates a macroscopic fraction of all particles by fluctuation alone. The same mechanism explains phantom traffic jams: cars entering a dense region slow down, making the region denser.
-
-In the **BTW sandpile**, identical grains are dropped onto a grid. The system self-organises to a critical state where most grains do nothing but occasionally one triggers a cascade spanning the entire grid. The inequality is entirely in consequences, not in the grains themselves. Power-law distributions consistent with this have been observed in earthquake magnitudes, forest fire sizes, and stock market crashes.
 
 ### Feedback loops
 
@@ -220,181 +212,3 @@ Shaping the story so the arrangement seems inevitable.
 **Legacy engineering.** Using current advantage to ensure advantage persists across generations. Trust funds, legacy admissions, nepotism, property inheritance, funding private schools that feed into elite networks. The goal is not just to be ahead but to ensure your children are ahead too, regardless of their ability.
 
 **Violence and threat.** The most direct form. Union-busting. Intimidation of whistleblowers. Police protecting property over people. Colonial extraction backed by military force. Sometimes the adversary does not bother with mechanisms — they just use force.
-
-## Appendix A: Miscellaneous definitions
-
-### Contingent
-
-A thing is contingent if it could have been otherwise. It is the opposite of necessary. Rain tomorrow is contingent — it might not rain. The speed of light is not — it could not have been different. When we say a social arrangement is contingent, we mean that it is not the only possible outcome of the underlying conditions. It exists, but it did not have to exist in this form. Not all contingent things are social constructions — which asteroid struck the Earth 66 million years ago was contingent, but it is not a social construction. What makes a contingent thing a **social** construction is that it is maintained by collective human practice.
-
-### Schismogenesis
-
-Schismogenesis, as used by Graeber and Wengrow in _The Dawn of Everything_, is the process by which neighbouring peoples define themselves in opposition to each other. A society that encounters a hierarchical neighbour may adopt radical egalitarianism — not by accident, but as a conscious rejection. One that borders a society of farmers may refuse agriculture, not because they haven't heard of it, but because they have, and want no part of it. Social structures are not stages on a ladder of progress. They are positions taken in dialogue with what a society's neighbours are doing. The diversity of social arrangements in the historical record is not noise. It is evidence that human beings have always been experimenting with how to live.
-
-Social psychology provides the micro-level mechanism. Henri Tajfel's minimal group experiments in the 1970s showed that people assigned to groups on arbitrary criteria — the flip of a coin, a preference for one painter over another — immediately begin to favour their in-group and discriminate against the out-group, even when there is nothing to gain. The categorisation alone is sufficient. Muzafer Sherif's Robbers Cave experiment went further: boys at a summer camp, randomly split into two groups with no prior differences, developed fierce hostility once put in competition — and the hostility persisted even after the competition ended. John Turner's self-categorisation theory completed the picture: once people identify with a group, they shift their behaviour to match perceived group norms, amplifying whatever small difference triggered the categorisation in the first place.
-
-Schismogenesis, social identity, and self-categorisation are descriptions of the same process at different scales. Bateson saw it between societies. Tajfel saw it between strangers in a lab. The mechanism is the same: categorise, identify, differentiate, reinforce.
-
-### Teleology
-
-Teleology is explanation by purpose — the claim that something exists because of what it is for, or where it is heading. "The eye exists in order to see." "History is progressing toward democracy." Teleological thinking is seductive because it gives everything a direction, a reason, a destination. But it is also dangerous, because it smuggles design into systems that have none. Evolution does not have a purpose. History does not have a destination. Markets do not tend toward equilibrium because they are supposed to. When someone says inequality is "the price of progress," they are making a teleological claim — they are assuming that the current arrangement is a stage on the way to something, rather than a contingent outcome that could have been otherwise. This document rejects teleological explanations of social arrangements. Things are not the way they are because they are meant to be. They are the way they are because of the layers they emerged from, the path they happened to take, and the feedback loops that locked them in.
-
-### Ergodicity
-
-A system is ergodic when you can learn everything about it from a single trajectory over time, because the time-average for one participant equals the ensemble average across all participants at a single moment. Follow one person for long enough and you will see the same distribution of outcomes that you would see by looking at everyone at once.
-
-When this fails, the system exhibits broken ergodicity. You cannot infer what will happen to _you_ from what is happening to _everyone_. The population statistic and the individual experience come apart. A red flag is when the median diverges from the mean — the mean can rise (dragged up by a few extreme winners) while the median falls (because most people are losing). But the divergence of median and mean is a symptom, not the definition. Any skewed distribution can have a different mean and median. What makes broken ergodicity specific is that the gap grows with time: the longer the system runs, the less the average across people tells you about any single person's trajectory.
-
-Most economic models assume ergodicity. Expected utility theory, for instance, evaluates gambles by averaging over possible outcomes at a single moment — the ensemble average. If the system is ergodic, this is fine: the ensemble average equals the time average, so maximising expected value also maximises long-run growth. But many real economic processes are multiplicative, not additive, and multiplicative processes are generically non-ergodic. In such systems, the standard economic prescription — maximise expected value — can lead almost every participant to ruin while the population average rises. Ole Peters has argued that this single error, the uncritical assumption of ergodicity, underpins much of what is wrong with mainstream economic theory.
-
-### Avoidance before understanding
-
-The brain processes threats faster than it processes understanding. Joseph LeDoux's work on fear circuitry showed that sensory input can go straight to the amygdala, which triggers an avoidance response — flinch, freeze, flee — before the signal reaches the cortex for conscious processing. You jump away from a snake-shaped stick before you know it is a stick. The avoidance is pre-cognitive. Understanding comes after, if at all.
-
-This generalises beyond physical threats. Jonathan Haidt's work on moral psychology shows that moral judgements often work the same way — you feel revulsion first, then construct a justification. He calls it the emotional dog and its rational tail. Implicit bias research shows that people categorise and avoid before conscious thought engages. And cognitive avoidance works the same way with ideas — people avoid information that threatens their beliefs before they have processed it.
-
-The pattern is: detect, avoid, then maybe understand. Not detect, understand, decide, avoid. The understanding is optional. The avoidance is not.
-
-This matters for the document's argument in several ways. It is a physical-layer mechanism (amygdala response) that operates at the agent layer and has social-layer consequences — prejudice, moral intuitions, resistance to new ideas. It explains why naturalisation works: if someone feels that hierarchy is natural, the feeling came first and the reasoning was retrofitted. And it explains why arguments for equality are hard to land. People avoid the conclusion — that things must change, that someone is accountable — before they have processed the evidence, because the implication feels threatening. The avoidance arrives before the understanding, and often prevents it entirely.
-
-## Appendix B: Mathematical statements
-
-### Yard-sale
-
-$N$ agents begin with equal wealth $w_i(0) = W/N$. At each discrete time step, two agents $i$ and $j$ are chosen uniformly at random. They wager a fraction $f$ of the poorer agent's wealth:
-
-$$\Delta = f \cdot \min(w_i, w_j)$$
-
-A fair coin determines the direction of transfer:
-
-$$w_i \leftarrow w_i + \Delta, \quad w_j \leftarrow w_j - \Delta \quad \text{with probability } 1/2$$
-
-$$w_i \leftarrow w_i - \Delta, \quad w_j \leftarrow w_j + \Delta \quad \text{with probability } 1/2$$
-
-Total wealth $W = \sum_i w_i$ is conserved at every step. Despite the fairness of each individual exchange, the expected change in the variance of the wealth distribution is strictly positive:
-
-$$\langle \Delta \text{Var}(w) \rangle > 0$$
-
-The Gini coefficient $G(t) \to 1$ monotonically. In the continuum limit, the wealth distribution satisfies a Fokker-Planck equation whose only absorbing state is complete concentration: one agent holds $W$, all others hold zero.
-
-### Multiplicative growth
-
-Each of $N$ agents has wealth evolving independently under multiplicative noise:
-
-$$w_i(t+1) = w_i(t) \cdot \eta_i(t)$$
-
-where the $\eta_i$ are i.i.d. with $\log \eta_i \sim \mathcal{N}(\mu, \sigma^2)$. The ensemble average at time $t$ is:
-
-$$\langle w(t) \rangle = w_0 \cdot e^{(\mu + \sigma^2/2)\, t}$$
-
-But the time-average growth rate experienced by any single agent is the geometric mean:
-
-$$g_\text{time} = \lim_{T \to \infty} \frac{1}{T} \log \frac{w(T)}{w_0} = \mu - \frac{\sigma^2}{2}$$
-
-When $\sigma^2 > 2\mu$, the time-average growth rate is negative. The median wealth decays as:
-
-$$\text{median } w(t) = w_0 \cdot e^{(\mu - \sigma^2/2)\, t} \to 0$$
-
-while the mean is pulled upward by a vanishing fraction of extreme winners. This is broken ergodicity: the ensemble average and the time average diverge, so the "typical" agent's experience is nothing like the population statistic.
-
-### Pólya urn
-
-An urn initially contains one red ball and one blue ball. At each step $t = 1, 2, \dots$: draw a ball uniformly at random, return it, and add one new ball of the same colour. Let $R_t$ denote the number of red balls after $t$ draws. The total number of balls is $t + 2$.
-
-The red fraction $X_t = R_t / (t + 2)$ is a martingale:
-
-$$\mathbb{E}[X_{t+1} \mid X_t] = X_t$$
-
-By the martingale convergence theorem, $X_t$ converges almost surely to a random variable:
-
-$$X_t \xrightarrow{\text{a.s.}} X, \quad X \sim \text{Beta}(1, 1) = \text{Uniform}(0, 1)$$
-
-The limiting fraction $X$ is uniformly distributed: any split from 0-100 to 100-0 is equally likely. Yet once the process runs for many steps, the ratio is effectively frozen. The variance of $X_t$ decreases as $1 / (t + 3)$, meaning early draws determine the long-run composition with increasing certainty.
-
-### Minority game
-
-$N$ agents (odd) simultaneously choose action $A$ or $B$ each round. Let $n_A$ be the number choosing $A$. The payoff function is:
-
-$$\pi_i = \begin{cases} 1 & \text{if } i \text{ chose } A \text{ and } n_A < N/2 \\ 1 & \text{if } i \text{ chose } B \text{ and } n_A > N/2 \\ 0 & \text{otherwise} \end{cases}$$
-
-No pure-strategy symmetric equilibrium exists. If all agents play the same deterministic strategy, all choose the same action and all lose. The unique symmetric Nash equilibrium is the mixed strategy:
-
-$$\Pr(A) = 1/2$$
-
-At this equilibrium, each agent's per-round expected payoff is $1/2$, but the actual payoff is either 0 or 1. The cumulative payoff of agent $i$ after $T$ rounds is:
-
-$$S_i(T) = \sum_{t=1}^{T} \pi_i(t)$$
-
-The variance across agents grows linearly:
-
-$$\text{Var}_i(S_i(T)) \sim T$$
-
-so the standard deviation of cumulative winnings grows as $\sqrt{T}$, producing unbounded inequality in accumulated reward.
-
-### Schelling segregation
-
-$N$ agents of two types, $+1$ and $-1$, are placed on a lattice with some fraction of vacant cells. Each agent $i$ evaluates its neighbourhood $\mathcal{N}_i$ and computes the fraction of like-type neighbours:
-
-$$f_i = \frac{|\{j \in \mathcal{N}_i : \text{type}(j) = \text{type}(i)\}|}{|\mathcal{N}_i|}$$
-
-Agent $i$ is content if $f_i \geq \tau$, where $\tau$ is the tolerance threshold, identical for all agents. Discontent agents relocate to a random vacant cell.
-
-Even for $\tau$ well below majority (e.g. $\tau = 3/8$), the dynamics converge to configurations with high global segregation. The segregation index, measured as the average $f_i$ across all agents, satisfies:
-
-$$\langle f_i \rangle \gg \tau$$
-
-The gap between the individual threshold $\tau$ and the emergent segregation $\langle f_i \rangle$ is the signature of a coordination failure: each agent's mild local preference amplifies through spatial feedback into macroscopic separation.
-
-### Preferential attachment
-
-A graph $G_t$ grows by adding one node at each time step. The new node connects to $m$ existing nodes. The probability that the new node attaches to existing node $i$ is proportional to its current degree:
-
-$$\Pi(k_i) = \frac{k_i}{\sum_j k_j}$$
-
-This is a "rich get richer" rule applied to connectivity. The mean-field solution for the degree of node $i$, which arrived at time $t_i$, grows as:
-
-$$k_i(t) \sim \left(\frac{t}{t_i}\right)^{1/2}$$
-
-Early nodes grow faster simply because they have had more time to accumulate links. In the limit $t \to \infty$, the degree distribution converges to a power law:
-
-$$P(k) \sim k^{-3}$$
-
-The exponent $-3$ is universal for the basic model. Most nodes have degree close to $m$; a vanishing fraction become hubs with degree orders of magnitude larger.
-
-### Bonabeau hierarchy
-
-$N$ agents have initial confidence $c_i(0) = 0$ for all $i$. At each step, a pair $(i, j)$ is chosen uniformly at random. Agent $i$ wins with probability:
-
-$$p_{i\text{ wins}} = \frac{1}{1 + e^{-\eta (c_i - c_j)}}$$
-
-where $\eta > 0$ controls the sensitivity to confidence differences. After the fight:
-
-$$c_\text{winner} \leftarrow c_\text{winner} + \delta, \quad c_\text{loser} \leftarrow c_\text{loser} - \delta$$
-
-When $\eta = 0$, all fights are fair coin flips, and confidences perform symmetric random walks. For $\eta > 0$, positive feedback sets in: a small lead in confidence increases the probability of further wins. The system undergoes a phase transition at a critical $\eta^*$. Above $\eta^*$, a strict linear hierarchy emerges from initially identical agents. The hierarchy's steepness, measured by the variance of the stationary confidence distribution, diverges as $\eta$ increases.
-
-### Zero-range condensation
-
-$M$ identical particles occupy $L$ identical sites on a lattice. Each particle hops independently to a uniformly chosen target site at rate $u(n)$, where $n$ is the number of particles at its current site. The steady-state probability of finding $n$ particles at a given site factorises:
-
-$$p(n) = \frac{1}{Z} \prod_{k=1}^{n} \frac{1}{u(k)}$$
-
-where $Z$ is a normalisation constant. When $u(n)$ is decreasing — the more crowded a site, the slower particles leave — and the partition function $Z$ fails to converge above a critical density $\rho_c = M/L$, a condensation transition occurs. One site, chosen by spontaneous symmetry breaking, acquires a macroscopic fraction of all particles:
-
-$$n_\text{max} \sim M - \rho_c L = O(M)$$
-
-while all other sites have occupancy $O(1)$. Every site and every particle obeys the same rules; the condensate forms by fluctuation alone.
-
-### BTW sandpile
-
-On a $d$-dimensional grid of $L^d$ cells, grains are added one at a time to a randomly chosen cell. The height $z_i$ of cell $i$ increases by one. When $z_i \geq z_c = 2d$, the cell topples:
-
-$$z_i \leftarrow z_i - 2d$$
-
-$$z_j \leftarrow z_j + 1 \quad \text{for each neighbour } j \text{ of } i$$
-
-Boundary cells lose grains that fall off the edge. The system self-organises to a critical state in which the distribution of avalanche sizes $s$ (number of topplings triggered by a single grain) follows a power law:
-
-$$P(s) \sim s^{-\tau}$$
-
-with $\tau \approx 1.2$ in $d = 2$. The distribution of avalanche durations similarly follows $P(T) \sim T^{-\alpha}$. The grains are identical. The inequality is entirely in consequences: most grains are inert, a few trigger system-spanning cascades. No tuning parameter is needed — criticality is an attractor of the dynamics.

@@ -1,6 +1,7 @@
 ---
 import "katex/dist/katex.min.css";
 import "../styles/global.css";
+import ThemeToggle from "../components/ThemeToggle.astro";
 const { frontmatter, headings = [] } = Astro.props;
 
 type Heading = { depth: number; slug: string; text: string };
@@ -13,8 +14,25 @@ const toc: Heading[] = headings.filter((h: Heading) => h.depth >= 2 && h.depth <
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>{frontmatter.title} · Neon Feedback</title>
+    <script is:inline>
+      (function () {
+        const mode = localStorage.getItem("theme") || "system";
+        const apply = (m) => {
+          const resolved = m === "system"
+            ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+            : m;
+          document.documentElement.setAttribute("data-theme", resolved);
+        };
+        apply(mode);
+        window.__applyTheme = apply;
+        matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+          if ((localStorage.getItem("theme") || "system") === "system") apply("system");
+        });
+      })();
+    </script>
   </head>
   <body>
+    <ThemeToggle />
     {toc.length > 0 && (
       <aside
         class="hidden lg:block fixed top-16 left-8 w-[calc(25%-4rem)] max-h-[calc(100vh-8rem)] overflow-y-auto text-sm pr-4"

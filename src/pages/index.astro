@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { getCollection } from "astro:content";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
@@ -16,18 +17,36 @@ const formatDate = (d: Date) => d.toISOString().split("T")[0];
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Neon Feedback</title>
+    <script is:inline>
+      (function () {
+        const mode = localStorage.getItem("theme") || "system";
+        const apply = (m) => {
+          const resolved = m === "system"
+            ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+            : m;
+          document.documentElement.setAttribute("data-theme", resolved);
+        };
+        apply(mode);
+        window.__applyTheme = apply;
+        matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+          if ((localStorage.getItem("theme") || "system") === "system") apply("system");
+        });
+      })();
+    </script>
   </head>
   <body>
+    <ThemeToggle />
     <main class="px-6 py-16 lg:pl-[25%] lg:pr-16">
       <div class="max-w-[46rem]">
         <h1 class="text-2xl font-bold">neonfeedback</h1>
         <ul class="mt-6 pl-0 list-none space-y-1.5">
-          {posts.map((post) => (
-            <li class="grid grid-cols-[1fr_auto] gap-x-6 items-baseline">
-              <a href={`/posts/${post.id}/`}>{post.data.title}</a>
-              
-            </li>
-          ))}
+          {
+            posts.map((post) => (
+              <li class="grid grid-cols-[1fr_auto] gap-x-6 items-baseline">
+                <a href={`/posts/${post.id}/`} class="no-underline">{post.data.title}</a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </main>
