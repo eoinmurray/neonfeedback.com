@@ -133,6 +133,8 @@ pre.astro-code code {
 [data-theme="dark"] .prose :where(h1, h2, h3, h4, h5, h6, strong) { color: var(--ink); }
 [data-theme="dark"] .prose :where(blockquote, code) { color: var(--ink); }
 
+.prose :where(h1, h2, h3, h4, h5, h6) a { font-weight: inherit; }
+
 .site-title {
   font-family: var(--font-mono);
   letter-spacing: 0.02em;
