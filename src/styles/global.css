@@ -48,14 +48,18 @@
   --muted: #666;
   --code-bg: #fafaf7;
   --code-border: #e7e5df;
+  --accent: #d6006e;
+  --accent-glow: rgba(214, 0, 110, 0.18);
 }
 
 [data-theme="dark"] {
   --ink: #e6e6e6;
-  --paper: #111;
-  --muted: #999;
-  --code-bg: #1a1a1a;
-  --code-border: #2a2a2a;
+  --paper: #0d0e12;
+  --muted: #888;
+  --code-bg: #16171c;
+  --code-border: #25272f;
+  --accent: #ff2bd6;
+  --accent-glow: rgba(255, 43, 214, 0.35);
 }
 
 html, body {
@@ -74,6 +78,12 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  text-decoration-color: var(--accent);
+  transition: color 120ms ease, text-shadow 120ms ease;
+}
+a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-glow);
 }
 
 a.no-underline {
@@ -122,3 +132,16 @@ pre.astro-code code {
 [data-theme="dark"] .prose { color: var(--ink); }
 [data-theme="dark"] .prose :where(h1, h2, h3, h4, h5, h6, strong) { color: var(--ink); }
 [data-theme="dark"] .prose :where(blockquote, code) { color: var(--ink); }
+
+.site-title {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+.site-title::before {
+  content: "▮ ";
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+[data-theme="dark"] .site-title {
+  text-shadow: 0 0 12px var(--accent-glow);
+}
