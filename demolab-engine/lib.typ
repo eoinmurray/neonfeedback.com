@@ -67,6 +67,9 @@
   web-styles
   set text(font: "New Computer Modern", size: 11pt)
   set par(justify: true)
+  // Colour links in the paged/PDF target so they read as links there too (on the
+  // web, style.css already colours <a>). Clickability is native to #link in both.
+  show link: it => context { if target() == "html" { it } else { text(fill: rgb("#2a5db0"), it) } }
   // outline() queries headings across the whole bundle; keep per-entry docs out of
   // the book's table of contents.
   set heading(outlined: false)
@@ -114,6 +117,7 @@
 #let book-page(entries) = {
   set text(font: "New Computer Modern", size: 11pt)
   set par(justify: true)
+  show link: it => context { if target() == "html" { it } else { text(fill: rgb("#2a5db0"), it) } }
   // Table of contents (page numbers auto-resolved from each entry's heading), no cover.
   outline(title: [neonfeedback — contents], depth: 1)
   for e in entries {
