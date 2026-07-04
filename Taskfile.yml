@@ -1,0 +1,105 @@
+# demolab tasks — run `task` (no args) to list them.
+# Toolchain: uv (Python), typst (publishing), go-task. No Node.
+# Install go-task: https://taskfile.dev  (brew install go-task)
+version: "3"
+
+tasks:
+  default:
+    desc: List the available tasks
+    cmds: [task --list-all]
+    silent: true
+
+  # ── setup ────────────────────────────────────────────────────────────────
+  doctor:
+    desc: "🩺 Check the required toolchain (uv · typst · task)"
+    silent: true
+    cmds:
+      - |
+        ok=1
+        for t in uv typst task; do
+          if command -v "$t" >/dev/null 2>&1; then
+            printf '  [ok]      %-6s %s\n' "$t" "$($t --version 2>/dev/null | head -1)"
+          else
+            printf '  [MISSING] %s\n' "$t"; ok=0
+          fi
+        done
+        if [ "$ok" -eq 1 ]; then
+          echo "Toolchain OK. Next: task install"
+        else
+          echo "Install the missing tool(s):"
+          echo "  uv     https://docs.astral.sh/uv/"
+          echo "  typst  brew install typst    (or https://github.com/typst/typst/releases)"
+          echo "  task   brew install go-task"
+        fi
+
+  install:
+    desc: "🛠  Install Python dependencies (uv)"
+    cmds: [uv sync]
+
+  # ── the loop ─────────────────────────────────────────────────────────────
+  run:
+    desc: "▶  Run an experiment end-to-end, e.g. `task run -- exp000`"
+    cmds: ["uv run python experiments/{{.CLI_ARGS}}.py"]
+
+  new:
+    desc: "✨ How to start a new experiment (hint — ask your coding agent)"
+    silent: true
+    cmds:
+      - |
+        echo "Experiments aren't scaffolded from a template — ask your coding agent."
+        echo "It models a *working* skeleton on an existing pair:"
+        echo "  experiments/expNNN.py  — a runner with real COMMANDS that stages artifacts/data/expNNN/"
+        echo "  writings/expNNN.typ    — a #let meta + #let body that read that bundle via json()/image()"
+        echo
+        echo "Try: \"scaffold a new experiment expNNN that computes <thing>\""
+        echo "See the Getting-started runbook in AGENTS.md and CONTRIBUTORS.md."
+
+  # ── publishing ───────────────────────────────────────────────────────────
+  dev:
+    desc: "🔥 Serve the site with hot-reload (auto-picks a free port from 3000; override: task dev -- 3010)"
+    cmds:
+      # Regenerate the bundle root once (picks up added/removed entries), then let
+      # `typst watch` serve + live-reload on edits to any .typ / lib.typ / style.css.
+      - uv run python demolab-engine/build.py --generate-only
+      - |
+        port="{{.CLI_ARGS}}"
+        if [ -z "$port" ]; then
+          # typst's own port fallback is unreliable, so find the first free one ourselves.
+          port=3000
+          while lsof -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; do port=$((port + 1)); done
+        fi
+        echo "→ serving on http://localhost:$port  (Ctrl-C to stop)"
+        exec typst watch --format bundle --features bundle,html --root . temp/build/main.typ artifacts/site/ --port "$port"
+
+  build:
+    desc: "📦 Build the whole bundle → artifacts/site/ (web) + artifacts/pdfs/ (PDFs + book)"
+    cmds: [uv run python demolab-engine/build.py]
+
+  slides:
+    desc: "🎞  Compile standalone Typst decks (writings/*.typ with no meta+body) to artifacts/pdfs/"
+    silent: true
+    cmds:
+      - |
+        mkdir -p artifacts/pdfs
+        found=0
+        for f in writings/*.typ; do
+          [ -e "$f" ] || continue
+          if grep -qE '^#let meta' "$f" && grep -qE '^#let body' "$f"; then continue; fi  # bundle entry
+          id=$(basename "$f" .typ)
+          typst compile --root . "$f" "artifacts/pdfs/$id.pdf" && echo "wrote artifacts/pdfs/$id.pdf"
+          found=1
+        done
+        if [ "$found" -eq 0 ]; then echo "no standalone decks in writings/"; fi
+
+  playground:
+    desc: "🎛  Launch the interactive Streamlit demo (http://localhost:8501)"
+    cmds: [uv run streamlit run experiments/playground.py]
+
+  # ── quality & housekeeping ───────────────────────────────────────────────
+  test:
+    desc: "🧪 Run the Python test suite (pytest)"
+    cmds: [uv run pytest]
+
+  clean:
+    desc: "🧹 Delete regenerable build output (temp/, artifacts/site/)"
+    cmds: [rm -rf temp artifacts/site]
