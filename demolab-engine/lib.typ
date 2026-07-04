@@ -126,7 +126,7 @@
     ]
   }
   context { if target() != "html" { v(1em) } } // paged-only spacing; CSS handles web margins
-  text(size: 9pt, fill: gray)[Also available as a #link("pdfs/book.pdf", "single PDF") (excludes slides).]
+  text(size: 9pt, fill: gray)[Also available as a #link("pdfs/book.pdf", "single pdf").]
 }
 
 #let book-page(entries) = {
