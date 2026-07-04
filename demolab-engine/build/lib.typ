@@ -181,16 +181,20 @@
   // the book's table of contents.
   set heading(outlined: false)
   heading(level: 1, meta.title)
-  // the metadata strip under the title — id · date, dropping any that are absent. A classed
-  // div on the web (styled + spaced by style.css), small gray text in the PDF.
+  // the metadata strip under the title — id · date on the left, a pdf link pushed to the
+  // right (web only; the PDF pass shows the plain gray meta line, since it *is* the pdf).
   let meta-bits = (
     id,
     human-date(meta.date),
   ).filter(x => x != none)
   let meta-line = meta-bits.join(" · ")
+  let pdf-href = if id != none { "pdfs/" + id + ".pdf" } else { none }
   context {
     if target() == "html" {
-      html.elem("div", attrs: (class: "entry-meta"))[#meta-line]
+      html.elem("div", attrs: (class: "entry-meta entry-bar"), {
+        html.elem("span", meta-line)
+        if pdf-href != none { html.elem("a", attrs: (class: "entry-pdf", href: pdf-href), "pdf") }
+      })
     } else {
       text(size: 9pt, fill: gray, meta-line)
     }
