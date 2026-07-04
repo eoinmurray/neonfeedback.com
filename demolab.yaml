@@ -1,6 +1,6 @@
 # neonfeedback config. The engine reads this and fills in anything omitted.
 # Updates from upstream demolab never touch this file.
-name: neonfeedback
+name: Neonfeedback
 book-title: neonfeedback — the book
 contents-title: neonfeedback — contents
 # One-line tagline shown under the title on the homepage.
