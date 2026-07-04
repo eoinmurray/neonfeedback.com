@@ -2,6 +2,18 @@
 // Imported (root-relative) by the generated main.typ and by each writings/<id>.typ.
 // The bundle emits three targets from one compile: web HTML, per-entry PDFs, and a book.
 
+// --- human-date: render an ISO "YYYY-MM-DD" as a reader-friendly "16 June 2026" ---
+// Dates are authored ISO (sortable, unambiguous); this is the form shown on the page.
+// Falls back to the raw string if it isn't a well-formed ISO date.
+#let human-date(iso) = {
+  let p = str(iso).split("-")
+  if p.len() == 3 {
+    datetime(year: int(p.at(0)), month: int(p.at(1)), day: int(p.at(2))).display(
+      "[day padding:none] [month repr:long] [year]",
+    )
+  } else { iso }
+}
+
 // --- web-styles: inject the stylesheet into HTML pages (ignored in the PDF pass) ---
 #let web-styles = context {
   if target() == "html" {
@@ -56,7 +68,7 @@
       }
     }
     text(size: 8pt, fill: gray)[
-      Generated from commit #raw(prov.commit.slice(0, 7))#if prov.dirty [ (uncommitted changes)] · #prov.at("generated_at", default: "").slice(0, 10)
+      Generated from commit #raw(prov.commit.slice(0, 7))#if prov.dirty [ (uncommitted changes)] · #human-date(prov.at("generated_at", default: "").slice(0, 10))
     ]
   }
 }
@@ -74,7 +86,7 @@
   // the book's table of contents.
   set heading(outlined: false)
   heading(level: 1, meta.title)
-  text(size: 9pt, fill: gray)[#meta.date#if meta.at("status", default: none) != none [ · #meta.status]]
+  text(size: 9pt, fill: gray)[#human-date(meta.date)#if meta.at("status", default: none) != none [ · #meta.status]]
   parbreak()
   body
 }
@@ -88,7 +100,7 @@
   heading(level: 1, "neonfeedback")
   let show-list(items) = {
     for e in items [
-      - #link(e.id + ".html", e.meta.title) #text(fill: gray, size: 9pt)[· #e.meta.date] #link(
+      - #link(e.id + ".html", e.meta.title) #text(fill: gray, size: 9pt)[· #human-date(e.meta.date)] #link(
           "pdfs/" + e.id + ".pdf",
           text(size: 8pt)[[pdf]],
         )
@@ -107,11 +119,14 @@
   if decks.len() > 0 {
     heading(level: 2, "Talks & slides")
     for d in decks [
-      - #link("pdfs/" + d.id + ".pdf", d.meta.title) #text(fill: gray, size: 9pt)[· #d.meta.date · slides (PDF)]
+      - #link("pdfs/" + d.id + ".pdf", d.meta.title) #text(
+          fill: gray,
+          size: 9pt,
+        )[· #human-date(d.meta.date) · slides (PDF)]
     ]
   }
-  context { if target() != "html" { v(1em) } }  // paged-only spacing; CSS handles web margins
-  text(size: 9pt, fill: gray)[Also available as a #link("pdfs/book.pdf", "single book PDF") (excludes slides).]
+  context { if target() != "html" { v(1em) } } // paged-only spacing; CSS handles web margins
+  text(size: 9pt, fill: gray)[Also available as a #link("pdfs/book.pdf", "single PDF") (excludes slides).]
 }
 
 #let book-page(entries) = {
@@ -123,7 +138,7 @@
   for e in entries {
     pagebreak()
     heading(level: 1, e.meta.title)
-    text(size: 9pt, fill: gray)[#e.meta.date]
+    text(size: 9pt, fill: gray)[#human-date(e.meta.date)]
     parbreak()
     e.body
   }
