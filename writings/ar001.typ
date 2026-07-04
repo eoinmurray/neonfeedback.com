@@ -1,6 +1,6 @@
 #let meta = (
   title: "Doubtbound",
-  date: "2026-03-01",
+  date: "2025-11-13",
   collection: "poetry",
 )
 

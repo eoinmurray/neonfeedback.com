@@ -24,10 +24,10 @@ jobs:
       # New Computer Modern fonts the writings use, so no font install is needed.
       - uses: typst-community/setup-typst@v4
 
-      # demolab-engine/build.py is pure standard library — it only shells out to typst — so
-      # the runner's Python is enough; no `uv sync` / project deps required to build.
+      # demolab-engine/build/build.py is pure standard library — it only shells out to typst —
+      # so the runner's Python is enough; no `uv sync` / project deps required to build.
       - name: Build the site bundle
-        run: python3 demolab-engine/build.py
+        run: python3 demolab-engine/build/build.py
 
       # Custom domain: Pages serves the artifact verbatim, so the CNAME file must be
       # inside it (the repo Pages "custom domain" setting alone isn't applied to

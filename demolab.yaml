@@ -1,0 +1,17 @@
+# neonfeedback config. The engine reads this and fills in anything omitted.
+# Updates from upstream demolab never touch this file.
+name: neonfeedback
+book-title: neonfeedback — the book
+contents-title: neonfeedback — contents
+# One-line tagline shown under the title on the homepage.
+description: Essays, poetry, and computational notebooks.
+
+# Homepage collections. Entries are grouped by their `collection:` meta field.
+collection-order: [essays, poetry]
+collections:
+  essays:
+    label: Essays
+    description: On power, inequality, matter, and what's real.
+  poetry:
+    label: Poetry
+    description: Occasional verse.
