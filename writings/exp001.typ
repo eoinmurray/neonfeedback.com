@@ -5,7 +5,7 @@
   collection: "essays",
 )
 
-#let run = json("/artifacts/data/exp000/numbers.json")
+#let run = json("/artifacts/data/exp001/numbers.json")
 
 #let body = [
   Anarchism is often dismissed as never having been tried. It has — repeatedly, at real scale, governing millions of people. The pattern worth noticing is not that it never works, but _how_ it ends.
@@ -13,7 +13,7 @@
   The #run.n_experiments cases in the appendix below are too few for statistics, but enough for a shape. Sort them by cause of death and one bar dwarfs the rest.
 
   #figure(
-    image("/artifacts/data/exp000/deaths.png", width: 100%),
+    image("/artifacts/data/exp001/deaths.png", width: 100%),
     caption: [How the #run.n_experiments anarchist experiments ended, tallied by cause: crushed by a state dwarfs the rest, while collapse-from-within is rare.],
   )
 

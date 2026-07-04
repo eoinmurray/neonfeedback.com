@@ -1,11 +1,11 @@
-"""exp000 — "How does anarchism typically die".
+"""exp001 — "How does anarchism typically die".
 
 Self-contained experiment: the dataset, a single bar chart, and the derived
 metrics all live here. Running it writes the figure + numbers.json into the
-committed run bundle artifacts/data/exp000/, so the prose in writings/exp000.typ
+committed run bundle artifacts/data/exp001/, so the prose in writings/exp001.typ
 reads its numbers from the run rather than from the author's memory.
 
-    task run -- exp000        # or: uv run python experiments/exp000.py
+    task run -- exp001        # or: uv run python experiments/exp001.py
 
   deaths.png      -- how each experiment ended, tallied by cause
   numbers.json    -- tallies the Typst writeup inlines
@@ -19,7 +19,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "artifacts" / "data" / "exp000"
+OUT = ROOT / "artifacts" / "data" / "exp001"
 
 # label, start year, end year (None = ongoing), peak scale (people), duration (years), death type
 # death: crushed (enemy state/army) | betrayed (the authoritarian left) | collapsed (from within) | alive
