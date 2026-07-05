@@ -49,7 +49,7 @@
     [Bakur self-rule †], [South-east Turkey, 2015–2016], [≈400,000], [Crushed], [*Turkish military operations*; districts destroyed, trustees imposed], [#link("https://doi.org/10.1080/13608746.2023.2255017")[source]],
     [Zapatistas (EZLN)], [Chiapas, Mexico, 1994–present], [≈300,000], [Alive], [*Survives*, encircled and pressured by the Mexican state], [#link("https://doi.org/10.1177/0022002709341173")[source]],
     [Oaxaca Commune (APPO) †], [Oaxaca, Mexico, 2006], [≈200,000], [Crushed], [*Federal police (PFP) crushed the Commune*], [#link("https://doi.org/10.1093/acrefore/9780199366439.013.752")[source]],
-    [Icelandic Commonwealth], [Iceland, 930–1262], [≈50,000], [Collapsed], [*Collapsed into feuding chieftains*; absorbed by Norway], [#link("https://doi.org/10.1484/J.VIATOR.2.301403")[source]],
+    [Icelandic Commonwealth], [Iceland, 930–1262], [≈50,000], [Collapsed], [*Collapsed into feuding chieftains*; absorbed by Norway], [#link("https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/")[source]],
     [Strandzha Commune], [Ottoman Thrace, 1903], [Tens of thousands], [Crushed], [*Crushed by the Ottoman army* after ≈20 days], [#link("https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation")[source]],
     [Kronstadt Soviet], [Russia, 1921], [≈18,000], [Betrayed], [*Stormed by the Red Army*; rebels executed or exiled], [#link("https://doi.org/10.2307/2492031")[source]],
     [Cherán †], [Michoacán, Mexico, 2011–present], [≈16,000], [Alive], [*Survives*, legally recognised indigenous autonomy], [#link("https://journals.sagepub.com/doi/full/10.1177/0094582X20975004")[source]],
@@ -339,9 +339,15 @@
   - _"il est possible de faire une estimation approximative de 10 000 victimes"_ (§ Tombs' estimate) — Tombs' own downward revision to ~10,000, i.e. the toll is contested.
   - _"il apparaît qu'une très importante proportion des morts de la Semaine sanglante, voire la majorité des exécutés, aient été les victimes de tueries organisées et quasi-légales"_ (§ the killings) — the mass, organised killings by the Versaillais forces.
 
-  === Not yet grounded
+  === Jesse L. Byock (2001) — Viking Age Iceland
 
-  One row still awaits a usable source.
+  #link("https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/")[Byock, Viking Age Iceland (Penguin, 2001)]
 
-  - *Source not machine-readable:* Iceland (Byock, _Viking Age Iceland_) — the scanned excerpt provided is truncated (missing the 1262–4 Norway chapter) and OCR-garbles the Old Norse, so its quotes fail verbatim; a clean, text-based ebook is needed.
+  *Summary.* Byock's study of the Icelandic Free State (c. 930–1264) as a stateless, feud-regulated society without king or army. Its final phase saw a new elite of "big chieftains" contend for overlordship as endemic feuding escalated into open warfare — the turmoil that ended the Free State in the thirteenth century. #text(fill: gray, size: 8pt)[(Grounded from a partial, OCR'd scan: the "feuding chieftains" half is anchored below in clean English, but the source's narrative of the 1262–4 submission to Norway sits in a later chapter absent from the provided excerpt, so the "absorbed by Norway" half is left unanchored, pending a full text-based copy.)]
+
+  *Claim it supports.* _"Collapsed into feuding chieftains; absorbed by Norway"_ (Icelandic Commonwealth).
+
+  *Quotes.*
+  - _"In the last phase of the Free State, the older two-tiered system of chieftains and farmers gave way to a more complex three-tiered political structure of big chieftains, big farmers and farmers."_ (§ Introduction) — power concentrating in a rising class of big chieftains at the end of the Free State.
+  - _"Only at the very end of the Free State did the endemic feuding reach the level of open warfare, and even then random violence was sporadic"_ (p. 76) — the chronic feuding escalating to open warfare at the state's collapse.
 ]
