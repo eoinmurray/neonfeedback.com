@@ -42,7 +42,7 @@
     [Free Territory (Makhnovshchina)], [Ukraine, 1918–1921], [Up to ≈7 million], [Betrayed], [Used then *liquidated by the Bolsheviks* once the Whites were beaten], [#link("https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921")[source]],
     [Rojava (AANES)], [North-east Syria, 2012–present], [≈2–4 million], [Alive], [*Survives* under constant military threat from Turkey and others], [#link("https://doi.org/10.1080/21520844.2024.2314447")[source]],
     [Hungarian workers' councils], [Hungary, 1956], [Millions, briefly], [Crushed], [*Crushed by Soviet tanks* within weeks], [#link("https://doi.org/10.1177/088832540201600208")[source]],
-    [Paris Commune], [Paris, 1871], [≈2 million], [Crushed], [*Crushed by the French Army*; ≈20,000 killed in the _semaine sanglante_], [#link("https://www.routledge.com/The-Paris-Commune-1871/Tombs/p/book/9780582309036")[source]],
+    [Paris Commune], [Paris, 1871], [≈2 million], [Crushed], [*Crushed by the French Army*; ≈10,000–20,000 killed in the _semaine sanglante_ (toll disputed)], [#link("https://doi.org/10.4000/rh19.78")[source]],
     [Korean People's Association], [Manchuria, 1929–1931], [≈2 million], [Crushed], [*Caught between Japanese imperial forces and Stalinists*], [#link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[source]],
     [Biennio Rosso], [Italy, 1919–1920], [≈600,000 workers], [Collapsed], [*Collapsed*; cleared the path for Fascist reaction], [#link("https://libcom.org/article/1918-1921-italian-factory-occupations-and-biennio-rosso")[source]],
     [Bavarian Council Republic †], [Munich, 1919], [≈600,000], [Crushed], [*Stormed by the Freikorps*; Landauer murdered], [#link("https://doi.org/10.1163/1477285X-12341309")[source]],
@@ -326,10 +326,22 @@
   - _"militantes anarquistas que no habían participado en el movimiento pero que estaban fichados por la policía y eran de sobra conocidos, como Buenaventura Durruti o los hermanos Francisco y Domingo Ascaso"_ (§ the arrests) — well-known anarchist militants (Durruti, the Ascaso brothers) were among those seized, even without having taken part.
   - _"uno de los anarquistas deportados en el vapor Buenos Aires"_ (§ the deportations) — the detainees were deported on the steamship Buenos Aires.
 
+  === Robert Tombs (1994) — Victimes et bourreaux de la Semaine sanglante
+
+  #link("https://doi.org/10.4000/rh19.78")[Revue d'histoire du XIXe siècle 10 (1994)]
+
+  *Summary.* Tombs re-examines the death toll of the 1871 Bloody Week, when the Versaillais army retook Paris and executed Communards. He traces how a high figure entered republican historiography (the ~17,000 consensus; Pelletan's higher counts) and argues it was inflated, proposing a downward estimate of roughly 10,000 — most of them victims of organised, quasi-legal mass killings. (In French.)
+
+  *Claim it supports.* _"Crushed by the French Army; ≈10,000–20,000 killed in the semaine sanglante (toll disputed)"_ (Paris Commune).
+
+  *Quotes.*
+  - _"Avec Seignobos et Lavisse se dessine un consensus républicain, la répression entre dans les livres d'histoire et les manuels et l'on retient le chiffre de 17 000 morts."_ (§ the historiography) — the traditional republican figure of ~17,000 dead.
+  - _"il est possible de faire une estimation approximative de 10 000 victimes"_ (§ Tombs' estimate) — Tombs' own downward revision to ~10,000, i.e. the toll is contested.
+  - _"il apparaît qu'une très importante proportion des morts de la Semaine sanglante, voire la majorité des exécutés, aient été les victimes de tueries organisées et quasi-légales"_ (§ the killings) — the mass, organised killings by the Versaillais forces.
+
   === Not yet grounded
 
-  Two rows still await a usable source.
+  One row still awaits a usable source.
 
   - *Source not machine-readable:* Iceland (Byock, _Viking Age Iceland_) — the scanned excerpt provided is truncated (missing the 1262–4 Norway chapter) and OCR-garbles the Old Norse, so its quotes fail verbatim; a clean, text-based ebook is needed.
-  - *No usable source yet:* Paris Commune — the ≈20,000 figure is contested (Tombs 2012 revises it down), so grounding needs the 1999 book pages, or a rewording of the row.
 ]
