@@ -313,11 +313,23 @@
   - _"The Strandzha Commune lived and pulsated for more than 20 days in conditions of true communism"_ (§ The Transfiguration Uprising and the "Strandzha Commune") — the roughly-20-day duration.
   - _"This reign of free communism was set up on the first day of the uprising and continued through until 21st August 1903, in some places until the end of the month, until it was crushed militarily by a 40,000-strong Ottoman army of infantry, cavalry and artillery"_ — crushed militarily by the Ottoman army.
 
+  === Ángel Herrerín López (2017) — El movimiento de enero de 1932
+
+  #link("https://doi.org/10.4000/framespa.4436")[Les Cahiers de Framespa 25 (2017)]
+
+  *Summary.* Reassesses the January 1932 CNT rising in the Alt Llobregat mining valley (Catalonia) — a spontaneous cenetista insurrection, or an anarchist (FAI) bid for control of the union? Herrerín traces the Fígols-centred revolt, its rapid military suppression, and the mass arrests and deportations that followed, which swept up well-known militants regardless of their actual involvement. (Quotes in the original Spanish.)
+
+  *Claim it supports.* _"Retaken by army and Civil Guard; militants deported"_ (Alt Llobregat rising).
+
+  *Quotes.*
+  - _"los soldados y la guardia civil habían entrado en los pueblos poniendo fin al levantamiento, salvo en la barriada de San Cornelio, en Fígols"_ (§ the suppression) — the soldiers and the Civil Guard entered the villages and ended the rising (bar the San Cornelio district of Fígols).
+  - _"militantes anarquistas que no habían participado en el movimiento pero que estaban fichados por la policía y eran de sobra conocidos, como Buenaventura Durruti o los hermanos Francisco y Domingo Ascaso"_ (§ the arrests) — well-known anarchist militants (Durruti, the Ascaso brothers) were among those seized, even without having taken part.
+  - _"uno de los anarquistas deportados en el vapor Buenos Aires"_ (§ the deportations) — the detainees were deported on the steamship Buenos Aires.
+
   === Not yet grounded
 
-  Three rows still await a usable source.
+  Two rows still await a usable source.
 
   - *Source not machine-readable:* Iceland (Byock, _Viking Age Iceland_) — the scanned excerpt provided is truncated (missing the 1262–4 Norway chapter) and OCR-garbles the Old Norse, so its quotes fail verbatim; a clean, text-based ebook is needed.
-  - *Provided PDF incomplete:* Alt Llobregat (Herrerín López, _Les Cahiers de Framespa_, 2017) — the OpenEdition print keeps truncating after the intro; the full-text export is needed.
   - *No usable source yet:* Paris Commune — the ≈20,000 figure is contested (Tombs 2012 revises it down), so grounding needs the 1999 book pages, or a rewording of the row.
 ]
