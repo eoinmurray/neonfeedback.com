@@ -8,20 +8,26 @@
 #let run = json("/artifacts/data/exp001/numbers.json")
 
 #let body = [
-  Anarchism is often dismissed as never having been tried. It has — repeatedly, at real scale, governing millions of people. The pattern worth noticing is not that it never works, but _how_ it ends.
+  Anarchism is often said never to have been tried. It has been, several times, at some scale. The question here is narrow: not whether it works, but how these experiments tend to end.
 
-  The #run.n_experiments cases in the appendix below are too few for statistics, but enough for a shape. Sort them by cause of death and one bar dwarfs the rest.
+  A word on what counts, before the tally. The test here is functional, not a label:
+
+  #quote(block: true)[A case qualifies if it governed a population and territory — however briefly — through stateless, federated self-organization: directly-democratic assemblies or councils, recallable delegates, no standing state and no vanguard party over the whole.]
+
+  What follows is a small, hand-picked _sample_ of the historical record — the #run.n_experiments cases in the appendix below, far too few for statistics and certainly not exhaustive, but enough to suggest a shape. Sorted by cause of death, they fall unevenly.
 
   #figure(
     image("/artifacts/data/exp001/deaths.png", width: 100%),
-    caption: [How the #run.n_experiments anarchist experiments ended, tallied by cause: crushed by a state dwarfs the rest, while collapse-from-within is rare.],
+    caption: [How the #run.n_experiments anarchist experiments ended, tallied by cause. Crushed by a state is the most common ending; collapse from within is the least.],
   )
 
   Of the #run.n_ended experiments that ended, only #run.n_collapsed actually _collapsed_ from within. The other #run.n_killed were killed — #run.n_crushed crushed by an enemy state, #run.n_betrayed betrayed by the authoritarian left they had fought alongside. The remaining #run.n_ongoing are still alive, and nearly all of them are small.
 
-  That inverts the usual obituary. Anarchism is supposed to fail because it cannot scale — because without a state it dissolves into chaos. But collapse-from-within is the rarest ending on the chart. Anarchism rarely dies of its own contradictions; it gets murdered, usually by a state, and at its largest by the left. The betrayals are few, but they land on the giants: the two largest experiments ever recorded, Makhno's Free Territory and revolutionary Catalonia, were destroyed not by their declared enemies but by the Bolsheviks and Stalinists nominally on their side.
+  This runs against the usual explanation. Anarchism is generally expected to fail because it cannot scale — because without a state it dissolves into disorder. In this sample, though, collapse from within is the rarest ending. More often the experiments were ended from outside: usually by a state, and in the two largest cases by the authoritarian left they had allied with. Makhno's Free Territory and revolutionary Catalonia, the biggest on the list, were dismantled by the Bolsheviks and Stalinists rather than by their declared enemies.
 
-  There is a sharper catch. The big modern cases anarchists point to — Rojava, Oaxaca, Cherán — are mostly broad popular fronts or indigenous autonomies that anarchists _joined_ rather than authored. Strip those out and unmistakably anarchist self-government at scale almost vanishes from the record. The most unforgiving reading: large anarchism does not merely die young — it is rarely permitted to exist at all. Whether the small survivors represent endurance or surrender is the open question.
+  One caveat carries most of the weight. Counting only experiments that grew large enough to govern territory selects on the outcome: it conditions the sample on having already survived the fragile early phase where internal collapse does most of its killing — schism, drift, economic failure, exhaustion. Most anarchist projects die there, small and unrecorded, at no hand but their own, and almost none of them reach this table. So the honest claim is the narrow one: _once_ an experiment is large enough to rule, it is far likelier to be crushed than to collapse. That is a fact about the survivors, not about anarchism as such.
+
+  Whether a case called itself "anarchist" is neither necessary nor sufficient. That functional test keeps assembly-run cases anarchists merely joined, like Oaxaca and Cherán, on the strength of their form, and drops self-styled ones that kept a state or a strongman. Cases that meet the form only halfway — a dominant party, a mixed governing council — are marked † and treated as borderline. Whether the survivors represent endurance or retreat is left open.
 
   == Appendix
 
@@ -29,7 +35,7 @@
 
   The *bold* phrase in _How it ended_ is the load-bearing claim each source is cited for — the manner of death (or survival) that the chart and the central argument rest on. Start there when checking a reference.
 
-  _† Anarchist-*influenced* rather than anarchist-led — a popular front, indigenous communalism, or worker-cooperative movement that anarchists took part in or claim, rather than a card-carrying anarchist polity. Iceland is older and shakier still: it is cited mostly by anarcho-capitalists and is here only as the one pre-modern outlier._
+  _† Borderline on the functional test — meets the form only halfway: a dominant party over the councils (Rojava's PYD, Bakur's PKK), a governing council with non-anarchist majorities (the Paris Commune, Bavaria's second phase), or federal-republican rather than anarchist leadership (Cartagena, where the anarchist FRE-AIT abstained). Korea sits here too: fronted by a nationalist general, its self-governing programme is thinly evidenced, and the "2 million" is the Manchurian Korean diaspora, not the number it actually governed. Counted, but flagged. Iceland is the pre-modern outlier: stateless but chieftain-ranked rather than assembly-run, and cited mostly by anarcho-capitalists._
 
 #text(size: 8.5pt)[
   #table(
@@ -40,27 +46,26 @@
     table.header([Experiment], [Where / when], [Scale], [Death], [How it ended], [Source]),
     [Revolutionary Catalonia & Aragon], [Spain, 1936–1939], [≈5–8 million in collectives], [Betrayed], [*Undermined by Stalinist allies*, then defeated by Franco], [#link("https://doi.org/10.1177/026569148701700402")[source]],
     [Free Territory (Makhnovshchina)], [Ukraine, 1918–1921], [Up to ≈7 million], [Betrayed], [Used then *liquidated by the Bolsheviks* once the Whites were beaten], [#link("https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921")[source]],
-    [Rojava (AANES)], [North-east Syria, 2012–present], [≈2–4 million], [Alive], [*Survives* under constant military threat from Turkey and others], [#link("https://doi.org/10.1080/21520844.2024.2314447")[source]],
+    [Rojava (AANES) †], [North-east Syria, 2012–present], [≈2–4 million], [Alive], [*Survives* under constant military threat from Turkey and others], [#link("https://doi.org/10.1080/21520844.2024.2314447")[source]],
     [Hungarian workers' councils], [Hungary, 1956], [Millions, briefly], [Crushed], [*Crushed by Soviet tanks* within weeks], [#link("https://doi.org/10.1177/088832540201600208")[source]],
-    [Paris Commune], [Paris, 1871], [≈2 million], [Crushed], [*Crushed by the French Army*; ≈10,000–20,000 killed in the _semaine sanglante_ (toll disputed)], [#link("https://doi.org/10.4000/rh19.78")[source]],
-    [Korean People's Association], [Manchuria, 1929–1931], [≈2 million], [Crushed], [*Caught between Japanese imperial forces and Stalinists*], [#link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[source]],
-    [Biennio Rosso], [Italy, 1919–1920], [≈600,000 workers], [Collapsed], [*Collapsed*; cleared the path for Fascist reaction], [#link("https://libcom.org/article/1918-1921-italian-factory-occupations-and-biennio-rosso")[source]],
+    [Paris Commune †], [Paris, 1871], [≈2 million], [Crushed], [*Crushed by the French Army*; ≈10,000–20,000 killed in the _semaine sanglante_ (toll disputed)], [#link("https://doi.org/10.4000/rh19.78")[source]],
+    [Korean People's Association †], [Manchuria, 1929–1931], [Unknown; ≈2M diaspora], [Crushed], [*Caught between Japanese imperial forces and Stalinists*], [#link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[source]],
+    [Gwangju Commune], [Gwangju, South Korea, 1980], [≈730,000], [Crushed], [*Retaken by army paratroopers* at dawn after ≈6 days of self-rule], [#link("https://libcom.org/article/gwangju-uprising-1980")[source]],
     [Bavarian Council Republic †], [Munich, 1919], [≈600,000], [Crushed], [*Stormed by the Freikorps*; Landauer murdered], [#link("https://doi.org/10.1163/1477285X-12341309")[source]],
+    [Asturian Commune], [Asturias, Spain, 1934], [≈500,000], [Crushed], [*Crushed by the Army of Africa* after ≈2 weeks], [#link("https://doi.org/10.14296/920.9781912702534")[source]],
     [Bakur self-rule †], [South-east Turkey, 2015–2016], [≈400,000], [Crushed], [*Turkish military operations*; districts destroyed, trustees imposed], [#link("https://doi.org/10.1080/13608746.2023.2255017")[source]],
     [Zapatistas (EZLN)], [Chiapas, Mexico, 1994–present], [≈300,000], [Alive], [*Survives*, encircled and pressured by the Mexican state], [#link("https://doi.org/10.1177/0022002709341173")[source]],
-    [Oaxaca Commune (APPO) †], [Oaxaca, Mexico, 2006], [≈200,000], [Crushed], [*Federal police (PFP) crushed the Commune*], [#link("https://doi.org/10.1093/acrefore/9780199366439.013.752")[source]],
+    [Oaxaca Commune (APPO)], [Oaxaca, Mexico, 2006], [≈200,000], [Crushed], [*Federal police (PFP) crushed the Commune*], [#link("https://doi.org/10.1093/acrefore/9780199366439.013.752")[source]],
     [Icelandic Commonwealth], [Iceland, 930–1262], [≈50,000], [Collapsed], [*Collapsed into feuding chieftains*; absorbed by Norway], [#link("https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/")[source]],
     [Strandzha Commune], [Ottoman Thrace, 1903], [Tens of thousands], [Crushed], [*Crushed by the Ottoman army* after ≈20 days], [#link("https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation")[source]],
+    [Cartagena Canton †], [Spain, 1873–1874], [≈26,000], [Crushed], [*Besieged and crushed by the central army*, Jan 1874], [#link("https://doi.org/10.4000/rh19.7784")[source]],
     [Kronstadt Soviet], [Russia, 1921], [≈18,000], [Betrayed], [*Stormed by the Red Army*; rebels executed or exiled], [#link("https://doi.org/10.2307/2492031")[source]],
-    [Cherán †], [Michoacán, Mexico, 2011–present], [≈16,000], [Alive], [*Survives*, legally recognised indigenous autonomy], [#link("https://journals.sagepub.com/doi/full/10.1177/0094582X20975004")[source]],
-    [Recovered factories †], [Argentina, 2001–present], [≈16,000 workers], [Alive], [*Survives*, worker self-management under renewed pressure], [#link("https://doi.org/10.1177/0143831X261438626")[source]],
+    [Cherán], [Michoacán, Mexico, 2011–present], [≈16,000], [Alive], [*Survives*, legally recognised indigenous autonomy], [#link("https://journals.sagepub.com/doi/full/10.1177/0094582X20975004")[source]],
     [Alcoy insurrection], [Alcoy, Spain, 1873], [≈10,000], [Crushed], [*Retaken by the federal army* within days], [#link("https://doi.org/10.4000/rh19.7784")[source]],
-    [Exarcheia], [Athens, 1970s–present], [Thousands], [Alive], [*Survives*, under ongoing police eviction pressure], [#link("https://doi.org/10.1111/anti.13099")[source]],
     [Magonista Baja California], [Mexico, 1911], [Thousands], [Crushed], [*Defeated by federal troops*; the PLM suppressed], [#link("https://sandiegohistory.org/journal/1999/january/magonista/")[source]],
     [Alt Llobregat rising], [Catalonia, Spain, 1932], [≈3,000], [Crushed], [*Retaken by army and Civil Guard*; militants deported], [#link("https://doi.org/10.4000/framespa.4436")[source]],
     [CHAZ / CHOP], [Seattle, USA, 2020], [A few thousand], [Collapsed], [*Collapsed in ≈3 weeks*; cleared by police], [#link("https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf")[source]],
     [Marinaleda], [Spain, 1979–present], [≈2,700], [Alive], [*Survives* as a functioning cooperative], [#link("https://doi.org/10.14288/acme.v19i3.1998")[source]],
-    [Christiania Freetown], [Copenhagen, 1971–present], [≈1,000], [Alive], [*Survives*, semi-legalised, under constant property pressure], [#link("https://doi.org/10.1177/0042098014532852")[source]],
   )
 ]
 
@@ -228,59 +233,50 @@
   - _"After a legal process in November 2011, the indigenous people of Cherán were able to appoint their authorities according to their usos y costumbres: the party system of local politics disappeared, and a council structure was promoted in its stead"_ (p. 12) — the court-won right to self-govern by customary law.
   - _"Cherán currently has a capillary structure for discussion and decisions that guides and controls the Communal Government"_ (p. 12) — the ongoing assembly-based communal government.
 
-  === Gürler (2026) — Winning the right to work through solidarity: The Argentine workers' self-management movement
-
-  #link("https://doi.org/10.1177/0143831X261438626")[Economic and Industrial Democracy (2026)]
-
-  *Summary.* From 2024–2025 fieldwork in six worker-recovered enterprises (Empresas Recuperadas por sus Trabajadores) around Buenos Aires, Gürler examines how Argentine workers reconstruct the right to work through factory occupation, solidarity, and self-management — a living practice rooted in the 2001 crisis.
-
-  *Claim it supports.* _"Survives, worker self-management under renewed pressure"_ (Recovered factories).
-
-  *Quotes.*
-  - _"Today, this historical continuity can be observed in Argentina's worker-recovered enterprises that emerged after the 2001 economic crisis"_ (p. 6) — the movement persists to the present as worker self-management. #text(fill: gray, size: 8pt)[(The fieldwork dates to the Milei presidency and notes a "stronger defence of private property" by authorities, but the article does not name Milei — so the row no longer attributes the pressure to his government specifically.)]
-
   === Moisand (2021) — « Cantonards » et « communeux ». La révolution cantonale espagnole dans l'ombre de la Commune (1873)
 
   #link("https://doi.org/10.4000/rh19.7784")[Revue d'histoire du XIXe siècle (2021)]
 
-  *Summary.* Reads Spain's 1873 cantonal revolution against the shadow of the Paris Commune: dozens of towns declared autonomous "cantons" and monarchist generals of the regular army crushed them within weeks (bar Cartagena). The FRE-AIT judged only Alcoy (revolt of 9–13 July 1873) a genuinely social movement.
+  *Summary.* Reads Spain's 1873 cantonal revolution against the shadow of the Paris Commune: dozens of towns declared autonomous "cantons," run by revolutionary juntas and militias acting without Madrid, and monarchist generals of the regular army crushed them within weeks — bar Cartagena, which held out six months. The FRE-AIT (anarchist International) judged only Alcoy (revolt of 9–13 July 1873) a genuinely social movement; from the federal-republican-led cantons it largely stood aside.
 
-  *Claim it supports.* _"Retaken by the federal army within days"_ (Alcoy insurrection).
+  *Claim it supports.* _"Retaken by the federal army within days"_ (Alcoy insurrection) and _"Besieged and crushed by the central army, Jan 1874"_ (Cartagena Canton).
 
   *Quotes.*
-  - _"Ces derniers abattent les Républiques cantonales en quelques semaines, mais ne parviennent à défaire celle de Carthagène, où se sont réfugiés les insurgés d'autres villes, qu'après six mois de résistance."_ (p. 58) — the army crushed the cantonal republics within a few weeks (only Cartagena held out).
+  - _"Ces derniers abattent les Républiques cantonales en quelques semaines, mais ne parviennent à défaire celle de Carthagène, où se sont réfugiés les insurgés d'autres villes, qu'après six mois de résistance."_ (p. 58) — the army crushed the cantonal republics within weeks; only Cartagena held out, and only after six months' siege — the Cartagena manner of death.
+  - _"la milice de Carthagène se soulève sans attendre les consignes du Comité de salut public de Madrid"_ (Moisand 2021) — Cartagena's own militia rose and governed without waiting on Madrid: the self-governing form. #text(fill: gray, size: 8pt)[(Federal-republican-led, not anarchist — the FRE-AIT abstained — so Cartagena is counted on the functional test and flagged †.)]
   - _"seul le canton d'Alcoy (une ville textile dont les ouvriers s'étaient révoltés entre le 9 et le 13 juillet 1873) pouvait être interprété comme un mouvement social."_ (p. 60) — dates the Alcoy rising to a four-day span (9–13 July). #text(fill: gray, size: 8pt)[(The article centres on Cartagena; it dates and situates Alcoy's brief rising but has no sentence narrating its specific recapture.)]
 
-  === Apostolopoulou & Liodaki (2025) — Austerity Infrastructure, Gentrification, and Spatial Violence: A Ceaseless Battle over Urban Space in Exarcheia
+  === Matthew Kerry (2020) — Unite, Proletarian Brothers! Radicalism and Revolution in the Spanish Second Republic
 
-  #link("https://doi.org/10.1111/anti.13099")[Antipode 57(1) (2025)]
+  #link("https://doi.org/10.14296/920.9781912702534")[University of London Press (2020) · open access]
 
-  *Summary.* Examines Athens' Exarcheia, where austerity-era neglect meets profit-driven regeneration (a new metro station, Strefi Hill). From participatory action research, it documents heavy securitisation, continuous policing, and eviction pressure as tools of gentrification — a "ceaseless battle" in which residents persist.
+  *Summary.* An open-access academic monograph on radicalism in the Spanish Second Republic, centred on the October 1934 Asturian insurrection, when miners and workers seized the coalfield towns and ran them through revolutionary committees before the state crushed the rising with the Army of Africa.
 
-  *Claim it supports.* _"Survives, under ongoing police eviction pressure"_ (Exarcheia).
-
-  *Quotes.*
-  - _"the Square is not merely a construction area but can be likened to a battleground, primarily due to the presence of metal barriers and the continuous police presence in the neighbourhood's core."_ (p. 18) — ongoing police pressure at Exarcheia's centre.
-  - _"control and policing strategies leading to eviction and displacement under the guise of urban revitalisation"_ (p. 22) — policing as eviction pressure.
-  - _"Facing increasing authoritarianism, they persist in resisting, collaborating, and striving within social movements and legal battles"_ (p. 24) — residents endure and continue the fight.
-
-  === Coppola & Vanolo (2015) — Normalising Autonomous Spaces: Ongoing Transformations in Christiania, Copenhagen
-
-  #link("https://doi.org/10.1177/0042098014532852")[Urban Studies (2015)]
-
-  *Summary.* Christiania, squatted in 1971 in central Copenhagen, reached a 2011 agreement letting inhabitants collectively buy most of their land while regulating previously self-governed domains. The authors read this "normalisation" as a hybrid of autonomy and neoliberalism that secures survival while eroding autonomy under market and legal pressure.
-
-  *Claim it supports.* _"Survives, semi-legalised, under constant property pressure"_ (Christiania Freetown).
+  *Claim it supports.* _"Crushed by the Army of Africa after ≈2 weeks"_ (Asturian Commune).
 
   *Quotes.*
-  - _"If on the one hand the agreement apparently guarantees the survival of Christiania, on the other hand it regulates various domains that used to be self-regulated by the community, and therefore limits Christiania's autonomy."_ (p. 1152) — survival secured only by accepting external regulation.
-  - _"the Danish government concluded an agreement enabling inhabitants of Christiania to buy collectively most of the land on which they live at the price of about 76 million kroner (14 million euro)"_ (p. 1158) — the community persists by buying its land under financial pressure.
+  - _"The towns and villages of the narrow, steep-sided coal valleys lay in the hands of revolutionary committees staffed by local politicians and trade unionists drawn from the ranks of the socialists, anarchists and communists."_ (Introduction) — the self-governing form: committees running the mining basin.
+  - _"After two weeks, the movement was defeated by the Spanish army."_ (Introduction) — the two-week duration and defeat.
+  - _"the Army of Africa was drafted in to crush the insurrection, as it was believed to be more trustworthy and less tainted by domestic politics than the forces on the mainland."_ (concluding analysis) — the manner of death: crushed by the state's colonial troops. #text(fill: gray, size: 8pt)[(Agent-located in the open-access PDF; page numbers approximate — the governance and defeat quotes sit in the Introduction, the Army-of-Africa quote in the concluding chapter.)]
+
+  === Lee Jae-eui (1999) — Gwangju Diary: Beyond Death, Beyond the Darkness of the Age
+
+  #link("https://libcom.org/article/gwangju-uprising-1980")[Gwangju Diary (trans. Seol & Mamatas) · full text via libcom.org]
+
+  *Summary.* The canonical documentary account of the May 1980 Gwangju uprising, compiled from participant testimony with the May 18 Memorial Foundation. After paratroopers were driven out on 21 May, the city of ≈730,000 governed itself for roughly six days through mass rallies and a Citizens' Settlement Committee, until martial-law forces stormed it before dawn on 27 May. #text(fill: gray, size: 8pt)[(An eyewitness/movement source, not peer-reviewed scholarship, but the standard primary account and fully open-access. Gwangju was a citizens' democratic uprising, not a self-described anarchist one — it is here on the functional test, not the label.)]
+
+  *Claim it supports.* _"Retaken by army paratroopers at dawn after ≈6 days of self-rule"_ (Gwangju Commune).
+
+  *Quotes.*
+  - _"In the absence of an administrative state, people relied on one another."_ (ch. 3) — self-organisation without a state.
+  - _"Power, water, and city telephone lines operated normally; there was no looting, no bank robberies, and low rates of crime."_ (ch. 3) — the liberated city functioning under citizen self-rule.
+  - _"At first, state forces shot their M-16s indiscriminately, at any sign of life, even in residential areas."_ (ch. 4) — the army's assault retaking the city on 27 May.
 
   === Francesco D'Alessandro (2020) — The Forgotten Anarchist Commune in Manchuria
 
   #link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[theanarchistlibrary.org · D'Alessandro (2020)]
 
-  *Summary.* After Japan's 1910 annexation of Korea, exiled Korean anarchists built autonomous self-governing districts in Manchuria (the Shinmin district among them), defended by the Army of the North under Kim Jwa-jin. This Manchurian commune of the late 1920s was destroyed by the early 1930s under combined assault from Japanese imperial troops and Moscow-directed Korean communists who assassinated its leaders. #text(fill: gray, size: 8pt)[(A movement-sympathetic source. It says "communists directed from Moscow" (≈ Stalinists) and also names Chinese troops, so the row's "between Japanese and Stalinists" simplifies a fuller multi-party account.)]
+  *Summary.* After Japan's 1910 annexation of Korea, exiled Korean anarchists built autonomous self-governing districts in Manchuria (the Shinmin district among them), defended by the Army of the North under Kim Jwa-jin. This Manchurian commune of the late 1920s was destroyed by the early 1930s under combined assault from Japanese imperial troops and Moscow-directed Korean communists who assassinated its leaders. #text(fill: gray, size: 8pt)[(A movement-sympathetic source. It says "communists directed from Moscow" (≈ Stalinists) and also names Chinese troops, so the row's "between Japanese and Stalinists" simplifies a fuller multi-party account. The one peer-reviewed study — Dongyoun Hwang, _Anarchism in Korea_ (SUNY, 2016) — is far more cautious: the governing body was "strictly speaking, not an anarchist organization," was fronted by the nationalist general Kim Jwa-jin, and its programme may have "existed only on paper"; the ≈2 million is the Korean population of Manchuria, not the number governed, which Hwang says is unknown. Hence the † and the "Unknown" scale.)]
 
   *Claim it supports.* _"Caught between Japanese imperial forces and Stalinists"_ (Korean People's Association).
 
@@ -288,18 +284,6 @@
   - _"The Japanese government sent 35,000 imperial troops into Manchuria and installed a puppet government, the Manchukuo in 1931."_ (§ "by the beginning of the 1930s") — the Japanese imperial-forces pressure.
   - _"At the same time, the Korean Communist Party, directed from Moscow, began infiltrating the Commune and systematically assassinating its anarchist leaders. Kim Jwa-jin was murdered in January 1930."_ — the communist / Stalinist pressure.
   - _"Together, the Japanese Army, the North Korean Communist Army, and the Communist Party infiltrators, along with some Chinese troops surrounded the Commune from the outside and inside and eventually destroyed it."_ — the two-front destruction.
-
-  === libcom.org — 1918–1921: The Italian factory occupations and the Biennio Rosso
-
-  #link("https://libcom.org/article/1918-1921-italian-factory-occupations-and-biennio-rosso")[libcom.org · Italian factory occupations and the Biennio Rosso]
-
-  *Summary.* In 1919–1920 a rank-and-file council movement swept Italy, culminating in September 1920 when roughly half a million workers occupied and self-managed their factories. After a month the reformist CGL and Socialist Party negotiated a return to work in exchange for promised (never-delivered) legal workers' control. With the movement broken, big business turned to the fascist movement to crush the working class.
-
-  *Claim it supports.* _"Collapsed; cleared the path for Fascist reaction"_ (Biennio Rosso).
-
-  *Quotes.*
-  - _"But after over a month, the workers were once again betrayed by the PSI and the CGL. They opposed the movement and promised the state a return to 'normality' in exchange for legalised workers' control alongside the bosses. Of course, the workers' control never materialised."_ (§ September 1920) — the negotiated collapse of the occupation wave.
-  - _"With workers' militancy dampened, big businesses turned en masse to the fascist movement to comprehensively crush the powerful working class, which they did temporarily, but not without meeting stiff resistance."_ (final paragraph) — the defeat opening the way to the fascist reaction.
 
   === Georgi Khadzhiev (1992) — Down with the Sultan, Long Live the Balkan Federation
 
