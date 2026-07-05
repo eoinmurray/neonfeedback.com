@@ -5,11 +5,11 @@
 )
 
 #let body = [
-  There are two kinds of inequality, and telling them apart is the whole game. Confuse them and you will either blame people for outcomes nobody chose, or excuse a rigged system as if it were weather. Most real inequality is a mix of the two, but they have different causes, different moral weight, and different cures, so it pays to pull them apart.
+  It helps to separate two kinds of inequality, even if the line between them is rough. Confuse them and you drift toward one of two errors: blaming people for outcomes nobody chose, or excusing a rigged system as if it were weather. Most real inequality is a mix of the two, and any given case can be hard to sort, but the two tend to have different causes, different moral weight, and different cures, so the attempt seems worth making.
 
   == Emergent inequality
 
-  *Emergent inequality* is the gap that opens from fair-looking rules, with nobody intending it. Start everyone equal, hand them symmetric rules, run the system long enough, and you still get an oligarchy. Nobody cheats; the maths just favours someone.
+  *Emergent inequality* is the gap that opens from fair-looking rules, with nobody intending it. Start everyone equal, hand them symmetric rules, run the system long enough, and you can still end up with an oligarchy. Nobody cheats; the maths just favours someone.
 
   Some games are rigged in a way no player can see. In the yard-sale model, two people repeatedly stake a fixed fraction of the _poorer_ one's wealth on a fair coin: every bet is even, yet one player ends up with everything, because the same stake is ruin for the poor and pocket change for the rich. Multiplicative luck bites the same way: a 50% loss then a 50% gain leaves you at 75%, so a run of fair odds drifts the typical fortune toward zero even as the average climbs.
 
@@ -19,23 +19,19 @@
 
   == Adversarial inequality
 
-  *Adversarial inequality* is the gap that specific, identifiable people open and defend because they profit from it. Here there are names, budgets, and lawyers. Where emergent inequality has a mechanism, this has a beneficiary: someone you can point at.
+  *Adversarial inequality* is the gap that specific, identifiable people open and defend because they profit from it. Here there are names, budgets, and lawyers. Where emergent inequality has a mechanism, so does this, and it is the mirror of compounding: the winnings are spent to protect the winnings.
 
-  It works by *extraction*: taking a cut without adding anything. Landlords bank the value a neighbourhood's improvement creates; patent trolls sue instead of building; publishers lock publicly funded research behind paywalls they paid nothing to fill. The move is to sit between people and what they need, and charge for passage.
+  It starts with extraction, sitting between people and what they need and charging for passage. Landlords bank the value a neighbourhood's improvement creates; patent trolls sue instead of building; commons that were shared (land, water, knowledge, seed) are fenced off and rented back. What extraction throws off then buys the machinery that keeps it coming.
 
-  It works by *capture*: getting hold of the rules themselves. Industries staff the agencies meant to police them and end up drafting the regulations; district lines get drawn so elections are settled before anyone votes; the wealthy fund the lobbying that carves the tax loopholes only they can afford to use. The people the rules were meant to constrain become the people who write them.
-
-  It works by *suppression and enclosure*: shrinking what others hold. Employers keep wages down with non-competes and union-busting. Commons that were shared (land, water, knowledge, seed) get fenced off and rented back. Debt is structured so the borrower can never quite leave. Profit is kept; the harm is exported to poor neighbourhoods, offshore factories, the next generation.
-
-  And over all of it sits *narrative control*: the work of making the arrangement look natural, deserved, inevitable. Think tanks, owned media, and a curated vocabulary ("job creators", "trickle-down") exist so that the people the system fails will explain it to themselves as the way things simply have to be.
+  That machinery is the rules and the story. The rules get captured: industries staff the agencies meant to police them, district lines are drawn before the first vote is cast, and the tax code sprouts loopholes only their authors can afford, until the people a rule was meant to constrain are the ones who write it. The story gets bought: think tanks, owned media, and a curated vocabulary ("job creators", "trickle-down"), so the people the system fails explain it to themselves as the way things simply have to be. Each turn of the loop makes the next extraction easier to defend.
 
   == So what
 
-  In practice the two feed each other. Emergent dynamics open the gap; whoever lands on top then spends the winnings keeping it open: buying the think tanks, capturing the regulators, writing the rules. The emergence may be blameless. The maintenance almost never is.
+  In practice the two feed each other: emergent dynamics open the gap, and whoever lands on top turns the winnings to holding it open. The emergence may be blameless. The maintenance almost never is.
 
-  The distinction matters because it kills a favourite excuse: _this is just what happens when free people get on with their lives, so nobody's to blame and there's nothing to be done._ Half true. Much inequality does arrive unintended, but a process can be innocent at the start and ugly at the end, and the sane response is to change the process, not to admire how cleverly it works. The other half is plainer once you look: rent-seekers, captured regulators, and paid-for stories are not accidents. They are load-bearing. They are how the structure stays upright.
+  The distinction matters because it kills a favourite excuse: _this is just what happens when free people get on with their lives, so nobody's to blame and there's nothing to be done._ Half true. Much inequality does arrive unintended, but a process can be innocent at the start and ugly at the end, and the more useful response is to change the process, not to admire how cleverly it works. The other half is plainer once you look: rent-seekers, captured regulators, and paid-for stories are not accidents. They are load-bearing. They are how the structure stays upright.
 
-  The fix has one shape in both halves, even where the targets differ. Where the dynamics push the wrong way, build rules that push back: cap the runaway, tax the compounding, raise the floor. Where people have built machinery to stop you, confront it and take it apart. Neither is easy; neither is mysterious.
+  The response has roughly one shape in both halves, even where the targets differ. Where the dynamics push the wrong way, build rules that push back: cap the runaway, tax the compounding, raise the floor. Where people have built machinery to stop you, confront it and take it apart. Neither is easy, and neither is guaranteed to work; but neither is mysterious.
 
-  Inequality is a choice. It can be unchosen. The main thing keeping it in place is the belief that it can't be.
+  Emergent or adversarial, none of it is quite weather. One grew from the rules, the other was built by hand, and neither is as fixed as it can look. Part of what keeps it in place is the belief that it can't be changed at all.
 ]
