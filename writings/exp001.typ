@@ -63,4 +63,52 @@
     [Christiania Freetown], [Copenhagen, 1971–present], [≈1,000], [Alive], [*Survives*, semi-legalised, under constant property pressure], [#link("https://doi.org/10.1177/0042098014532852")[source]],
   )
 ]
+
+  == Grounding the sources
+
+  A claim-verification companion built with the demolab _ground-claims_ runbook: for each cited source I could retrieve, the verbatim sentence(s) that back that row's manner-of-death claim. Quotes are agent-located pointers, self-checked for verbatim match but *not* independently verified — confirm against the source before citing.
+
+  === Lawrence D. Taylor (1999) — The Magonista Revolt in Baja California
+
+  #link("https://sandiegohistory.org/journal/1999/january/magonista/")[Journal of San Diego History (1999)]
+
+  *Summary.* A narrative history of the 1911 PLM ("Magonista") armed incursion into Baja California — the Liberal columns' capture of Mexicali and Tijuana, the movement's internal fragmentation, and its military defeat by Mexican federal forces. Taylor weighs and rejects the "filibuster / capitalist conspiracy" reading, treating it as a genuine if disorganised revolutionary episode.
+
+  *Claim it supports.* _"Defeated by federal troops; the PLM suppressed"_ (Magonista Baja California).
+
+  *Quotes.*
+  - _"After a three-hour combat, the small Liberal force, outnumbered and outmaneuvered by the federals, was routed."_ (§ the June 1911 defeat at Tijuana) — the federal military defeat the claim names.
+  - _"With the defeat of the Second Division, the formal Magonista campaign in Baja California came to an end, even though armed Liberal parties continued to stage cross-border raids into the territory up until early 1914."_ (§ end of the campaign) — the suppression of the PLM campaign.
+
+  === Seattle Office of Inspector General (2021) — Sentinel Event Review, Wave 3
+
+  #link("https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf")[seattle.gov · OIG Sentinel Event Review, Wave 3 (PDF)]
+
+  *Summary.* The report reviews the Seattle Police Department's response to protests from 8 June to 1 July 2020, when SPD vacated the East Precinct and the Capitol Hill Organized Protest (CHOP) — originally the Capitol Hill Autonomous Zone (CHAZ) — was established. The zone persisted 23 days until the Mayor ordered police to clear it following several shootings.
+
+  *Claim it supports.* _"Collapsed in ≈3 weeks; cleared by police"_ (CHAZ / CHOP).
+
+  *Quotes.*
+  - _"The CHOP existed for the next 23 days."_ (p. 11) — the ≈3-week (23-day) duration.
+  - _"The CHOP existed until July 1, 2020, during which time several shootings occurred, prompting the Mayor to order SPD to clear the area."_ (p. 6) — the end date and the police clearing.
+
+  === Candón-Mena & Domínguez-Jaime (2020) — La Autoconstrucción de Viviendas en Marinaleda
+
+  #link("https://doi.org/10.14288/acme.v19i3.1998")[ACME: An International Journal for Critical Geographies (2020)]
+
+  *Summary.* Analyses Marinaleda's (Andalusia) self-built housing programme through Ostrom's commons-governance framework, as a case of the Social Production of Habitat built on self-management, mutual aid, and collective property. From long-term fieldwork, it argues the scheme functions as a self-governed common good sustained by an organised community. (Quotes are in the original Spanish.)
+
+  *Claim it supports.* _"Survives as a functioning cooperative"_ (Marinaleda).
+
+  *Quotes.*
+  - _"el pueblo se ha caracterizado por mantener durante años una intensa movilización que se ha materializado en grandes logros sociales, sobre todo en materia de empleo (Cooperativa El Humoso, Escuela Taller) y de vivienda (autoconstrucción)"_ (p. 690) — years of sustained mobilisation yielding lasting cooperative achievements in work and housing.
+  - _"el papel preponderante de las formas de autogestión (asamblea del pueblo y de beneficiarios); el principio de ayuda mutua (recursos públicos cedidos por el Ayuntamiento y trabajo voluntario de la comunidad); y la propiedad colectiva"_ (p. 698) — the case is defined by ongoing self-management, mutual aid, and collective property.
+
+  === Not yet grounded
+
+  The runbook never invents quotes, so these rows await their source text. Provide the file (or clear the bot-wall in a browser) and each can be completed.
+
+  - *Open access, but behind a browser bot-wall* (retrievable in a browser, not by automated fetch): Alcoy (Moisand, _Revue d'histoire du XIXe siècle_, 2021); Alt Llobregat (Herrerín López, _Les Cahiers de Framespa_, 2017); Cherán (Gasparello, _Latin American Perspectives_, 2021); Exarcheia (Apostolopoulou & Liodaki, _Antipode_, 2025).
+  - *Paywalled — provide the PDF:* Catalonia (Casanova, _European History Quarterly_, 1987); Makhno (Altınörs, _Capitalism Nature Socialism_, 2023); Rojava (Ahmad, MacTavish & Christie, _Journal of the Middle East and Africa_, 2024); Hungary (Granville, _East European Politics and Societies_, 2002); Biennio Rosso (Di Paola, _Encyclopedia of Revolution and Protest_, 2009); Bavaria (Cohen-Skalli & Pisano, _Journal of Jewish Thought and Philosophy_, 2020); Bakur (Bayer & Kemahlıoğlu, _South European Society and Politics_, 2023); Zapatistas (Inclán, _Journal of Conflict Resolution_, 2009); Oaxaca (Estrada Saavedra, _Oxford Research Encyclopedia_, 2020); Iceland (Byock, _Viator_, 1986); Kronstadt (Daniels, _American Slavic and East European Review_, 1951); Recovered factories (Gürler, _Economic and Industrial Democracy_, 2026); Christiania (Coppola & Vanolo, _Urban Studies_, 2015).
+  - *Books — provide scans of the cited pages:* Paris Commune (Tombs, _The Paris Commune 1871_, 1999); Korea (Hwang, _Anarchism in Korea_, 2016); Strandzha (Perry, _The Politics of Terror_, 1988).
 ]
