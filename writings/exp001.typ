@@ -8,26 +8,26 @@
 #let run = json("/artifacts/data/exp001/numbers.json")
 
 #let body = [
-  Anarchism is often said never to have been tried. It has been, several times, at some scale. The question here is narrow: not whether it works, but how these experiments tend to end.
+  Anarchism is often said never to have been tried, or to be internally unstable. It has been tried, several times, at some scale. This is no study. The record is too thin and the sample too hand-picked for that; it is only a narrow attempt to refute the second charge: that anarchism dies of its own contradictions, at its own hand.
 
   A word on what counts, before the tally. The test here is functional, not a label:
 
-  #quote(block: true)[A case qualifies if it governed a population and territory — however briefly — through stateless, federated self-organization: directly-democratic assemblies or councils, recallable delegates, no standing state and no vanguard party over the whole.]
+  #quote(block: true)[A case qualifies if it governed a population and territory, however briefly, through stateless, federated self-organization: directly-democratic assemblies or councils, recallable delegates, no standing state and no vanguard party over the whole.]
 
-  What follows is a small, hand-picked _sample_ of the historical record — the #run.n_experiments cases in the appendix below, far too few for statistics and certainly not exhaustive, but enough to suggest a shape. Sorted by cause of death, they fall unevenly.
+  What follows is that _sample_: the #run.n_experiments cases in the appendix below, not exhaustive but enough to suggest a shape. Sorted by cause of death, they fall unevenly.
 
   #figure(
     image("/artifacts/data/exp001/deaths.png", width: 100%),
     caption: [How the #run.n_experiments anarchist experiments ended, tallied by cause. Crushed by a state is the most common ending; collapse from within is the least.],
   )
 
-  Of the #run.n_ended experiments that ended, only #run.n_collapsed actually _collapsed_ from within. The other #run.n_killed were killed — #run.n_crushed crushed by an enemy state, #run.n_betrayed betrayed by the authoritarian left they had fought alongside. The remaining #run.n_ongoing are still alive, and nearly all of them are small.
+  Of the #run.n_ended experiments that ended, only #run.n_collapsed actually _collapsed_ from within. The other #run.n_killed were killed: #run.n_crushed crushed by an enemy state, #run.n_betrayed betrayed by the authoritarian left they had fought alongside. The remaining #run.n_ongoing are still alive, and nearly all of them are small.
 
-  This runs against the usual explanation. Anarchism is generally expected to fail because it cannot scale — because without a state it dissolves into disorder. In this sample, though, collapse from within is the rarest ending. More often the experiments were ended from outside: usually by a state, and in the two largest cases by the authoritarian left they had allied with. Makhno's Free Territory and revolutionary Catalonia, the biggest on the list, were dismantled by the Bolsheviks and Stalinists rather than by their declared enemies.
+  This runs against the usual explanation. Anarchism is generally expected to fail because it cannot scale. Without a state, the thinking goes, it dissolves into disorder. In this sample, though, collapse from within is the rarest ending. More often the experiments were ended from outside: usually by a state, and in the two largest cases by the authoritarian left they had allied with. Makhno's Free Territory and revolutionary Catalonia, the biggest on the list, were dismantled by the Bolsheviks and Stalinists rather than by their declared enemies.
 
-  One caveat carries most of the weight. Counting only experiments that grew large enough to govern territory selects on the outcome: it conditions the sample on having already survived the fragile early phase where internal collapse does most of its killing — schism, drift, economic failure, exhaustion. Most anarchist projects die there, small and unrecorded, at no hand but their own, and almost none of them reach this table. So the honest claim is the narrow one: _once_ an experiment is large enough to rule, it is far likelier to be crushed than to collapse. That is a fact about the survivors, not about anarchism as such.
+  One caveat carries most of the weight. Counting only experiments that grew large enough to govern territory selects on the outcome: it conditions the sample on having already survived the fragile early phase where internal collapse does most of its killing: schism, drift, economic failure, exhaustion. Most anarchist projects die there, small and unrecorded, at no hand but their own, and almost none of them reach this table. So the honest claim is the narrow one: _once_ an experiment is large enough to rule, it is far likelier to be crushed than to collapse. That is a fact about the survivors, not about anarchism as such.
 
-  Whether a case called itself "anarchist" is neither necessary nor sufficient. That functional test keeps assembly-run cases anarchists merely joined, like Oaxaca and Cherán, on the strength of their form, and drops self-styled ones that kept a state or a strongman. Cases that meet the form only halfway — a dominant party, a mixed governing council — are marked † and treated as borderline. Whether the survivors represent endurance or retreat is left open.
+  Whether a case called itself "anarchist" is neither necessary nor sufficient. That functional test keeps assembly-run cases anarchists merely joined, like Oaxaca and Cherán, on the strength of their form, and drops self-styled ones that kept a state or a strongman. Cases that meet the form only halfway, with a dominant party or a mixed governing council, are marked † and treated as borderline. Whether the survivors represent endurance or retreat is left open.
 
   == Appendix
 
@@ -314,13 +314,13 @@
 
   #link("https://doi.org/10.4000/rh19.78")[Revue d'histoire du XIXe siècle 10 (1994)]
 
-  *Summary.* Tombs re-examines the death toll of the 1871 Bloody Week, when the Versaillais army retook Paris and executed Communards. He traces how a high figure entered republican historiography (the ~17,000 consensus; Pelletan's higher counts) and argues it was inflated, proposing a downward estimate of roughly 10,000 — most of them victims of organised, quasi-legal mass killings. (In French.)
+  *Summary.* Tombs re-examines the death toll of the 1871 Bloody Week, when the Versaillais army retook Paris and executed Communards. He traces how a high figure entered republican historiography (the ≈17,000 consensus; Pelletan's higher counts) and argues it was inflated, proposing a downward estimate of roughly 10,000 — most of them victims of organised, quasi-legal mass killings. (In French.)
 
   *Claim it supports.* _"Crushed by the French Army; ≈10,000–20,000 killed in the semaine sanglante (toll disputed)"_ (Paris Commune).
 
   *Quotes.*
-  - _"Avec Seignobos et Lavisse se dessine un consensus républicain, la répression entre dans les livres d'histoire et les manuels et l'on retient le chiffre de 17 000 morts."_ (§ the historiography) — the traditional republican figure of ~17,000 dead.
-  - _"il est possible de faire une estimation approximative de 10 000 victimes"_ (§ Tombs' estimate) — Tombs' own downward revision to ~10,000, i.e. the toll is contested.
+  - _"Avec Seignobos et Lavisse se dessine un consensus républicain, la répression entre dans les livres d'histoire et les manuels et l'on retient le chiffre de 17 000 morts."_ (§ the historiography) — the traditional republican figure of ≈17,000 dead.
+  - _"il est possible de faire une estimation approximative de 10 000 victimes"_ (§ Tombs' estimate) — Tombs' own downward revision to ≈10,000, i.e. the toll is contested.
   - _"il apparaît qu'une très importante proportion des morts de la Semaine sanglante, voire la majorité des exécutés, aient été les victimes de tueries organisées et quasi-légales"_ (§ the killings) — the mass, organised killings by the Versaillais forces.
 
   === Jesse L. Byock (2001) — Viking Age Iceland
