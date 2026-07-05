@@ -8,11 +8,13 @@
 #let run = json("/artifacts/data/exp001/numbers.json")
 
 #let body = [
-  Anarchism is often said never to have been tried, or to be internally unstable. It has been tried, several times, at some scale. This is no study. The record is too thin and the sample too hand-picked for that; it is only a narrow attempt to refute the second charge: that anarchism dies of its own contradictions, at its own hand.
+  Anarchism is often said never to have been tried, or to be internally unstable. It has been tried, several times, at some scale. This is no study, the record is too thin and the sample too hand-picked for that; it is only a narrow attempt to refute the second charge: that anarchism dies of its own contradictions, at its own hand.
 
   A word on what counts, before the tally. The test here is functional, not a label:
 
-  #quote(block: true)[A case qualifies if it governed a population and territory, however briefly, through stateless, federated self-organization: directly-democratic assemblies or councils, recallable delegates, no standing state and no vanguard party over the whole.]
+  #quote(
+    block: true,
+  )[A case qualifies if it governed a population and territory, however briefly, through stateless, federated self-organization: directly-democratic assemblies or councils, recallable delegates, no standing state and no vanguard party over the whole, and existed with a population of 2,500 or more.]
 
   What follows is that _sample_: the #run.n_experiments cases in the appendix below, not exhaustive but enough to suggest a shape. Sorted by cause of death, they fall unevenly.
 
@@ -37,41 +39,180 @@
 
   _† Borderline on the functional test — meets the form only halfway: a dominant party over the councils (Rojava's PYD, Bakur's PKK), a governing council with non-anarchist majorities (the Paris Commune, Bavaria's second phase), or federal-republican rather than anarchist leadership (Cartagena, where the anarchist FRE-AIT abstained). Korea sits here too: fronted by a nationalist general, its self-governing programme is thinly evidenced, and the "2 million" is the Manchurian Korean diaspora, not the number it actually governed. Counted, but flagged. Iceland is the pre-modern outlier: stateless but chieftain-ranked rather than assembly-run, and cited mostly by anarcho-capitalists._
 
-#text(size: 8.5pt)[
-  #table(
-    columns: (1.4fr, 1fr, 0.95fr, 0.6fr, 1.9fr, 0.5fr),
-    align: (left + top,) * 6,
-    inset: 5pt,
-    stroke: 0.4pt + luma(70%),
-    table.header([Experiment], [Where / when], [Scale], [Death], [How it ended], [Source]),
-    [Revolutionary Catalonia & Aragon], [Spain, 1936–1939], [≈5–8 million in collectives], [Betrayed], [*Undermined by Stalinist allies*, then defeated by Franco], [#link("https://doi.org/10.1177/026569148701700402")[source]],
-    [Free Territory (Makhnovshchina)], [Ukraine, 1918–1921], [Up to ≈7 million], [Betrayed], [Used then *liquidated by the Bolsheviks* once the Whites were beaten], [#link("https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921")[source]],
-    [Rojava (AANES) †], [North-east Syria, 2012–present], [≈2–4 million], [Alive], [*Survives* under constant military threat from Turkey and others], [#link("https://doi.org/10.1080/21520844.2024.2314447")[source]],
-    [Hungarian workers' councils], [Hungary, 1956], [Millions, briefly], [Crushed], [*Crushed by Soviet tanks* within weeks], [#link("https://doi.org/10.1177/088832540201600208")[source]],
-    [Paris Commune †], [Paris, 1871], [≈2 million], [Crushed], [*Crushed by the French Army*; ≈10,000–20,000 killed in the _semaine sanglante_ (toll disputed)], [#link("https://doi.org/10.4000/rh19.78")[source]],
-    [Korean People's Association †], [Manchuria, 1929–1931], [Unknown; ≈2M diaspora], [Crushed], [*Caught between Japanese imperial forces and Stalinists*], [#link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[source]],
-    [Gwangju Commune], [Gwangju, South Korea, 1980], [≈730,000], [Crushed], [*Retaken by army paratroopers* at dawn after ≈6 days of self-rule], [#link("https://libcom.org/article/gwangju-uprising-1980")[source]],
-    [Bavarian Council Republic †], [Munich, 1919], [≈600,000], [Crushed], [*Stormed by the Freikorps*; Landauer murdered], [#link("https://doi.org/10.1163/1477285X-12341309")[source]],
-    [Asturian Commune], [Asturias, Spain, 1934], [≈500,000], [Crushed], [*Crushed by the Army of Africa* after ≈2 weeks], [#link("https://doi.org/10.14296/920.9781912702534")[source]],
-    [Bakur self-rule †], [South-east Turkey, 2015–2016], [≈400,000], [Crushed], [*Turkish military operations*; districts destroyed, trustees imposed], [#link("https://doi.org/10.1080/13608746.2023.2255017")[source]],
-    [Zapatistas (EZLN)], [Chiapas, Mexico, 1994–present], [≈300,000], [Alive], [*Survives*, encircled and pressured by the Mexican state], [#link("https://doi.org/10.1177/0022002709341173")[source]],
-    [Oaxaca Commune (APPO)], [Oaxaca, Mexico, 2006], [≈200,000], [Crushed], [*Federal police (PFP) crushed the Commune*], [#link("https://doi.org/10.1093/acrefore/9780199366439.013.752")[source]],
-    [Icelandic Commonwealth], [Iceland, 930–1262], [≈50,000], [Collapsed], [*Collapsed into feuding chieftains*; absorbed by Norway], [#link("https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/")[source]],
-    [Strandzha Commune], [Ottoman Thrace, 1903], [Tens of thousands], [Crushed], [*Crushed by the Ottoman army* after ≈20 days], [#link("https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation")[source]],
-    [Cartagena Canton †], [Spain, 1873–1874], [≈26,000], [Crushed], [*Besieged and crushed by the central army*, Jan 1874], [#link("https://doi.org/10.4000/rh19.7784")[source]],
-    [Kronstadt Soviet], [Russia, 1921], [≈18,000], [Betrayed], [*Stormed by the Red Army*; rebels executed or exiled], [#link("https://doi.org/10.2307/2492031")[source]],
-    [Cherán], [Michoacán, Mexico, 2011–present], [≈16,000], [Alive], [*Survives*, legally recognised indigenous autonomy], [#link("https://journals.sagepub.com/doi/full/10.1177/0094582X20975004")[source]],
-    [Alcoy insurrection], [Alcoy, Spain, 1873], [≈10,000], [Crushed], [*Retaken by the federal army* within days], [#link("https://doi.org/10.4000/rh19.7784")[source]],
-    [Magonista Baja California], [Mexico, 1911], [Thousands], [Crushed], [*Defeated by federal troops*; the PLM suppressed], [#link("https://sandiegohistory.org/journal/1999/january/magonista/")[source]],
-    [Alt Llobregat rising], [Catalonia, Spain, 1932], [≈3,000], [Crushed], [*Retaken by army and Civil Guard*; militants deported], [#link("https://doi.org/10.4000/framespa.4436")[source]],
-    [CHAZ / CHOP], [Seattle, USA, 2020], [A few thousand], [Collapsed], [*Collapsed in ≈3 weeks*; cleared by police], [#link("https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf")[source]],
-    [Marinaleda], [Spain, 1979–present], [≈2,700], [Alive], [*Survives* as a functioning cooperative], [#link("https://doi.org/10.14288/acme.v19i3.1998")[source]],
-  )
-]
+  #text(size: 8.5pt)[
+    #table(
+      columns: (1.4fr, 1fr, 0.95fr, 0.6fr, 1.9fr, 0.5fr),
+      align: (left + top,) * 6,
+      inset: 5pt,
+      stroke: 0.4pt + luma(70%),
+      table.header([Experiment], [Where / when / how long], [Scale], [Death], [How it ended], [Source]),
+      [Revolutionary Catalonia & Aragon],
+      [Spain, 1936–1939 · 3 yrs],
+      [≈5–8 million in collectives],
+      [Betrayed],
+      [*Undermined by Stalinist allies*, then defeated by Franco],
+      [#link("https://doi.org/10.1177/026569148701700402")[source]],
+
+      [Free Territory (Makhnovshchina)],
+      [Ukraine, 1918–1921 · 3 yrs],
+      [Up to ≈7 million],
+      [Betrayed],
+      [Used then *liquidated by the Bolsheviks* once the Whites were beaten],
+      [#link(
+        "https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921",
+      )[source]],
+
+      [Rojava (AANES) †],
+      [North-east Syria, 2012–present · 14 yrs],
+      [≈2–4 million],
+      [Alive],
+      [*Survives* under constant military threat from Turkey and others],
+      [#link("https://doi.org/10.1080/21520844.2024.2314447")[source]],
+
+      [Hungarian workers' councils],
+      [Hungary, 1956 · ≈3 months],
+      [Millions, briefly],
+      [Crushed],
+      [*Crushed by Soviet tanks* within weeks],
+      [#link("https://doi.org/10.1177/088832540201600208")[source]],
+
+      [Paris Commune †],
+      [Paris, 1871 · 72 days],
+      [≈2 million],
+      [Crushed],
+      [*Crushed by the French Army*; ≈10,000–20,000 killed in the _semaine sanglante_ (toll disputed)],
+      [#link("https://doi.org/10.4000/rh19.78")[source]],
+
+      [Korean People's Association †],
+      [Manchuria, 1929–1931 · 2 yrs],
+      [Unknown; ≈2M diaspora],
+      [Crushed],
+      [*Caught between Japanese imperial forces and Stalinists*],
+      [#link(
+        "https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria",
+      )[source]],
+
+      [Gwangju Commune],
+      [Gwangju, South Korea, 1980 · ≈6 days],
+      [≈730,000],
+      [Crushed],
+      [*Retaken by army paratroopers* at dawn after ≈6 days of self-rule],
+      [#link("https://libcom.org/article/gwangju-uprising-1980")[source]],
+
+      [Bavarian Council Republic †],
+      [Munich, 1919 · ≈4 weeks],
+      [≈600,000],
+      [Crushed],
+      [*Stormed by the Freikorps*; Landauer murdered],
+      [#link("https://doi.org/10.1163/1477285X-12341309")[source]],
+
+      [Asturian Commune],
+      [Asturias, Spain, 1934 · ≈2 weeks],
+      [≈500,000],
+      [Crushed],
+      [*Crushed by the Army of Africa* after ≈2 weeks],
+      [#link("https://doi.org/10.14296/920.9781912702534")[source]],
+
+      [Bakur self-rule †],
+      [South-east Turkey, 2015–2016 · ≈8 months],
+      [≈400,000],
+      [Crushed],
+      [*Turkish military operations*; districts destroyed, trustees imposed],
+      [#link("https://doi.org/10.1080/13608746.2023.2255017")[source]],
+
+      [Zapatistas (EZLN)],
+      [Chiapas, Mexico, 1994–present · 32 yrs],
+      [≈300,000],
+      [Alive],
+      [*Survives*, encircled and pressured by the Mexican state],
+      [#link("https://doi.org/10.1177/0022002709341173")[source]],
+
+      [Oaxaca Commune (APPO)],
+      [Oaxaca, Mexico, 2006 · ≈6 months],
+      [≈200,000],
+      [Crushed],
+      [*Federal police (PFP) crushed the Commune*],
+      [#link("https://doi.org/10.1093/acrefore/9780199366439.013.752")[source]],
+
+      [Icelandic Commonwealth],
+      [Iceland, 930–1262 · 332 yrs],
+      [≈50,000],
+      [Collapsed],
+      [*Collapsed into feuding chieftains*; absorbed by Norway],
+      [#link("https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/")[source]],
+
+      [Strandzha Commune],
+      [Ottoman Thrace, 1903 · ≈20 days],
+      [Tens of thousands],
+      [Crushed],
+      [*Crushed by the Ottoman army* after ≈20 days],
+      [#link(
+        "https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation",
+      )[source]],
+
+      [Cartagena Canton †],
+      [Spain, 1873–1874 · ≈6 months],
+      [≈26,000],
+      [Crushed],
+      [*Besieged and crushed by the central army*, Jan 1874],
+      [#link("https://doi.org/10.4000/rh19.7784")[source]],
+
+      [Kronstadt Soviet],
+      [Russia, 1921 · ≈16 days],
+      [≈18,000],
+      [Betrayed],
+      [*Stormed by the Red Army*; rebels executed or exiled],
+      [#link("https://doi.org/10.2307/2492031")[source]],
+
+      [Cherán],
+      [Michoacán, Mexico, 2011–present · 15 yrs],
+      [≈16,000],
+      [Alive],
+      [*Survives*, legally recognised indigenous autonomy],
+      [#link("https://journals.sagepub.com/doi/full/10.1177/0094582X20975004")[source]],
+
+      [Alcoy insurrection],
+      [Alcoy, Spain, 1873 · ≈5 days],
+      [≈10,000],
+      [Crushed],
+      [*Retaken by the federal army* within days],
+      [#link("https://doi.org/10.4000/rh19.7784")[source]],
+
+      [Magonista Baja California],
+      [Mexico, 1911 · ≈6 months],
+      [Thousands],
+      [Crushed],
+      [*Defeated by federal troops*; the PLM suppressed],
+      [#link("https://sandiegohistory.org/journal/1999/january/magonista/")[source]],
+
+      [Alt Llobregat rising],
+      [Catalonia, Spain, 1932 · ≈6 days],
+      [≈3,000],
+      [Crushed],
+      [*Retaken by army and Civil Guard*; militants deported],
+      [#link("https://doi.org/10.4000/framespa.4436")[source]],
+
+      [CHAZ / CHOP],
+      [Seattle, USA, 2020 · ≈3 weeks],
+      [A few thousand],
+      [Collapsed],
+      [*Collapsed in ≈3 weeks*; cleared by police],
+      [#link(
+        "https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf",
+      )[source]],
+
+      [Marinaleda],
+      [Spain, 1979–present · 47 yrs],
+      [≈2,700],
+      [Alive],
+      [*Survives* as a functioning cooperative],
+      [#link("https://doi.org/10.14288/acme.v19i3.1998")[source]],
+    )
+  ]
 
   == Grounding the sources
 
-  A claim-verification companion built with the demolab _ground-claims_ runbook: for each cited source I could retrieve, the verbatim sentence(s) that back that row's manner-of-death claim. Quotes are agent-located pointers, self-checked for verbatim match but *not* independently verified — confirm against the source before citing.
+  A claim-verification companion built with the demolab #link("https://github.com/eoinmurray/demolab/blob/main/demolab-engine/runbooks/GROUND-CLAIMS.md")[_ground-claims_ runbook]: for each cited source I could retrieve, the verbatim sentence(s) that back that row's manner-of-death claim. Quotes are agent-located pointers, self-checked for verbatim match but *not* independently verified — confirm against the source before citing.
 
   === Lawrence D. Taylor (1999) — The Magonista Revolt in Baja California
 
@@ -87,7 +228,9 @@
 
   === Seattle Office of Inspector General (2021) — Sentinel Event Review, Wave 3
 
-  #link("https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf")[seattle.gov · OIG Sentinel Event Review, Wave 3 (PDF)]
+  #link(
+    "https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf",
+  )[seattle.gov · OIG Sentinel Event Review, Wave 3 (PDF)]
 
   *Summary.* The report reviews the Seattle Police Department's response to protests from 8 June to 1 July 2020, when SPD vacated the East Precinct and the Capitol Hill Organized Protest (CHOP) — originally the Capitol Hill Autonomous Zone (CHAZ) — was established. The zone persisted 23 days until the Mayor ordered police to clear it following several shootings.
 
@@ -124,7 +267,9 @@
 
   === Peter Arshinov (1921) — History of the Makhnovist Movement, 1918–1921
 
-  #link("https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921")[theanarchistlibrary.org · Arshinov (1921)]
+  #link(
+    "https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921",
+  )[theanarchistlibrary.org · Arshinov (1921)]
 
   *Summary.* A participant history by Peter Arshinov, himself a Makhnovist, of Makhno's anarchist insurgency in Ukraine. It documents the October 1920 military-political pact with the Soviet government against Wrangel, the Whites' November defeat, and the Bolsheviks' 26 November surprise attack that destroyed the Makhnovists once they were no longer needed. #text(fill: gray, size: 8pt)[(A committed partisan source — it asserts Bolshevik bad faith throughout — used because the neutral scholarly article was paywalled and unavailable.)]
 
@@ -198,7 +343,9 @@
 
   === Estrada Saavedra (2020) — The Popular Assembly of the Peoples of Oaxaca (APPO)
 
-  #link("https://doi.org/10.1093/acrefore/9780199366439.013.752")[Oxford Research Encyclopedia of Latin American History (2020)]
+  #link(
+    "https://doi.org/10.1093/acrefore/9780199366439.013.752",
+  )[Oxford Research Encyclopedia of Latin American History (2020)]
 
   *Summary.* In 2006 a teachers' union dispute in Oaxaca escalated into the APPO, which took territorial control of the state capital through barricades, seized media, and a self-managed popular government (the Oaxaca Commune). After failed negotiations, the federal government deployed the Federal Preventive Police (PFP); the experience ended in violent repression.
 
@@ -261,7 +408,9 @@
 
   === Lee Jae-eui (1999) — Gwangju Diary: Beyond Death, Beyond the Darkness of the Age
 
-  #link("https://libcom.org/article/gwangju-uprising-1980")[Gwangju Diary (trans. Seol & Mamatas) · full text via libcom.org]
+  #link(
+    "https://libcom.org/article/gwangju-uprising-1980",
+  )[Gwangju Diary (trans. Seol & Mamatas) · full text via libcom.org]
 
   *Summary.* The canonical documentary account of the May 1980 Gwangju uprising, compiled from participant testimony with the May 18 Memorial Foundation. After paratroopers were driven out on 21 May, the city of ≈730,000 governed itself for roughly six days through mass rallies and a Citizens' Settlement Committee, until martial-law forces stormed it before dawn on 27 May. #text(fill: gray, size: 8pt)[(An eyewitness/movement source, not peer-reviewed scholarship, but the standard primary account and fully open-access. Gwangju was a citizens' democratic uprising, not a self-described anarchist one — it is here on the functional test, not the label.)]
 
@@ -274,7 +423,9 @@
 
   === Francesco D'Alessandro (2020) — The Forgotten Anarchist Commune in Manchuria
 
-  #link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[theanarchistlibrary.org · D'Alessandro (2020)]
+  #link(
+    "https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria",
+  )[theanarchistlibrary.org · D'Alessandro (2020)]
 
   *Summary.* After Japan's 1910 annexation of Korea, exiled Korean anarchists built autonomous self-governing districts in Manchuria (the Shinmin district among them), defended by the Army of the North under Kim Jwa-jin. This Manchurian commune of the late 1920s was destroyed by the early 1930s under combined assault from Japanese imperial troops and Moscow-directed Korean communists who assassinated its leaders. #text(fill: gray, size: 8pt)[(A movement-sympathetic source. It says "communists directed from Moscow" (≈ Stalinists) and also names Chinese troops, so the row's "between Japanese and Stalinists" simplifies a fuller multi-party account. The one peer-reviewed study — Dongyoun Hwang, _Anarchism in Korea_ (SUNY, 2016) — is far more cautious: the governing body was "strictly speaking, not an anarchist organization," was fronted by the nationalist general Kim Jwa-jin, and its programme may have "existed only on paper"; the ≈2 million is the Korean population of Manchuria, not the number governed, which Hwang says is unknown. Hence the † and the "Unknown" scale.)]
 
@@ -287,7 +438,9 @@
 
   === Georgi Khadzhiev (1992) — Down with the Sultan, Long Live the Balkan Federation
 
-  #link("https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation")[theanarchistlibrary.org · Khadzhiev (1992)]
+  #link(
+    "https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation",
+  )[theanarchistlibrary.org · Khadzhiev (1992)]
 
   *Summary.* A partisan anarchist history of the Macedonian and Thracian liberation movement, recounting the 1903 Preobrazhenie (Transfiguration) Uprising in Ottoman Thrace and framing the short-lived "Strandzha Commune" as a spontaneous experiment in libertarian communism, led in part by anarchists like Gerdzhikov. #text(fill: gray, size: 8pt)[(A celebratory, ideological account, not neutral scholarship.)]
 
@@ -325,7 +478,9 @@
 
   === Jesse L. Byock (2001) — Viking Age Iceland
 
-  #link("https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/")[Byock, Viking Age Iceland (Penguin, 2001)]
+  #link(
+    "https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/",
+  )[Byock, Viking Age Iceland (Penguin, 2001)]
 
   *Summary.* Byock's study of the Icelandic Free State (c. 930–1264) as a stateless, feud-regulated society without king or army. Its final phase saw a new elite of "big chieftains" contend for overlordship as endemic feuding escalated into open warfare — the turmoil that ended the Free State in the thirteenth century. #text(fill: gray, size: 8pt)[(Grounded from a partial, OCR'd scan: the "feuding chieftains" half is anchored below in clean English, but the source's narrative of the 1262–4 submission to Norway sits in a later chapter absent from the provided excerpt, so the "absorbed by Norway" half is left unanchored, pending a full text-based copy.)]
 
