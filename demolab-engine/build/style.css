@@ -113,6 +113,15 @@ figcaption,
 /* Breathing room at the foot of an entry page so the last line isn't flush to the edge. */
 .entry-tail { height: 6rem; }
 
+/* Empty state: a freshly-scaffolded repo (no writings) — the homepage's only content. Quiet
+   and instructional, with inline code for the paths/commands to run next. */
+.empty-state { margin: 1.5rem 0; line-height: 1.6; }
+.empty-state code {
+  font-family: var(--mono); font-size: .9em;
+  background: var(--code-bg, rgba(0, 0, 0, .05));
+  padding: .1em .35em; border-radius: 3px;
+}
+
 /* Homepage collection directory: collection-name links, description beneath. These are the
    page's hero items, so they sit one step above body — the middle of the home hierarchy
    (title 28.8 → collection 20.7 → description 15.3). */

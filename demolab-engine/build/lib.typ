@@ -146,12 +146,13 @@
 }
 
 // Render items grouped by kind — Articles, then Experiments, then Slides — each a level-2
-// section (empty groups dropped), rows newest-first. Shared by the all-entries page and
-// each collection page so both organise the same way.
-#let grouped-entry-lists(items, show-collection: false, collection-meta: (:)) = {
+// section (empty groups dropped). Shared by the all-entries page and each collection page.
+// Rows sort descending: by date on the all-entries feed (newest first), by id on a
+// collection page (`sort-by-id`, so higher ids sit on top).
+#let grouped-entry-lists(items, show-collection: false, collection-meta: (:), sort-by-id: false) = {
   let groups = (("article", "Articles"), ("experiment", "Experiments"), ("deck", "Slides"))
   for (k, title) in groups {
-    let g = items.filter(x => x.kind == k).sorted(key: x => x.date).rev()
+    let g = items.filter(x => x.kind == k).sorted(key: x => if sort-by-id { x.id } else { x.date }).rev()
     if g.len() > 0 {
       heading(level: 2, title)
       entry-list(g, show-collection: show-collection, collection-meta: collection-meta)
@@ -191,9 +192,6 @@
   // Left-align figure captions. In the PDF, align() does it; in HTML, style.css's
   // figcaption rule does — so the align (a paged-only fn) never runs during HTML export.
   show figure.caption: it => context { if target() == "html" { it } else { align(left, it) } }
-  // Colour links in the paged/PDF target so they read as links there too (the web
-  // styles <a> via style.css). #link is clickable in both regardless.
-  show link: it => context { if target() == "html" { it } else { text(fill: rgb("#2a5db0"), it) } }
   // outline() queries headings across the whole bundle; keep per-entry docs out of
   // the book's table of contents.
   set heading(outlined: false)
@@ -239,13 +237,34 @@
     if brand.at("description", default: none) != none {
       html.elem("p", attrs: (class: "entry-meta"), brand.description)
     }
-    collection-index(colls, collection-meta)
-    html.elem("p", attrs: (class: "page-foot"), {
-      link("all.html", "Browse all entries")
-      [ · also available as a ]
-      link("pdfs/book.pdf", "single pdf")
-      [.]
-    })
+    if items.len() == 0 {
+      // Freshly-scaffolded repo — no writings yet. Show a friendly empty state instead of a
+      // bare index, so `task build` on a clean tree produces something inviting rather than blank.
+      html.elem("div", attrs: (class: "empty-state"), {
+        html.elem("p", attrs: (class: "entry-meta"), [No entries yet.])
+        html.elem("p", {
+          [Add an experiment writeup at ]
+          html.elem("code", "writings/exp000.typ")
+          [ (with ]
+          html.elem("code", "#let meta")
+          [ and ]
+          html.elem("code", "#let body")
+          [), then run ]
+          html.elem("code", "task build")
+          [. Run ]
+          html.elem("code", "task add-demo-content")
+          [ to populate this repo with a worked example.]
+        })
+      })
+    } else {
+      collection-index(colls, collection-meta)
+      html.elem("p", attrs: (class: "page-foot"), {
+        link("all.html", "Browse all entries")
+        [ · also available as a ]
+        link("pdfs/book.pdf", "single pdf")
+        [.]
+      })
+    }
   })
 }
 
@@ -260,7 +279,7 @@
   html.elem("div", attrs: (class: "listing"), {
     heading(level: 1, collection-label(coll, collection-meta))
     if desc != none { html.elem("p", attrs: (class: "entry-meta"), desc) }
-    grouped-entry-lists(items)
+    grouped-entry-lists(items, sort-by-id: true)
     html.elem("p", attrs: (class: "page-foot"), link("index.html", "← all collections"))
   })
 }
@@ -274,7 +293,7 @@
   let items = collect-items(entries, decks)
   html.elem("div", attrs: (class: "listing"), {
     heading(level: 1, [All entries])
-    grouped-entry-lists(items, show-collection: true, collection-meta: collection-meta)
+    grouped-entry-lists(items)
     html.elem("p", attrs: (class: "page-foot"), link("index.html", "← grouped by collection"))
   })
 }
@@ -283,7 +302,6 @@
   set text(font: "New Computer Modern", size: 11pt)
   set par(justify: true)
   show figure.caption: set align(left) // left-align captions (book is PDF-only)
-  show link: it => context { if target() == "html" { it } else { text(fill: rgb("#2a5db0"), it) } }
   // Table of contents (page numbers auto-resolved from each entry's heading), no cover.
   outline(title: [#brand.contents-title], depth: 1)
   for e in entries {

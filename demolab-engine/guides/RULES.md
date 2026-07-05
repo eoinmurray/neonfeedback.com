@@ -26,11 +26,13 @@ defined in [`GLOSSARY.md`](GLOSSARY.md).
 
 ## 3. Repo layout — the framework/content firewall
 
-**3.1 — Black box** (pure upstream; never edited here, swapped wholesale on update): `demolab-engine/build/` (the Typst engine: `main.typ`, `lib.typ`, `build.py`, `style.css`, `favicon.svg`), `demolab-engine/runbooks/` (the runbooks), and `demolab-engine/guides/` (this file + `GLOSSARY.md` + `HOUSE-STYLE.md`). Updates cleanly and survives any deletion of example content.
+The concrete annotated file tree is in [`STRUCTURE.md`](STRUCTURE.md); this section is the *why* — which zone each path belongs to and how it updates.
+
+**3.1 — Black box** (pure upstream; never edited here, swapped wholesale on update): `demolab-engine/build/` (the Typst engine: `main.typ`, `lib.typ`, `build.py`, `style.css`, `favicon.svg`, `test_engine_build.py`), `demolab-engine/runbooks/` (the runbooks), `demolab-engine/guides/` (this file + `GLOSSARY.md` + `HOUSESTYLE.md` + `STRUCTURE.md` + `SUPPORT.md`), and `demolab-engine/scaffold/` (the `skeleton/` + `demo/` overlays that `task scaffold`/`add-demo-content` lay down, and `demo-manifest.json`). demolab ships **engine-only** — this zone plus the reconciled root files, no content dirs — so the demo isn't committed working-tree clutter; it's engine data, materialised on demand and doubling as the smoke-test fixture. Updates cleanly and survives any deletion of scaffolded content.
 
 **3.2 — Reconciled** (framework, but kept thin or pinned to root by tooling; updated by diff, not swap): `AGENTS.md` + its `CLAUDE.md` pointer (both thin — they just point here), `README.md`, the `Taskfile`, `pyproject.toml`, and `.github/` CI.
 
-**3.3 — Branding, yours, optional** (a root override the engine reads; never overwritten by updates): `demolab.yaml` — the wordmark + PDF titles. Absent ⇒ engine defaults. Deeper theming (`style.css`, `favicon.svg`) currently lives inside the black box, so editing it is possible but gets overwritten on update — treat as advanced.
+**3.3 — Your root overrides, optional** (root files the framework reads; never overwritten by updates): `demolab.yaml` (wordmark + PDF titles + collections) and `HOUSESTYLE.local.md` (your house-style overrides, which extend or replace the default `HOUSESTYLE.md`; an agent reads it). Absent ⇒ engine defaults. Deeper web theming (`style.css`, `favicon.svg`) currently lives inside the black box, so editing it is possible but gets overwritten on update — treat as advanced.
 
 **3.4 — User content** (100% the user's — freely deletable and replaceable): `tools/*`, `experiments/*` (runners, plus `playground.py` — the Streamlit demo, exempt from the contract), `writings/*` (`.typ` writeups), `artifacts/*` (`data/` per-run figures + `numbers.json`, `pdfs/` compiled PDFs; `artifacts/site/` is a gitignored build), `temp/*` (regenerable scratch).
 
@@ -82,7 +84,7 @@ defined in [`GLOSSARY.md`](GLOSSARY.md).
 
 ## 6. Authoring writings
 
-For *how a writing should read* — prose, math, figures, structure — see [`HOUSE-STYLE.md`](HOUSE-STYLE.md). This section is the mechanics.
+For *how a writing should read* — prose, math, figures, structure — see [`HOUSESTYLE.md`](HOUSESTYLE.md). This section is the mechanics.
 
 **6.1 — `meta` + `body`.** A writing is `writings/<id>.typ`: a `#let meta = (title, date, description?, collection?, status?)` block and a `#let body = [ … ]` block. `build.py` discovers entries by those two top-level definitions. Model a new one on `exp000.typ`.
 

@@ -51,15 +51,21 @@
 #asset("favicon.svg", read("/demolab-engine/build/favicon.svg", encoding: none))
 
 // --- documents (one compile emits them all into artifacts/site/) ---
-#document("index.html", title: [#brand.name])[#index-page(entries, decks: decks, brand: brand, collection-order: collection-order, collection-meta: collection-meta)]
-#document("all.html", title: [#brand.name — all entries])[#all-page(entries, decks: decks, brand: brand, collection-meta: collection-meta)]
-// One page per collection (web only — the book/PDFs don't have collection pages).
+// The homepage always exists; on a freshly-scaffolded repo (no entries) it shows a
+// friendly empty state. Everything else is emitted only when there's content.
 #let all-items = collect-items(entries, decks)
-#for c in all-items.map(it => it.coll).dedup() {
-  [#document(c + ".html", title: [#brand.name — #collection-label(c, collection-meta)])[#collection-page(c, all-items.filter(x => x.coll == c), brand: brand, collection-meta: collection-meta)]]
+#document("index.html", title: [#brand.name])[#index-page(entries, decks: decks, brand: brand, collection-order: collection-order, collection-meta: collection-meta)]
+#if all-items.len() > 0 {
+  [#document("all.html", title: [#brand.name — all entries])[#all-page(entries, decks: decks, brand: brand, collection-meta: collection-meta)]]
+  // one page per collection (web only — the book/PDFs don't have collection pages)
+  for c in all-items.map(it => it.coll).dedup() {
+    [#document(c + ".html", title: [#brand.name — #collection-label(c, collection-meta)])[#collection-page(c, all-items.filter(x => x.coll == c), brand: brand, collection-meta: collection-meta)]]
+  }
 }
 #for e in entries {
   [#document(e.id + ".html", title: [#e.meta.title])[#entry-page(e.meta, e.body, id: e.id, brand: brand)]]
   [#document("pdfs/" + e.id + ".pdf", title: [#e.meta.title])[#entry-page(e.meta, e.body, id: e.id, brand: brand)]]
 }
-#document("pdfs/book.pdf", title: [#brand.book-title])[#book-page(entries, brand: brand)]
+#if entries.len() > 0 {
+  [#document("pdfs/book.pdf", title: [#brand.book-title])[#book-page(entries, brand: brand)]]
+}

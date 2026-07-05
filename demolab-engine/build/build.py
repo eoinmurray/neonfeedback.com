@@ -22,12 +22,15 @@ Each writings/<id>.typ exposes `#let meta = (...)` and `#let body = [...]`.
 Entries not yet in that convention are skipped (incremental migration).
 """
 import json
+import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]  # repo root (this file is demolab-engine/build/)
+# Content root. Normally the repo root (this file is demolab-engine/build/); override with
+# DEMOLAB_ROOT so the engine can be built against a fixture (see the smoke test).
+ROOT = Path(os.environ.get("DEMOLAB_ROOT") or Path(__file__).resolve().parents[2])
 WRITINGS = ROOT / "writings"
 ENGINE = ROOT / "demolab-engine" / "build"  # the Typst engine (main.typ, lib.typ, style.css)
 MAIN = ENGINE / "main.typ"                 # committed bundle root (reads the manifest)
@@ -114,9 +117,8 @@ def main() -> None:
     generate_only = "--generate-only" in sys.argv
     ids = discover()
     deck_ids = discover_decks()
-    if not ids:
-        print("no converted writings (need `#let meta` + `#let body`)", file=sys.stderr)
-        sys.exit(1)
+    # Zero writings is a valid state (a freshly `task scaffold`-ed repo): main.typ renders
+    # a friendly empty-state homepage, so we build rather than error.
     BUILD.mkdir(parents=True, exist_ok=True)
     # Compile decks first so their PDFs exist for the asset embeds in main.typ.
     compile_decks(deck_ids)

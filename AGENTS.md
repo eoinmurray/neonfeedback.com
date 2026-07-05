@@ -4,7 +4,7 @@ Demolab — an agent-operated lab notebook for computational science. This file 
 thin entry point; the substance lives in the engine so it updates cleanly (_"update
 demolab"_). **Read the rules before working here.**
 
-**Rules, contract & how-tos** → [`demolab-engine/guides/RULES.md`](demolab-engine/guides/RULES.md) — the single conventions doc: toolchain, the framework/content firewall, commits, the tool ↔ experiment contract + schemas, and how to add a tool / experiment / writing. Unfamiliar with a term (tool, experiment, deck, collection, provenance…)? → [`demolab-engine/guides/GLOSSARY.md`](demolab-engine/guides/GLOSSARY.md). Authoring a writing? → [`demolab-engine/guides/HOUSE-STYLE.md`](demolab-engine/guides/HOUSE-STYLE.md) for prose/math/figure style.
+**Rules, contract & how-tos** → [`demolab-engine/guides/RULES.md`](demolab-engine/guides/RULES.md) — the single conventions doc: toolchain, the framework/content firewall, commits, the tool ↔ experiment contract + schemas, and how to add a tool / experiment / writing. Unfamiliar with a term (tool, experiment, deck, collection, provenance…)? → [`demolab-engine/guides/GLOSSARY.md`](demolab-engine/guides/GLOSSARY.md). Authoring a writing? → [`demolab-engine/guides/HOUSESTYLE.md`](demolab-engine/guides/HOUSESTYLE.md) for prose/math/figure style (a root `HOUSESTYLE.local.md`, if present, extends or replaces it — read it too). New to the layout? → [`demolab-engine/guides/STRUCTURE.md`](demolab-engine/guides/STRUCTURE.md) for the annotated file tree. Stuck and need a human? → [`demolab-engine/guides/SUPPORT.md`](demolab-engine/guides/SUPPORT.md) (GitHub issues / email).
 
 Two rules important enough to state here too:
 
@@ -24,3 +24,4 @@ Say the trigger phrase; open the matching file in [`demolab-engine/runbooks/`](d
 | _"ground my claims"_                    | [GROUND-CLAIMS.md](demolab-engine/runbooks/GROUND-CLAIMS.md)     |
 | _"update demolab"_                      | [UPDATE.md](demolab-engine/runbooks/UPDATE.md)                   |
 | _"doctor the repo"_                     | [DOCTOR.md](demolab-engine/runbooks/DOCTOR.md)                   |
+| _"lint the writings"_                   | [LINT.md](demolab-engine/runbooks/LINT.md)                       |
