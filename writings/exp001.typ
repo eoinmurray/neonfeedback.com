@@ -39,7 +39,7 @@
     stroke: 0.4pt + luma(70%),
     table.header([Experiment], [Where / when], [Scale], [Death], [How it ended], [Source]),
     [Revolutionary Catalonia & Aragon], [Spain, 1936–1939], [≈5–8 million in collectives], [Betrayed], [*Undermined by Stalinist allies*, then defeated by Franco], [#link("https://doi.org/10.1177/026569148701700402")[source]],
-    [Free Territory (Makhnovshchina)], [Ukraine, 1918–1921], [Up to ≈7 million], [Betrayed], [Used then *liquidated by the Bolsheviks* once the Whites were beaten], [#link("https://doi.org/10.1080/10455752.2023.2165778")[source]],
+    [Free Territory (Makhnovshchina)], [Ukraine, 1918–1921], [Up to ≈7 million], [Betrayed], [Used then *liquidated by the Bolsheviks* once the Whites were beaten], [#link("https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921")[source]],
     [Rojava (AANES)], [North-east Syria, 2012–present], [≈2–4 million], [Alive], [*Survives* under constant military threat from Turkey and others], [#link("https://doi.org/10.1080/21520844.2024.2314447")[source]],
     [Hungarian workers' councils], [Hungary, 1956], [Millions, briefly], [Crushed], [*Crushed by Soviet tanks* within weeks], [#link("https://doi.org/10.1177/088832540201600208")[source]],
     [Paris Commune], [Paris, 1871], [≈2 million], [Crushed], [*Crushed by the French Army*; ≈20,000 killed in the _semaine sanglante_], [#link("https://www.routledge.com/The-Paris-Commune-1871/Tombs/p/book/9780582309036")[source]],
@@ -116,6 +116,19 @@
   - _"The preparation of a Republican offensive on the Aragon front justified the deployment there of the XI Division, commanded by the Communist Enrique Lister."_ (p. 443) — the Communist military instrument turned on the anarchist Council of Aragon.
   - _"On 11 August 1937, the Gaceta de la República published the decree dissolving the Council and relieving of their posts the Government Delegate in Aragon, Joaquin Ascaso, and the remaining members of the Council."_ (p. 443) — the Republican government's formal dissolution of the collectives' governing body.
   - _"similar methods were used to dismantle the new organization being tried out by the anarchists. In both cases, armed groups from outside - first the Catalan militias and then Lister's XI Division burst violently into Aragon."_ (p. 446) — the armed dismantling of the collectives before Franco's victory.
+
+  === Peter Arshinov (1921) — History of the Makhnovist Movement, 1918–1921
+
+  #link("https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921")[theanarchistlibrary.org · Arshinov (1921)]
+
+  *Summary.* A participant history by Peter Arshinov, himself a Makhnovist, of Makhno's anarchist insurgency in Ukraine. It documents the October 1920 military-political pact with the Soviet government against Wrangel, the Whites' November defeat, and the Bolsheviks' 26 November surprise attack that destroyed the Makhnovists once they were no longer needed. #text(fill: gray, size: 8pt)[(A committed partisan source — it asserts Bolshevik bad faith throughout — used because the neutral scholarly article was paywalled and unavailable.)]
+
+  *Claim it supports.* _"Used then liquidated by the Bolsheviks once the Whites were beaten"_ (Free Territory (Makhnovshchina)).
+
+  *Quotes.*
+  - _"This was said on November 16, and on November 26th the Bolsheviks treacherously attacked the Makhnovist staff and troops in the Crimea and in Gulyai-Polye"_ (p. 105) — the Bolshevik surprise attack, days after Wrangel's rout.
+  - _"For the Bolsheviks this agreement was nothing more than a military and strategic step calculated to last at most a month or two — the time needed to defeat Wrangel. Once this was accomplished, they were determined to resume slandering the Makhnovists as bandits and counter-revolutionaries, and under this pretext to make war on them."_ (p. 106) — the "used" half: a cynical alliance meant only to last until Wrangel fell.
+  - _"Thus the agreement between the Makhnovists and the Bolsheviks was doomed from the very beginning and could not have lasted after the defeat of Wrangel."_ (p. 106) — ties the betrayal directly to the Whites' defeat.
 
   === Ahmad, MacTavish & Christie (2024) — The de facto Autonomous Governance and Stability in the Middle East: The Case of Kurds in Rojava
 
@@ -267,7 +280,7 @@
 
   The runbook never invents quotes, so these rows await their source text — the three below couldn't be fetched, plus one partial. See the note to me for suggested alternates.
 
-  - *Source not available — needs an alternate:* Makhno (Altınörs, _Capitalism Nature Socialism_, 2023); Biennio Rosso (Di Paola, _Encyclopedia of Revolution and Protest_, 2009); Iceland (Byock, _Viator_, 1986).
+  - *Source not available — needs an alternate:* Biennio Rosso (Di Paola, _Encyclopedia of Revolution and Protest_, 2009); Iceland (Byock, _Viator_, 1986).
   - *Provided PDF was incomplete:* Alt Llobregat (Herrerín López, _Les Cahiers de Framespa_, 2017) — the print stopped after the intro; the full article is still needed.
   - *Books — need scans of the cited pages:* Paris Commune (Tombs, _The Paris Commune 1871_, 1999); Korea (Hwang, _Anarchism in Korea_, 2016); Strandzha (Perry, _The Politics of Terror_, 1988).
 ]
