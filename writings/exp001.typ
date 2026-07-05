@@ -43,14 +43,14 @@
     [Rojava (AANES)], [North-east Syria, 2012–present], [≈2–4 million], [Alive], [*Survives* under constant military threat from Turkey and others], [#link("https://doi.org/10.1080/21520844.2024.2314447")[source]],
     [Hungarian workers' councils], [Hungary, 1956], [Millions, briefly], [Crushed], [*Crushed by Soviet tanks* within weeks], [#link("https://doi.org/10.1177/088832540201600208")[source]],
     [Paris Commune], [Paris, 1871], [≈2 million], [Crushed], [*Crushed by the French Army*; ≈20,000 killed in the _semaine sanglante_], [#link("https://www.routledge.com/The-Paris-Commune-1871/Tombs/p/book/9780582309036")[source]],
-    [Korean People's Association], [Manchuria, 1929–1931], [≈2 million], [Crushed], [*Caught between Japanese imperial forces and Stalinists*], [#link("https://sunypress.edu/Books/A/Anarchism-in-Korea")[source]],
-    [Biennio Rosso], [Italy, 1919–1920], [≈600,000 workers], [Collapsed], [*Collapsed*; cleared the path for Fascist reaction], [#link("https://doi.org/10.1002/9781405198073.wbierp0198")[source]],
+    [Korean People's Association], [Manchuria, 1929–1931], [≈2 million], [Crushed], [*Caught between Japanese imperial forces and Stalinists*], [#link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[source]],
+    [Biennio Rosso], [Italy, 1919–1920], [≈600,000 workers], [Collapsed], [*Collapsed*; cleared the path for Fascist reaction], [#link("https://libcom.org/article/1918-1921-italian-factory-occupations-and-biennio-rosso")[source]],
     [Bavarian Council Republic †], [Munich, 1919], [≈600,000], [Crushed], [*Stormed by the Freikorps*; Landauer murdered], [#link("https://doi.org/10.1163/1477285X-12341309")[source]],
     [Bakur self-rule †], [South-east Turkey, 2015–2016], [≈400,000], [Crushed], [*Turkish military operations*; districts destroyed, trustees imposed], [#link("https://doi.org/10.1080/13608746.2023.2255017")[source]],
     [Zapatistas (EZLN)], [Chiapas, Mexico, 1994–present], [≈300,000], [Alive], [*Survives*, encircled and pressured by the Mexican state], [#link("https://doi.org/10.1177/0022002709341173")[source]],
     [Oaxaca Commune (APPO) †], [Oaxaca, Mexico, 2006], [≈200,000], [Crushed], [*Federal police (PFP) crushed the Commune*], [#link("https://doi.org/10.1093/acrefore/9780199366439.013.752")[source]],
     [Icelandic Commonwealth], [Iceland, 930–1262], [≈50,000], [Collapsed], [*Collapsed into feuding chieftains*; absorbed by Norway], [#link("https://doi.org/10.1484/J.VIATOR.2.301403")[source]],
-    [Strandzha Commune], [Ottoman Thrace, 1903], [Tens of thousands], [Crushed], [*Crushed by the Ottoman army* after ≈20 days], [#link("https://www.dukeupress.edu/the-politics-of-terror")[source]],
+    [Strandzha Commune], [Ottoman Thrace, 1903], [Tens of thousands], [Crushed], [*Crushed by the Ottoman army* after ≈20 days], [#link("https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation")[source]],
     [Kronstadt Soviet], [Russia, 1921], [≈18,000], [Betrayed], [*Stormed by the Red Army*; rebels executed or exiled], [#link("https://doi.org/10.2307/2492031")[source]],
     [Cherán †], [Michoacán, Mexico, 2011–present], [≈16,000], [Alive], [*Survives*, legally recognised indigenous autonomy], [#link("https://journals.sagepub.com/doi/full/10.1177/0094582X20975004")[source]],
     [Recovered factories †], [Argentina, 2001–present], [≈16,000 workers], [Alive], [*Survives*, worker self-management under renewed pressure], [#link("https://doi.org/10.1177/0143831X261438626")[source]],
@@ -276,11 +276,48 @@
   - _"If on the one hand the agreement apparently guarantees the survival of Christiania, on the other hand it regulates various domains that used to be self-regulated by the community, and therefore limits Christiania's autonomy."_ (p. 1152) — survival secured only by accepting external regulation.
   - _"the Danish government concluded an agreement enabling inhabitants of Christiania to buy collectively most of the land on which they live at the price of about 76 million kroner (14 million euro)"_ (p. 1158) — the community persists by buying its land under financial pressure.
 
+  === Francesco D'Alessandro (2020) — The Forgotten Anarchist Commune in Manchuria
+
+  #link("https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria")[theanarchistlibrary.org · D'Alessandro (2020)]
+
+  *Summary.* After Japan's 1910 annexation of Korea, exiled Korean anarchists built autonomous self-governing districts in Manchuria (the Shinmin district among them), defended by the Army of the North under Kim Jwa-jin. This Manchurian commune of the late 1920s was destroyed by the early 1930s under combined assault from Japanese imperial troops and Moscow-directed Korean communists who assassinated its leaders. #text(fill: gray, size: 8pt)[(A movement-sympathetic source. It says "communists directed from Moscow" (≈ Stalinists) and also names Chinese troops, so the row's "between Japanese and Stalinists" simplifies a fuller multi-party account.)]
+
+  *Claim it supports.* _"Caught between Japanese imperial forces and Stalinists"_ (Korean People's Association).
+
+  *Quotes.*
+  - _"The Japanese government sent 35,000 imperial troops into Manchuria and installed a puppet government, the Manchukuo in 1931."_ (§ "by the beginning of the 1930s") — the Japanese imperial-forces pressure.
+  - _"At the same time, the Korean Communist Party, directed from Moscow, began infiltrating the Commune and systematically assassinating its anarchist leaders. Kim Jwa-jin was murdered in January 1930."_ — the communist / Stalinist pressure.
+  - _"Together, the Japanese Army, the North Korean Communist Army, and the Communist Party infiltrators, along with some Chinese troops surrounded the Commune from the outside and inside and eventually destroyed it."_ — the two-front destruction.
+
+  === libcom.org — 1918–1921: The Italian factory occupations and the Biennio Rosso
+
+  #link("https://libcom.org/article/1918-1921-italian-factory-occupations-and-biennio-rosso")[libcom.org · Italian factory occupations and the Biennio Rosso]
+
+  *Summary.* In 1919–1920 a rank-and-file council movement swept Italy, culminating in September 1920 when roughly half a million workers occupied and self-managed their factories. After a month the reformist CGL and Socialist Party negotiated a return to work in exchange for promised (never-delivered) legal workers' control. With the movement broken, big business turned to the fascist movement to crush the working class.
+
+  *Claim it supports.* _"Collapsed; cleared the path for Fascist reaction"_ (Biennio Rosso).
+
+  *Quotes.*
+  - _"But after over a month, the workers were once again betrayed by the PSI and the CGL. They opposed the movement and promised the state a return to 'normality' in exchange for legalised workers' control alongside the bosses. Of course, the workers' control never materialised."_ (§ September 1920) — the negotiated collapse of the occupation wave.
+  - _"With workers' militancy dampened, big businesses turned en masse to the fascist movement to comprehensively crush the powerful working class, which they did temporarily, but not without meeting stiff resistance."_ (final paragraph) — the defeat opening the way to the fascist reaction.
+
+  === Georgi Khadzhiev (1992) — Down with the Sultan, Long Live the Balkan Federation
+
+  #link("https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation")[theanarchistlibrary.org · Khadzhiev (1992)]
+
+  *Summary.* A partisan anarchist history of the Macedonian and Thracian liberation movement, recounting the 1903 Preobrazhenie (Transfiguration) Uprising in Ottoman Thrace and framing the short-lived "Strandzha Commune" as a spontaneous experiment in libertarian communism, led in part by anarchists like Gerdzhikov. #text(fill: gray, size: 8pt)[(A celebratory, ideological account, not neutral scholarship.)]
+
+  *Claim it supports.* _"Crushed by the Ottoman army after ≈20 days"_ (Strandzha Commune).
+
+  *Quotes.*
+  - _"The Strandzha Commune lived and pulsated for more than 20 days in conditions of true communism"_ (§ The Transfiguration Uprising and the "Strandzha Commune") — the roughly-20-day duration.
+  - _"This reign of free communism was set up on the first day of the uprising and continued through until 21st August 1903, in some places until the end of the month, until it was crushed militarily by a 40,000-strong Ottoman army of infantry, cavalry and artillery"_ — crushed militarily by the Ottoman army.
+
   === Not yet grounded
 
-  The runbook never invents quotes, so these rows await their source text — the three below couldn't be fetched, plus one partial. See the note to me for suggested alternates.
+  Three rows still await a usable source.
 
-  - *Source not available — needs an alternate:* Biennio Rosso (Di Paola, _Encyclopedia of Revolution and Protest_, 2009); Iceland (Byock, _Viator_, 1986).
-  - *Provided PDF was incomplete:* Alt Llobregat (Herrerín López, _Les Cahiers de Framespa_, 2017) — the print stopped after the intro; the full article is still needed.
-  - *Books — need scans of the cited pages:* Paris Commune (Tombs, _The Paris Commune 1871_, 1999); Korea (Hwang, _Anarchism in Korea_, 2016); Strandzha (Perry, _The Politics of Terror_, 1988).
+  - *Source not machine-readable:* Iceland (Byock, _Viking Age Iceland_) — the scanned excerpt provided is truncated (missing the 1262–4 Norway chapter) and OCR-garbles the Old Norse, so its quotes fail verbatim; a clean, text-based ebook is needed.
+  - *Provided PDF incomplete:* Alt Llobregat (Herrerín López, _Les Cahiers de Framespa_, 2017) — the OpenEdition print keeps truncating after the intro; the full-text export is needed.
+  - *No usable source yet:* Paris Commune — the ≈20,000 figure is contested (Tombs 2012 revises it down), so grounding needs the 1999 book pages, or a rewording of the row.
 ]
