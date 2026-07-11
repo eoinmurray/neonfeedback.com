@@ -190,28 +190,13 @@ wheels = [
 ]
 
 [[package]]
-name = "demolab"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "matplotlib" },
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+name = "demolab-cli"
+version = "1.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4a/f7/604d6b2b568c9692d16d4cce621ebe8ccfc2f70282ddcbe7d88302bfb825/demolab_cli-1.1.0.tar.gz", hash = "sha256:09c66a052d104a521cd523384fa4d098a21b44e40236e2e1769fdab0b5c7f450", size = 3500025, upload-time = "2026-07-11T13:08:50.672Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5f/fb/d1373bd68a309924244ef08b4e1cd6a5b12b7bf6776b217ef5e84cf3ec91/demolab_cli-1.1.0-py3-none-any.whl", hash = "sha256:26c9342746f8eae11e1a7e375964b6ce711396a22bb8ad285f58dc75619cacda", size = 3396802, upload-time = "2026-07-11T13:08:48.684Z" },
 ]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pytest" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "matplotlib", specifier = ">=3.8" },
-    { name = "numpy", specifier = ">=1.26" },
-]
-
-[package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=9.1.1" }]
 
 [[package]]
 name = "exceptiongroup"
@@ -489,6 +474,32 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/e8/e8/467c03568218792906aa87b5e7bb379b605e056ed0c74fe00c051786d925/matplotlib-3.10.9-pp311-pypy311_pp73-macosx_11_0_arm64.whl", hash = "sha256:f76e640a5268850bfda54b5131b1b1941cc685e42c5fa98ed9f2d64038308cba", size = 8197981, upload-time = "2026-04-24T00:14:07.233Z" },
     { url = "https://files.pythonhosted.org/packages/6f/87/afead29192170917537934c6aff4b008c805fff7b1ccea0c79120d96beda/matplotlib-3.10.9-pp311-pypy311_pp73-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:3fc0364dfbe1d07f6d15c5ebd0c5bf89e126916e5a8667dd4a7a6e84c36653d4", size = 8774002, upload-time = "2026-04-24T00:14:09.816Z" },
 ]
+
+[[package]]
+name = "neonfeedback"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "demolab-cli" },
+    { name = "matplotlib" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "demolab-cli", specifier = ">=1.1" },
+    { name = "matplotlib", specifier = ">=3.8" },
+    { name = "numpy", specifier = ">=1.26" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=9.1.1" }]
 
 [[package]]
 name = "numpy"

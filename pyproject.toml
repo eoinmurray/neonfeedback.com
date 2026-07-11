@@ -1,20 +1,25 @@
+# Your lab's Python project. The science deps are yours to edit. demolab-cli provides
+# the `demolab` command and the publishing engine; update it like any dependency:
+#   uv lock --upgrade-package demolab-cli && uv sync
 [project]
-name = "demolab"
+name = "neonfeedback"
 version = "0.1.0"
-description = "Lab notebook for computational science: Python tools produce per-run artifacts; Typst publishes them as a web bundle, per-entry PDFs, and a book."
+description = "Essays, poetry, and computational notebooks — a demolab lab notebook."
 requires-python = ">=3.10"
 dependencies = [
+    "demolab-cli>=1.1",
     "numpy>=1.26",
     "matplotlib>=3.8",
 ]
 
+# A lab is content, not a distributable package — tell uv not to build/install it.
 [tool.uv]
 package = false
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
-# The engine smoke test always runs; tools/ tests are collected when the dir exists.
-testpaths = ["demolab-engine/build", "tools"]
+# tools/ + experiments/ tests are collected when those dirs have tests; missing paths are skipped.
+testpaths = ["tools", "experiments"]
 
 [dependency-groups]
 dev = [

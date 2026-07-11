@@ -212,7 +212,7 @@
 
   == Grounding the sources
 
-  A claim-verification companion built with the demolab #link("https://github.com/eoinmurray/demolab/blob/main/demolab-engine/runbooks/GROUND-CLAIMS.md")[_ground-claims_ runbook]: for each cited source I could retrieve, the verbatim sentence(s) that back that row's manner-of-death claim. Quotes are agent-located pointers, self-checked for verbatim match but *not* independently verified — confirm against the source before citing.
+  A claim-verification companion built with the demolab #link("https://github.com/eoinmurray/demolab/blob/main/demolab_cli/runbooks/GROUND-CLAIMS.md")[_ground-claims_ runbook]: for each cited source I could retrieve, the verbatim sentence(s) that back that row's manner-of-death claim. Quotes are agent-located pointers, self-checked for verbatim match but *not* independently verified — confirm against the source before citing.
 
   === Lawrence D. Taylor (1999) — The Magonista Revolt in Baja California
 

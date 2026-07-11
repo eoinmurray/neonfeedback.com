@@ -1,27 +1,15 @@
 # AGENTS.md
 
-Demolab — an agent-operated lab notebook for computational science. This file is the
-thin entry point; the substance lives in the engine so it updates cleanly (_"update
-demolab"_). **Read the rules before working here.**
+This is a **demolab** lab (an agent-operated lab notebook). **Before doing anything else,
+run `demolab docs` and follow what it prints** — the full agent manual plus the menu of
+runbooks and guides, always in step with the installed engine. (No venv yet? `uv sync`
+provides the `demolab` command, or run `uvx demolab-cli docs`.)
 
-**Rules, contract & how-tos** → [`demolab-engine/guides/RULES.md`](demolab-engine/guides/RULES.md) — the single conventions doc: toolchain, the framework/content firewall, commits, the tool ↔ experiment contract + schemas, and how to add a tool / experiment / writing. Unfamiliar with a term (tool, experiment, deck, collection, provenance…)? → [`demolab-engine/guides/GLOSSARY.md`](demolab-engine/guides/GLOSSARY.md). Authoring a writing? → [`demolab-engine/guides/HOUSESTYLE.md`](demolab-engine/guides/HOUSESTYLE.md) for prose/math/figure style (a root `HOUSESTYLE.local.md`, if present, extends or replaces it — read it too). New to the layout? → [`demolab-engine/guides/STRUCTURE.md`](demolab-engine/guides/STRUCTURE.md) for the annotated file tree. Stuck and need a human? → [`demolab-engine/guides/SUPPORT.md`](demolab-engine/guides/SUPPORT.md) (GitHub issues / email).
+If the user's message is a NAME in CAPS (`HELP`, `LINT`, `DOCTOR`, …), that **is** the
+command — the manual explains. Two rules worth stating even before you've read it: commits
+are authored as the human only (never an agent trailer or co-author), and results are never
+hand-typed (writings read their run's data).
 
-Two rules important enough to state here too:
+## This lab's own rules
 
-- **Toolchain:** use `uv` (Python) and `typst` (publishing) via `task` (go-task). Never call `pip` / `python` / `python3` directly.
-- **Commits:** author every commit as the human only — never a `Co-Authored-By:` / agent trailer, never an agent in the author/committer fields.
-
-## Runbooks
-
-Say the trigger phrase; open the matching file in [`demolab-engine/runbooks/`](demolab-engine/runbooks/) and drive it **interactively** (run each step, show the result, confirm before moving on — don't dump the whole runbook at once).
-
-| Trigger                                 | Runbook                                                          |
-| --------------------------------------- | ---------------------------------------------------------------- |
-| _"how do I get started"_                | [GETTING-STARTED.md](demolab-engine/runbooks/GETTING-STARTED.md) |
-| _"migrate my code"_                     | [MIGRATE-CODE.md](demolab-engine/runbooks/MIGRATE-CODE.md)       |
-| _"embed demolab as a docs site"_        | [EMBED-DOCS.md](demolab-engine/runbooks/EMBED-DOCS.md)           |
-| _"migrate the stack to MATLAB / Julia"_ | [MIGRATE-STACK.md](demolab-engine/runbooks/MIGRATE-STACK.md)     |
-| _"ground my claims"_                    | [GROUND-CLAIMS.md](demolab-engine/runbooks/GROUND-CLAIMS.md)     |
-| _"update demolab"_                      | [UPDATE.md](demolab-engine/runbooks/UPDATE.md)                   |
-| _"doctor the repo"_                     | [DOCTOR.md](demolab-engine/runbooks/DOCTOR.md)                   |
-| _"lint the writings"_                   | [LINT.md](demolab-engine/runbooks/LINT.md)                       |
+<!-- Yours to edit. Rules here extend the manual; where they conflict, these win. -->
