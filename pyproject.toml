@@ -7,7 +7,7 @@ version = "0.1.0"
 description = "Essays, poetry, and computational notebooks — a demolab lab notebook."
 requires-python = ">=3.10"
 dependencies = [
-    "demolab-cli>=1.1",
+    "demolab-cli>=5.5.1",
     "numpy>=1.26",
     "matplotlib>=3.8",
 ]

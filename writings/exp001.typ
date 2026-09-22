@@ -5,7 +5,7 @@
   collection: "essays",
 )
 
-#let run = json("/artifacts/data/exp001/numbers.json")
+#let run = json("/.artifacts/exp001/numbers.json")
 
 #let body = [
   Anarchism is often said never to have been tried, or to be internally unstable. It has been tried, several times, at some scale. This is no study, the record is too thin and the sample too hand-picked for that; it is only a narrow attempt to refute the second charge: that anarchism dies of its own contradictions, at its own hand.
@@ -19,7 +19,7 @@
   What follows is that _sample_: the #run.n_experiments cases in the appendix below, not exhaustive but enough to suggest a shape. Sorted by cause of death, they fall unevenly.
 
   #figure(
-    image("/artifacts/data/exp001/deaths.png", width: 100%),
+    image("/.artifacts/exp001/deaths.png", width: 100%),
     caption: [How the #run.n_experiments anarchist experiments ended, tallied by cause. Crushed by a state is the most common ending; collapse from within is the least.],
   )
 

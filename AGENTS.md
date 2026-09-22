@@ -1,14 +1,17 @@
 # AGENTS.md
 
-This is a **demolab** lab (an agent-operated lab notebook). **Before doing anything else,
-run `demolab docs` and follow what it prints** — the full agent manual plus the menu of
-runbooks and guides, always in step with the installed engine. (No venv yet? `uv sync`
-provides the `demolab` command, or run `uvx demolab-cli docs`.)
+This is a **demolab** presentation site. **Before doing anything else, run
+`uv run demolab docs` and follow what it prints** — the agent manual and authoring guides,
+always in step with this project's installed engine. `uv sync` creates the environment
+if needed.
 
-If the user's message is a NAME in CAPS (`HELP`, `LINT`, `DOCTOR`, …), that **is** the
-command — the manual explains. Two rules worth stating even before you've read it: commits
-are authored as the human only (never an agent trailer or co-author), and results are never
-hand-typed (writings read their run's data).
+Read a named guide with `uv run demolab docs <NAME> --print`. The old research runbooks
+and `demolab run` / `demolab test` commands are retired; execute this project's experiment
+directly with `uv run python experiments/exp001.py`.
+
+Commits are authored as the human only (never an agent trailer or co-author), and results
+are never hand-typed (writings read their experiment's data). Tracked evidence lives in
+`.artifacts/`; generated sites and PDFs live in `.demolab/` and must not be edited by hand.
 
 ## This lab's own rules
 
