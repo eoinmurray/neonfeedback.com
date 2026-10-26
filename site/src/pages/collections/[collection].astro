@@ -1,0 +1,24 @@
+---
+import Page from '../../layouts/Page.astro';
+import ArticleBrowser from '../../components/ArticleBrowser.astro';
+import { getPosts, type Post } from '../../lib/posts';
+import { collectionLabel, collectionDescription } from '../../lib/collections';
+
+export async function getStaticPaths() {
+  const posts = await getPosts({ includeArchive: true });
+  return [...new Set(posts.flatMap(post => post.collections))]
+    .map(collection => ({
+      params: { collection },
+      props: { collection, posts },
+    }));
+}
+
+interface Props { collection: string; posts: Post[]; }
+const { collection, posts } = Astro.props;
+const name = collectionLabel(collection);
+const description = collectionDescription(collection);
+---
+
+<Page title={name} description={description} compact>
+  <ArticleBrowser posts={posts} collection={collection} />
+</Page>

@@ -1,0 +1,9 @@
+---
+import Page from '../layouts/Page.astro';
+import ArticleBrowser from '../components/ArticleBrowser.astro';
+import { getPosts } from '../lib/posts';
+const posts = await getPosts({ onlyArchive: true });
+---
+<Page title="Archive" description="Archived essays and computational notebooks by Eoin Murray." compact noindex>
+  <ArticleBrowser posts={posts} archive />
+</Page>

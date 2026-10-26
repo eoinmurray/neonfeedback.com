@@ -1,34 +1,46 @@
-# neonfeedback
+# Neonfeedback
 
-A [demolab](https://github.com/eoinmurray/demolab) presentation site: essays, poetry, and
-computational notebooks, published at [neonfeedback.com](https://neonfeedback.com).
-Python experiments produce per-run artifacts; Typst publishes them as a website,
-per-entry PDFs, and a book.
+Essays, poetry, stories, and computational notebooks by Eoin Murray, published at
+[neonfeedback.com](https://neonfeedback.com). The Astro/MDX site uses Pinglab's
+Distill article layout, collection browser, theme controls, and figure lightbox.
 
-## Working here
+## Development
 
 ```sh
-uv sync                                # install the locked dependencies
-uv run demolab dev                     # live preview (prints its local URL)
-uv run python experiments/exp001.py     # regenerate the experiment's data and figure
-uv run demolab build                   # build the site + PDFs into .demolab/
+uv sync
+cd site
+bun install --frozen-lockfile
+bun run dev --background         # http://localhost:3002
+bun run astro dev status
+bun run astro dev stop
+bun run build                    # static site in site/dist/
 ```
 
-Run `uv run demolab --help` for the command list and `uv run demolab docs` for the
-authoring guides. Coding agents start with [AGENTS.md](AGENTS.md). Demolab publishes
-content; experiment execution and validation belong to this project.
+From the repository root:
 
-## Layout
+```sh
+uv run python experiments/exp001/main.py  # regenerate the experiment's tracked outputs
+```
 
-1. `experiments/` — runners that write `.artifacts/<id>/` (figures + numbers).
-2. `writings/` — Typst pages, published by `uv run demolab build`.
-3. `.artifacts/` — tracked publication evidence read by the writings.
-4. `.demolab/site/` and `.demolab/pdfs/` — generated website, entry PDFs, and book.
-5. `artifacts/pdfs/` — preserved legacy PDFs; new builds do not update these copies.
-6. `demolab.yaml` — branding, collections, and the project-root marker.
+## Structure
 
-The engine ships in the `demolab-cli` package — nothing to vendor or maintain here.
-Updating: `uv lock --upgrade-package demolab-cli && uv sync`.
-After an upgrade, check `uv run demolab version`, read `uv run demolab docs CHANGELOG
---print`, and run `uv run demolab build`. Refresh the opted-in GitHub Pages workflows
-with `uv run demolab deploy-setup` and review their diff; they publish `.demolab/site/`.
+1. `md/writings/`: active MDX writings, including drafts.
+2. `md/archive/`: archived MDX essays, available in the Archive and their collections.
+3. `experiments/exp001/main.py`: original dataset and analysis; `artifacts/` holds its
+   generated figure and JSON; `report/report.mdx` imports them directly. The report
+   remains archived, matching its previous placement.
+4. `site/`: Astro application, shared components, styles, static vendor files, and Bun lockfile.
+
+Article IDs retain their public URLs (`/ar001`, `/ar007`, `/exp001`). The homepage
+lists active writings; `/archive` lists archived entries. Collections include both. Draft metadata is preserved. Authored dates are retained; date-only
+entries remain date-only rather than gaining an invented publication time.
+
+## Publishing
+
+GitHub Actions builds the site and deploys `site/dist/` to the existing `gh-pages`
+branch. Pages keeps its existing **Deploy from a branch** setting and custom domain
+`neonfeedback.com`. PR previews remain under `pr-preview/pr-<number>/`; production
+deployments preserve them. The committed experiment outputs let CI publish without
+rerunning Python. Local static previews use `cd site && bun run preview --port 3002`.
+
+See [site/README.md](site/README.md) for content authoring and local server commands.

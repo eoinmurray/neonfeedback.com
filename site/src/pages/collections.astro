@@ -1,0 +1,36 @@
+---
+import Page from '../layouts/Page.astro';
+import { getPosts } from '../lib/posts';
+import CollectionMetadata from '../components/CollectionMetadata.astro';
+import { collectionLabel, collectionUrl, compareCollections, collectionDescription, collectionSummary } from '../lib/collections';
+
+const posts = await getPosts({ includeArchive: true });
+const names = [...new Set(posts.flatMap(post => post.collections))].sort(compareCollections);
+const collections = names.map(name => ({
+  name,
+  ...collectionSummary(posts.filter(post => post.collections.includes(name))),
+}));
+---
+
+<Page title="Collections" description="Browse Neonfeedback articles by collection." compact>
+  <div class="base-grid">
+    <ol class="collections-list article-list listing-width l-page" aria-label="Collections">
+      {collections.map(({ name, count, latestDate }) => <li>
+        <a class="article-list-row" href={collectionUrl(name)}>
+          <CollectionMetadata count={count} latestDate={latestDate} sidebar />
+          <div class="description article-list-content">
+            <h2 class="article-list-title">{collectionLabel(name)}</h2>
+            <p class="article-list-description">{collectionDescription(name)}</p>
+          </div>
+        </a>
+      </li>)}
+    </ol>
+  </div>
+</Page>
+
+<style>
+  .collections-list li { margin: 0; }
+  .collections-list a { color: inherit; text-decoration: none; }
+  .collections-list a:hover h2 { text-decoration: underline; }
+  .collections-list a:focus-visible { outline: 2px solid #004276; outline-offset: 6px; }
+</style>

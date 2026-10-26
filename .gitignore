@@ -4,26 +4,19 @@ __pycache__/
 *.egg-info/
 .venv/
 .uv/
-
-# Tool caches
 .pytest_cache/
 
-# macOS
+# Astro / Bun generated output
+site/node_modules/
+site/.astro/
+site/dist/
+
+# Local tooling and scratch
 .DS_Store
-
-# Agent / editor local tooling (not part of the repo)
 .claude/
-
-# Generated engine staging, website, and PDFs; rebuilt by the demolab CLI.
-.demolab/
-
-# Experiment scratch. Publication evidence in .artifacts/ is tracked.
 temp/
 dist/
 
-# Legacy generated website. Existing artifacts/pdfs/ are preserved historical copies.
-artifacts/site/
-
-# Secrets — never commit
+# Secrets
 .env
 .env.local

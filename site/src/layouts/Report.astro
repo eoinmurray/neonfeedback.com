@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Page from './Page.astro';
+import ArticleDate from '../components/ArticleDate.astro';
+
+interface Props {
+  report: CollectionEntry<'reports'> | CollectionEntry<'writings'> | CollectionEntry<'archive'>;
+}
+const { report } = Astro.props;
+const { data } = report;
+const mainContent = await Astro.slots.render('default');
+const frontMatter = {
+  title: data.title,
+  description: data.description,
+  authors: [{ author: data.author, affiliations: [] }],
+};
+---
+
+<Page title={data.title} description={data.description} frontMatter={frontMatter}>
+  <d-title>
+    <h1>{data.title}</h1>
+    <p class="article-date"><ArticleDate date={data.created_at} compact /></p>
+  </d-title>
+  <div class="report-body base-grid">
+    <d-article role="article" aria-label={data.title}>
+      {data.abstract && <section class="report-abstract" aria-labelledby="abstract">
+        <h2 id="abstract">Abstract</h2>
+        <p>{data.abstract}</p>
+      </section>}
+      <Fragment set:html={mainContent} />
+    </d-article>
+  </div>
+  <script is:inline type="application/json" class="js-hypothesis-config">
+    {
+      "showHighlights": true,
+      "openSidebar": false
+    }
+  </script>
+  <script is:inline async src="https://hypothes.is/embed.js"></script>
+</Page>
+
+<style is:global>
+  d-title .article-date { margin: .5rem 0 0; font-size: .8rem; font-weight: 400; color: rgb(var(--ink) / .6); }
+  d-appendix { background: var(--surface); color: rgb(var(--ink) / .65); }
+  @media print { d-appendix { background: white; } }
+  .report-appendix { display: contents; }
+  .report-appendix > * { grid-column: text; min-width: 0; }
+  .report-appendix > :is(h2, h3) { grid-column: text; }
+  .report-appendix[data-heading-depth="2"] > h2,
+  .report-appendix[data-heading-depth="3"] > h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgb(var(--ink) / .65);
+  }
+  d-article > .source-table { grid-column: text; }
+  :is(d-article, d-appendix) figcaption { margin-top: 1.25rem; }
+  :is(d-article, d-appendix) figcaption > p:first-of-type { display: inline; margin: 0; }
+  .report-body { position: relative; --report-content-top: 4rem; }
+  .report-body > d-article { grid-column: screen; min-width: 0; padding-top: var(--report-content-top); }
+  .report-body > d-article > :first-child { margin-top: 0; }
+  .report-abstract { grid-column: text; }
+  .report-abstract h2 { margin-top: 0; }
+  :is(d-article, d-appendix) [id] { scroll-margin-top: 24px; }
+  d-appendix .parameters { min-width: 0; margin-bottom: 2rem; }
+  d-appendix .parameters table { width: 100%; border-collapse: collapse; font-size: inherit; line-height: inherit; margin-top: 0; }
+  d-appendix .parameters th, d-appendix .parameters td { text-align: left; padding: .6em .65em; border-bottom: 1px solid rgb(var(--ink) / .1); vertical-align: top; }
+  d-appendix .parameters th:first-child, d-appendix .parameters td:first-child { padding-left: 0; width: 30%; }
+  d-appendix .parameters th:last-child, d-appendix .parameters td:last-child { padding-right: 0; }
+  @media (max-width: 999px) {
+    d-appendix h3,
+    .report-appendix[data-heading-depth="2"] > h2,
+    .report-appendix[data-heading-depth="3"] > h3 { grid-column: text; margin-bottom: 1em; }
+  }
+</style>
+
+<style is:global>
+  .draft-notes { color: #c62828; }
+  html[data-theme="dark"] .draft-notes { color: #ff8a80; }
+  .poem { white-space: normal; }
+  d-article table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 14px; }
+  d-article th, d-article td { min-width: 100px; padding: .6em; border-bottom: 1px solid rgb(var(--ink) / .15); text-align: left; vertical-align: top; }
+  d-article .source-note { color: rgb(var(--ink) / .6); font-size: .85em; }
+</style>

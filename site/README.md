@@ -1,0 +1,50 @@
+# Neonfeedback Astro site
+
+This is the adapted Pinglab presentation layer: self-hosted Distill v2 styles and
+runtime, article layout, collection browser,
+theme controls and figure lightbox. Content and generated evidence
+belong to Neonfeedback; no Pinglab datasets or remote storage are required.
+
+```sh
+bun install --frozen-lockfile
+bun run dev --background             # port 3002
+bun run astro dev status
+bun run astro dev logs
+bun run astro dev stop
+bun run build
+bun run preview --port 3002
+```
+
+## Content
+
+1. Write MDX in `../md/writings/` or `../md/archive/`.
+2. Experiment reports use `../experiments/expNNN/report/report.mdx`; import data and
+   images from the experiment's `artifacts/` directory.
+3. Required frontmatter: `title`, `author`, `created_at`, `updated_at`, and `collection`.
+   Optional fields include `description`, `abstract`, `status`, and `archived`.
+   Experiment reports also require `id`; `tags` defaults to an empty array.
+4. Dates use quoted UTC datetimes (`2026-10-26T12:00:00Z`); historical date-only
+   entries remain supported for both dates. Preserve historical dates during format-only migrations.
+5. Public article IDs must be unique across writings, archive, and experiments.
+   Existing article URLs remain at the root (`/ar001`, `/exp001`).
+6. Archive membership excludes an article from the homepage, retains it at its
+   original URL, and includes it in `/archive` and collection browsing.
+   Drafts remain browsable; status and descriptions are retained as content metadata.
+7. Use native Markdown math (`$...$`, `$$...$$`) for KaTeX. Use Markdown tables,
+   headings, links, and lists; import Astro components for richer content.
+8. Article lists use descending article numbers. Dates sit beneath the title,
+   without collection badges or article statistics. Article pages show the created
+   date directly below the title, without a table of contents. The homepage includes the
+   collection sidebar; the top navbar spans the wider page layout.
+   Theme cycles through system, light, and dark.
+
+Astro builds file-style HTML with extensionless canonical URLs on
+`https://neonfeedback.com`. Use Astro preview when checking the static output;
+Python's basic HTTP server does not resolve those routes. Development and production
+use separate Vite caches so builds do not invalidate a running development browser.
+
+Set `SITE_BASE_PATH=/pr-preview/pr-123` when building a PR preview. Links,
+public assets, and compiled assets include that prefix; canonical article URLs
+continue to identify the production article.
+
+Distill licensing and authorship are preserved in `public/vendor/distill/`.

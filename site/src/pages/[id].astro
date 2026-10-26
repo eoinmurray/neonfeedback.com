@@ -1,0 +1,13 @@
+---
+import { getEntry, render } from 'astro:content';
+import { getPosts, type Article } from '../lib/posts';
+import Report from '../layouts/Report.astro';
+export async function getStaticPaths() {
+  return (await getPosts({ includeArchive: true })).map(post => ({ params: { id: post.id }, props: { report: post.article } }));
+}
+interface Props { report: Article; }
+const report = import.meta.env.DEV ? await getEntry(Astro.props.report.collection, Astro.params.id!) : Astro.props.report;
+if (!report) throw new Error(`Missing article: ${Astro.params.id}`);
+const { Content } = await render(report);
+---
+<Report report={report}><Content /></Report>

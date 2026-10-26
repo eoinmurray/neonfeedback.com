@@ -1,0 +1,18 @@
+---
+import PostsList from './PostsList.astro';
+import CollectionBrowser from './CollectionBrowser.astro';
+import { getPosts, type Post } from '../lib/posts';
+import { collectionLabel, collectionUrl, compareCollections } from '../lib/collections';
+
+interface Props { posts: Post[]; collection?: string; archive?: boolean; }
+const { posts, collection, archive = false } = Astro.props;
+const allPosts = await getPosts({ includeArchive: true });
+const collections = [...new Set(allPosts.flatMap(post => post.collections))].sort(compareCollections);
+const visiblePosts = collection ? posts.filter(post => post.collections.includes(collection)) : [...posts];
+
+---
+<CollectionBrowser title={archive ? 'Archive' : collection ? collectionLabel(collection) : 'Articles'} allHref={archive ? '/archive' : '/'}
+  heading="Articles"
+  filtered={!!collection} collections={collections.map(name => ({ href: collectionUrl(name), label: collectionLabel(name), active: name === collection }))}>
+  <PostsList posts={visiblePosts} />
+</CollectionBrowser>

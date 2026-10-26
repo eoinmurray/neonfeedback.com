@@ -1,55 +1,42 @@
-# Opt-in Pages workflow — per-PR previews. Copied alongside deploy.yml by `demolab deploy-setup`.
-# Every pull request gets its own built copy of the site under pr-preview/pr-<N>/ on the
-# gh-pages branch, a sticky comment on the PR linking to it, and an automatic teardown when the
-# PR closes or merges, so writings and PDFs render at a URL instead of a raw diff.
-#
-# Requires deploy.yml's branch-based flow (both write gh-pages) and the same one-time settings
-# change: Settings → Pages → Source: "Deploy from a branch" → `gh-pages` / `(root)`.
-#
-# Fork PRs get a read-only token and cannot write gh-pages, so previews are skipped for external
-# contributors — expected, and fine for a personal lab. Do NOT switch this to pull_request_target
-# to "fix" that: it runs untrusted PR code with a write token (privilege-escalation footgun).
 name: Deploy PR preview
 
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
 
-# Previews commit into gh-pages; the sticky comment needs PR write.
 permissions:
   contents: write
   pull-requests: write
 
-# One in-flight run per PR: rapid pushes to a branch supersede rather than race commits to gh-pages.
 concurrency:
   group: preview-pr-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   preview:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    env:
+      SITE_BASE_PATH: /pr-preview/pr-${{ github.event.number }}
     steps:
-      - uses: actions/checkout@v4
-
-      # On a 'closed' event we skip the build and only run the teardown (the action's `remove`
-      # auto-mode does this), so guard the build steps to non-closed events.
-      - uses: typst-community/setup-typst@v4
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
         if: github.event.action != 'closed'
-
-      - uses: astral-sh/setup-uv@v5
+        with:
+          bun-version: latest
+      - uses: actions/setup-node@v4
         if: github.event.action != 'closed'
-
-      - name: Build the site bundle
+        with:
+          node-version: 24
+      - name: Install site dependencies
         if: github.event.action != 'closed'
-        run: |
-          uv sync
-          uv run demolab build
-
-      # Deploys .demolab/site to gh-pages under pr-preview/pr-<N>/ (opened/synchronize/reopened),
-      # maintains the sticky PR comment, and removes that subdir on 'closed'. auto-detects the
-      # action from the event type.
-      - name: Deploy / update / tear down the preview
+        run: bun install --frozen-lockfile
+        working-directory: site
+      - name: Build site
+        if: github.event.action != 'closed'
+        run: bun run build
+        working-directory: site
+      - name: Deploy, update, or remove preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: .demolab/site
-          # umbrella dir defaults to pr-preview/ — matches deploy.yml's clean-exclude.
+          source-dir: site/dist
