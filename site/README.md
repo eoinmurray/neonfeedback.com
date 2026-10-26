@@ -12,6 +12,7 @@ bun run astro dev status
 bun run astro dev logs
 bun run astro dev stop
 bun run test
+bun run test:render                 # render every local article, including drafts/archive
 bun run build                      # public content only, with publication checks
 bun run preview --port 3002
 ```
@@ -51,7 +52,9 @@ Astro builds file-style HTML with extensionless canonical URLs on
 `https://neonfeedback.com`. Use Astro preview when checking the static output;
 Python's basic HTTP server does not resolve those routes. Development and production
 use separate Vite and content caches so public builds do not change the local
-view of drafts or archived content.
+view of drafts or archived content. `bun run build` uses `production/` as its Astro
+root to isolate generated MDX import maps too; changing only `cacheDir` does not
+isolate those maps. Title-based filename URLs redirect to the stable article IDs.
 
 Set `SITE_BASE_PATH=/pr-preview/pr-123` when building a PR preview. Links,
 public assets, and compiled assets include that prefix; canonical article URLs

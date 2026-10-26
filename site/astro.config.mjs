@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import { unified } from '@astrojs/markdown-remark';
@@ -7,6 +8,9 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
+  srcDir: fileURLToPath(new URL('./src/', import.meta.url)),
+  publicDir: fileURLToPath(new URL('./public/', import.meta.url)),
+  outDir: fileURLToPath(new URL('./dist/', import.meta.url)),
   site: 'https://neonfeedback.com',
   base: process.env.SITE_BASE_PATH || '/',
   trailingSlash: 'never',
@@ -18,7 +22,7 @@ export default defineConfig({
     plugins: [{
       name: 'neonfeedback:separate-vite-caches',
       config: (_, { command }) => ({
-        cacheDir: `node_modules/.vite/${command === 'build' || process.env.NODE_ENV === 'production' ? 'build' : 'dev'}`,
+        cacheDir: fileURLToPath(new URL(`./node_modules/.vite/${command === 'build' || process.env.NODE_ENV === 'production' ? 'build' : 'dev'}/`, import.meta.url)),
       }),
     }],
   },

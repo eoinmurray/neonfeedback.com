@@ -27,7 +27,8 @@ const articles = ['writings', 'archive', 'reports'].flatMap(source => {
       const assets = [...text.matchAll(/^import\s+.+?\s+from\s+["']([^"']+)["'];?$/gm)]
         .map(match => resolve(dirname(file), match[1]))
         .filter(path => /\.(png|jpe?g|webp|svg|gif|mp4|json)$/.test(path));
-      return { id, data, assets, private: isLocalOnly(data, source) };
+      const filename = file.slice(file.lastIndexOf('/') + 1).replace(/\.mdx?$/, '');
+      return { id, filename, data, assets, private: isLocalOnly(data, source) };
     });
 });
 const emitted = files(dist);
@@ -42,6 +43,7 @@ const emittedAssets = new Set(emitted.filter(file => !['.html', '.js', '.css', '
 for (const article of articles) {
   if (article.private) {
     assert(!existsSync(resolve(dist, `${article.id}.html`)), `Local-only article was published: ${article.id}`);
+    assert(!existsSync(resolve(dist, `${article.filename}.html`)), `Local-only article alias was published: ${article.filename}`);
     assert(!text.includes(article.data.title), `Local-only article text was bundled: ${article.id}`);
     for (const asset of article.assets.filter(path => !publicAssets.has(path))) {
       assert(!emittedAssets.has(digest(asset)), `Local-only article asset was published: ${asset}`);

@@ -1,4 +1,5 @@
 import { defineCollection } from 'astro:content';
+import { fileURLToPath } from 'node:url';
 import { publicationGlob } from './lib/publication-loader';
 import { z } from 'astro/zod';
 
@@ -14,20 +15,20 @@ const articleSchema = z.object({
 });
 const writings = defineCollection({
   loader: publicationGlob({
-    base: '../md/writings', pattern: '**/*.{md,mdx}',
+    base: fileURLToPath(new URL('../../md/writings/', import.meta.url)), pattern: '**/*.{md,mdx}',
     generateId: ({ data, entry }) => String(data.id ?? entry.replace(/\.mdx?$/, '')),
   }, 'writings', import.meta.env.DEV),
   schema: articleSchema,
 });
 const archive = defineCollection({
   loader: publicationGlob({
-    base: '../md/archive', pattern: '**/*.{md,mdx}',
+    base: fileURLToPath(new URL('../../md/archive/', import.meta.url)), pattern: '**/*.{md,mdx}',
     generateId: ({ data, entry }) => String(data.id ?? entry.replace(/\.mdx?$/, '')),
   }, 'archive', import.meta.env.DEV),
   schema: articleSchema,
 });
 const reports = defineCollection({
-  loader: publicationGlob({ base: '../experiments', pattern: 'exp*/report/report.mdx', generateId: ({ data }) => String(data.id) }, 'reports', import.meta.env.DEV),
+  loader: publicationGlob({ base: fileURLToPath(new URL('../../experiments/', import.meta.url)), pattern: 'exp*/report/report.mdx', generateId: ({ data }) => String(data.id) }, 'reports', import.meta.env.DEV),
   schema: articleSchema.extend({ id: z.string().regex(/^exp\d{3}$/), tags: z.array(z.string()).default([]) }),
 });
 export const collections = { writings, archive, reports };

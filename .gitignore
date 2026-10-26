@@ -9,6 +9,7 @@ __pycache__/
 # Astro / Bun generated output
 site/node_modules/
 site/.astro/
+site/production/.astro/
 site/dist/
 
 # Local tooling and scratch

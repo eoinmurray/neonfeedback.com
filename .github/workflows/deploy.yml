@@ -29,7 +29,10 @@ jobs:
       - name: Test publication rules
         run: bun run test
         working-directory: site
-      - name: Build site
+      - name: Test local article rendering
+        run: bun run test:render
+        working-directory: site
+      - name: Build public site
         run: bun run build
         working-directory: site
       - name: Deploy to gh-pages

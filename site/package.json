@@ -7,10 +7,11 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node --experimental-strip-types scripts/check-public-build.ts",
+    "build": "astro build --root production && node --experimental-strip-types scripts/check-public-build.ts",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node --experimental-strip-types --test src/lib/*.test.ts"
+    "test": "node --experimental-strip-types --test src/lib/*.test.ts",
+    "test:render": "node scripts/check-local-render.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",
