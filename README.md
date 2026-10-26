@@ -13,7 +13,8 @@ bun install --frozen-lockfile
 bun run dev --background         # http://localhost:3002
 bun run astro dev status
 bun run astro dev stop
-bun run build                    # static site in site/dist/
+bun run test
+bun run build                    # public site in site/dist/; excludes drafts and archive
 ```
 
 From the repository root:
@@ -25,15 +26,17 @@ uv run python experiments/exp001/main.py  # regenerate the experiment's tracked 
 ## Structure
 
 1. `md/writings/`: active MDX writings, including drafts.
-2. `md/archive/`: archived MDX essays, available in the Archive and their collections.
+2. `md/archive/`: archived MDX essays, available only during local development.
 3. `experiments/exp001/main.py`: original dataset and analysis; `artifacts/` holds its
    generated figure and JSON; `report/report.mdx` imports them directly. The report
    remains archived, matching its previous placement.
 4. `site/`: Astro application, shared components, styles, static vendor files, and Bun lockfile.
 
-Article IDs retain their public URLs (`/ar001`, `/ar007`, `/exp001`). The homepage
-lists active writings; `/archive` lists archived entries. Collections include both. Draft metadata is preserved. Authored dates are retained; date-only
-entries remain date-only rather than gaining an invented publication time.
+Public article IDs retain their URLs (for example, `/ar001`). Writings and Essays
+are merged under Essays. `ar007` belongs to Essays and Drafts. Drafts and archived
+articles, their collections and imported assets are available only in the local
+Astro dev server; production and PR builds exclude them. The source files remain
+in this public repository. Authored dates remain unchanged.
 
 ## Publishing
 

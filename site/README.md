@@ -11,7 +11,8 @@ bun run dev --background             # port 3002
 bun run astro dev status
 bun run astro dev logs
 bun run astro dev stop
-bun run build
+bun run test
+bun run build                      # public content only, with publication checks
 bun run preview --port 3002
 ```
 
@@ -27,9 +28,14 @@ bun run preview --port 3002
    entries remain supported for both dates. Preserve historical dates during format-only migrations.
 5. Public article IDs must be unique across writings, archive, and experiments.
    Existing article URLs remain at the root (`/ar001`, `/exp001`).
-6. Archive membership excludes an article from the homepage, retains it at its
-   original URL, and includes it in `/archive` and collection browsing.
-   Drafts remain browsable; status and descriptions are retained as content metadata.
+6. Writings and Essays share the Essays collection (`essays`). Drafts use `drafts`;
+   `status: draft` also adds that membership automatically. Archive membership follows
+   `md/archive/`, `archived: true`, or an explicit `archive` collection.
+   Drafts and archived content appear only in local development, including their
+   article URLs. Production and PR builds exclude their MDX and imported assets
+   before compilation; the build checks verify that they were not emitted.
+   Local collections are `/collections/drafts` and `/collections/archive`; the old
+   `/archive` URL redirects locally. Authored dates and prose remain unchanged.
 7. Use native Markdown math (`$...$`, `$$...$$`) for KaTeX. Use Markdown tables,
    headings, links, and lists; import Astro components for richer content.
 8. Article lists use descending article numbers. Dates sit beneath the title,
@@ -41,10 +47,14 @@ bun run preview --port 3002
 Astro builds file-style HTML with extensionless canonical URLs on
 `https://neonfeedback.com`. Use Astro preview when checking the static output;
 Python's basic HTTP server does not resolve those routes. Development and production
-use separate Vite caches so builds do not invalidate a running development browser.
+use separate Vite and content caches so public builds do not change the local
+view of drafts or archived content.
 
 Set `SITE_BASE_PATH=/pr-preview/pr-123` when building a PR preview. Links,
 public assets, and compiled assets include that prefix; canonical article URLs
 continue to identify the production article.
+
+This controls the published website, not repository access: source files remain
+in the public GitHub repository.
 
 Distill licensing and authorship are preserved in `public/vendor/distill/`.

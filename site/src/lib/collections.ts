@@ -1,12 +1,14 @@
 import { withBase } from './urls';
+import { normalizeCollections } from './publication';
 import type { Post } from './posts';
 const collections = [
-  { id: 'writings', label: 'Writings', description: 'Stories, drafts, and working ideas.' },
+  { id: 'essays', label: 'Essays', description: 'Essays, stories, and working ideas.' },
   { id: 'poetry', label: 'Poetry', description: 'Poetry by Eoin Murray.' },
-  { id: 'essays', label: 'Essays', description: 'Essays on power, politics, and the world we inhabit.' },
   { id: 'experiments', label: 'Experiments', description: 'Computational notebooks and their supporting evidence.' },
+  { id: 'drafts', label: 'Drafts', description: 'Unfinished writings, available in local development.' },
+  { id: 'archive', label: 'Archive', description: 'Archived writings and experiments, available in local development.' },
 ];
-export function collectionMemberships(value: string | string[]): string[] { return typeof value === 'string' ? [value] : value; }
+export function collectionMemberships(value: string | string[]): string[] { return normalizeCollections(value); }
 export function collectionLabel(id: string): string { return collections.find(c => c.id === id)?.label ?? id; }
 export function collectionDescription(id: string): string { return collections.find(c => c.id === id)?.description ?? `Articles in ${collectionLabel(id)}.`; }
 export function collectionUrl(id: string): string { return withBase(`/collections/${encodeURIComponent(id)}`); }

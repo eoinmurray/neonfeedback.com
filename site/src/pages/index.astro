@@ -4,6 +4,6 @@ import ArticleBrowser from '../components/ArticleBrowser.astro';
 import { getPosts } from '../lib/posts';
 const posts = await getPosts();
 ---
-<Page title="Writings" description="Essays, poetry, stories, and computational notebooks by Eoin Murray." compact>
+<Page title="Articles" description="Essays, poetry, stories, and computational notebooks by Eoin Murray." compact>
   <ArticleBrowser posts={posts} />
 </Page>

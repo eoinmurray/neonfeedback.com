@@ -1,10 +1,14 @@
 import { defineMiddleware } from 'astro:middleware';
+import { withBase } from './lib/urls';
 
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, character => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[character]!));
 
 export const onRequest = defineMiddleware(async (context, next) => {
+  if (import.meta.env.DEV && context.url.pathname === withBase('/archive')) {
+    return context.redirect(withBase('/collections/archive'), 302);
+  }
   try {
     const response = await next();
     if (!response.headers.get('Content-Type')?.includes('text/html') || !response.body) return response;

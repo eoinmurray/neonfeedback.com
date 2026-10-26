@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { withBase } from './urls';
-import { collectionMemberships } from './collections';
+import { isArchived, isLocalOnly, articleCollections } from './publication';
 
 export type Article = CollectionEntry<'writings'> | CollectionEntry<'archive'> | CollectionEntry<'reports'>;
 export interface Post {
@@ -16,11 +16,12 @@ export async function getPosts({ includeArchive = false, onlyArchive = false } =
     ids.add(article.id);
   }
   return articles.filter(article => {
-    const archived = article.collection === 'archive' || article.data.archived;
+    if (!import.meta.env.DEV && isLocalOnly(article.data, article.collection)) return false;
+    const archived = isArchived(article.data, article.collection);
     return onlyArchive ? archived : includeArchive || !archived;
   }).map(article => ({
     id: article.id, href: withBase(`/${article.id}`), label: article.id,
-    collections: collectionMemberships(article.data.collection), article, data: article.data,
+    collections: articleCollections(article.data, article.collection), article, data: article.data,
   })).sort((a, b) => Number(b.id.match(/\d+$/)?.[0] ?? 0) - Number(a.id.match(/\d+$/)?.[0] ?? 0)
     || b.id.localeCompare(a.id, 'en', { numeric: true }));
 }

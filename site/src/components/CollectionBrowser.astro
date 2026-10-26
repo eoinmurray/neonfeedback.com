@@ -17,8 +17,7 @@ const { title, allHref, collections, filtered = false, heading = 'Collections' }
       <nav aria-labelledby="collections-heading">
         <h2 id="collections-heading">{heading}</h2>
         <ol role="list">
-          <li><a href={withBase('/')} aria-current={allHref === "/archive" ? undefined : !filtered ? 'page' : undefined}>All articles</a></li>
-          <li><a href={withBase('/archive')} aria-current={allHref === "/archive" ? "page" : undefined}>Archive</a></li>
+          <li><a href={withBase('/')} aria-current={!filtered ? 'page' : undefined}>All articles</a></li>
           {collections.map(collection => <li><a href={collection.href} aria-current={collection.active ? 'page' : undefined}>{collection.label}</a></li>)}
         </ol>
       </nav>

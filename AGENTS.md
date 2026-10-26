@@ -13,5 +13,7 @@ presentation structure, with Neonfeedback's own content and experiment code.
 5. Generated `site/dist/`, `site/.astro/`, and dependency caches are disposable.
 6. Use `bun run dev --background` from `site/` for the server on port 3002;
    manage it with `bun run astro dev status`, `logs`, and `stop`.
-7. Validate site changes with `bun run build` in `site/`.
+7. Validate changes with `bun run test` and `bun run build` in `site/`.
+   Draft and archive content must stay out of public builds, including direct URLs
+   and imported assets. Local development retains both collections.
 8. Commits and PRs are authored as the human only; never add agent attribution trailers.

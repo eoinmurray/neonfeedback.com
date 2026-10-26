@@ -22,7 +22,14 @@ export default defineConfig({
       }),
     }],
   },
-  integrations: [mdx(), react()],
+  integrations: [mdx(), react(), {
+    name: 'neonfeedback:publication-cache',
+    hooks: {
+      'astro:config:setup': ({ command, updateConfig }) => updateConfig({
+        cacheDir: new URL(command === 'dev' ? './.astro/dev/' : './.astro/build/', import.meta.url),
+      }),
+    },
+  }],
   markdown: {
     shikiConfig: { themes: { light: 'github-light', dark: 'github-dark' } },
     processor: unified({ remarkPlugins: [remarkMath], rehypePlugins: [[rehypeKatex, { throwOnError: true }]] }),
