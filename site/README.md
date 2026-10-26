@@ -37,7 +37,8 @@ bun run preview --port 3002
    `status: draft` also adds that membership automatically. Archive membership follows
    `md/archive/`, `archived: true`, or an explicit `archive` collection.
    Drafts and archived content appear only in local development, including their
-   article URLs. Production and PR builds exclude their MDX and imported assets
+   article URLs. Both are excluded from All Articles and remain available through
+   their local collection lists. Production and PR builds exclude their MDX and imported assets
    before compilation; the build checks verify that they were not emitted.
    Local collections are `/collections/drafts` and `/collections/archive`; the old
    `/archive` URL redirects locally. Authored dates and prose remain unchanged.

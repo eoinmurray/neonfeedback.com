@@ -3,7 +3,7 @@ import { getEntry, render } from 'astro:content';
 import { getPosts, type Article } from '../lib/posts';
 import Report from '../layouts/Report.astro';
 export async function getStaticPaths() {
-  return (await getPosts({ includeArchive: true })).flatMap(post => {
+  return (await getPosts({ includeLocalOnly: true })).flatMap(post => {
     const paths = [{ params: { id: post.id }, props: { report: post.article, redirectTo: undefined as string | undefined } }];
     const filename = post.article.filePath?.split('/').pop()?.replace(/\.mdx?$/, '');
     if (filename && filename !== post.id) {

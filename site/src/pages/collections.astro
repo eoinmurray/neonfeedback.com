@@ -4,7 +4,7 @@ import { getPosts } from '../lib/posts';
 import CollectionMetadata from '../components/CollectionMetadata.astro';
 import { collectionLabel, collectionUrl, compareCollections, collectionDescription, collectionSummary } from '../lib/collections';
 
-const posts = await getPosts({ includeArchive: true });
+const posts = await getPosts({ includeLocalOnly: true });
 const names = [...new Set(posts.flatMap(post => post.collections))].sort(compareCollections);
 const collections = names.map(name => ({
   name,

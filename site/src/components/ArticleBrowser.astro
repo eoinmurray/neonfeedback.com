@@ -6,7 +6,7 @@ import { collectionLabel, collectionUrl, compareCollections } from '../lib/colle
 
 interface Props { posts: Post[]; collection?: string; archive?: boolean; }
 const { posts, collection, archive = false } = Astro.props;
-const allPosts = await getPosts({ includeArchive: true });
+const allPosts = await getPosts({ includeLocalOnly: true });
 const collections = [...new Set(allPosts.flatMap(post => post.collections))].sort(compareCollections);
 const visiblePosts = collection ? posts.filter(post => post.collections.includes(collection)) : [...posts];
 

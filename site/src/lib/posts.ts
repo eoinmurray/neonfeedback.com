@@ -7,7 +7,7 @@ export interface Post {
   id: string; href: string; label: string; collections: string[]; article: Article;
   data: Article['data'];
 }
-export async function getPosts({ includeArchive = false, onlyArchive = false } = {}): Promise<Post[]> {
+export async function getPosts({ includeLocalOnly = false, onlyArchive = false } = {}): Promise<Post[]> {
   const groups = await Promise.all([getCollection('writings'), getCollection('archive'), getCollection('drafts'), getCollection('reports')]);
   const articles: Article[] = groups.flat();
   const ids = new Set<string>();
@@ -18,7 +18,7 @@ export async function getPosts({ includeArchive = false, onlyArchive = false } =
   return articles.filter(article => {
     if (!import.meta.env.DEV && isLocalOnly(article.data, article.collection)) return false;
     const archived = isArchived(article.data, article.collection);
-    return onlyArchive ? archived : includeArchive || !archived;
+    return onlyArchive ? archived : includeLocalOnly || !isLocalOnly(article.data, article.collection);
   }).map(article => ({
     id: article.id, href: withBase(`/${article.id}`), label: article.id,
     collections: articleCollections(article.data, article.collection), article, data: article.data,
