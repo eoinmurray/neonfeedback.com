@@ -5,6 +5,8 @@ for Astro development and publishing. This repository follows Pinglab's Astro/MD
 presentation structure, with Neonfeedback's own content and experiment code.
 
 1. Active writings live in `md/writings/`; archived writings live in `md/archive/`.
+   Use short title-based filenames. Existing `id` frontmatter keeps public URLs
+   stable when files are renamed.
 2. Experiments live in `experiments/expNNN/`, with `main.py`, `report/report.mdx`,
    and tracked `artifacts/`. Execute `uv run python experiments/exp001/main.py`.
 3. Reports import experiment data and figures directly. Never hand-type computed results.
