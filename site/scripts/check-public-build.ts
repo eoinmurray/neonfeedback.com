@@ -14,7 +14,7 @@ function files(directory: string): string[] {
     return entry.isDirectory() ? files(path) : [path];
   });
 }
-const articles = ['writings', 'archive', 'reports'].flatMap(source => {
+const articles = ['writings', 'archive', 'drafts', 'reports'].flatMap(source => {
   const base = resolve(root, source === 'reports' ? 'experiments' : `md/${source}`);
   return files(base).filter(file => source === 'reports'
     ? /^exp\d+\/report\/report\.mdx$/.test(relative(base, file))

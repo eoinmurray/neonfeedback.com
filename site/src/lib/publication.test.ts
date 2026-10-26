@@ -6,6 +6,8 @@ test('Writings merges into Essays without duplicate memberships', () => {
   assert.deepEqual(normalizeCollections(['writings', 'essays', 'poetry']), ['essays', 'poetry']);
 });
 test('Drafts are local-only regardless of their subject collection', () => {
+  assert.equal(isLocalOnly({ collection: 'essays', status: 'published' }, 'drafts'), true);
+  assert.deepEqual(articleCollections({ collection: 'drafts' }, 'drafts'), ['drafts']);
   assert.equal(isLocalOnly({ collection: 'essays', status: 'draft' }), true);
   assert.equal(isLocalOnly({ collection: ['essays', 'drafts'] }), true);
   assert.deepEqual(articleCollections({ collection: ['essays', 'drafts'], status: 'draft' }), ['essays', 'drafts']);

@@ -2,13 +2,13 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { withBase } from './urls';
 import { isArchived, isLocalOnly, articleCollections } from './publication';
 
-export type Article = CollectionEntry<'writings'> | CollectionEntry<'archive'> | CollectionEntry<'reports'>;
+export type Article = CollectionEntry<'writings'> | CollectionEntry<'archive'> | CollectionEntry<'drafts'> | CollectionEntry<'reports'>;
 export interface Post {
   id: string; href: string; label: string; collections: string[]; article: Article;
   data: Article['data'];
 }
 export async function getPosts({ includeArchive = false, onlyArchive = false } = {}): Promise<Post[]> {
-  const groups = await Promise.all([getCollection('writings'), getCollection('archive'), getCollection('reports')]);
+  const groups = await Promise.all([getCollection('writings'), getCollection('archive'), getCollection('drafts'), getCollection('reports')]);
   const articles: Article[] = groups.flat();
   const ids = new Set<string>();
   for (const article of articles) {

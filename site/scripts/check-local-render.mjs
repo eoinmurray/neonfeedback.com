@@ -24,7 +24,7 @@ try {
   }, { devOutput: true });
 
   let count = 0;
-  for (const folder of ['../md/writings/', '../md/archive/', '../experiments/']) {
+  for (const folder of ['../md/writings/', '../md/archive/', '../md/drafts/', '../experiments/']) {
     const base = new URL(folder, site);
     for (const file of await readdir(base, { recursive: true })) {
       if (!/\.mdx?$/.test(file) || (folder.includes('experiments') && !/^exp\d+\/report\/report\.mdx$/.test(file))) continue;

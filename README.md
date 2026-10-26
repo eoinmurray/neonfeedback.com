@@ -25,16 +25,18 @@ uv run python experiments/exp001/main.py  # regenerate the experiment's tracked 
 
 ## Structure
 
-1. `md/writings/`: active MDX writings, including drafts, with short title-based filenames.
+1. `md/writings/`: active MDX writings with short title-based filenames.
 2. `md/archive/`: archived MDX essays, available only during local development.
-3. `experiments/exp001/main.py`: original dataset and analysis; `artifacts/` holds its
+3. `md/drafts/`: unfinished writings, available only during local development.
+4. `experiments/exp001/main.py`: original dataset and analysis; `artifacts/` holds its
    generated figure and JSON; `report/report.mdx` imports them directly. The report
    remains archived, matching its previous placement.
-4. `site/`: Astro application, shared components, styles, static vendor files, and Bun lockfile.
+5. `site/`: Astro application, shared components, styles, static vendor files, and Bun lockfile.
 
 Article filenames use short title slugs; explicit `id` frontmatter preserves
 existing URLs (for example, `doubtbound.mdx` remains at `/ar001`). Writings and Essays
-are merged under Essays. `ar007` belongs to Essays and Drafts. Drafts and archived
+are merged under Essays. `programmer-and-priest.mdx` lives in `md/drafts/` and
+belongs only to Drafts. Drafts and archived
 articles, their collections and imported assets are available only in the local
 Astro dev server; production and PR builds exclude them. The source files remain
 in this public repository. Authored dates remain unchanged.

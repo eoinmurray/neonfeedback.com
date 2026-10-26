@@ -4,7 +4,7 @@ import Page from './Page.astro';
 import ArticleDate from '../components/ArticleDate.astro';
 
 interface Props {
-  report: CollectionEntry<'reports'> | CollectionEntry<'writings'> | CollectionEntry<'archive'>;
+  report: CollectionEntry<'reports'> | CollectionEntry<'writings'> | CollectionEntry<'archive'> | CollectionEntry<'drafts'>;
 }
 const { report } = Astro.props;
 const { data } = report;

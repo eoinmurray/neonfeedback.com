@@ -3,7 +3,7 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import mdxRenderer from '@astrojs/mdx/server.js';
 import { countArticle, type ArticleCounts } from './article-counts';
 
-type Article = CollectionEntry<'reports'> | CollectionEntry<'writings'> | CollectionEntry<'archive'>;
+type Article = CollectionEntry<'reports'> | CollectionEntry<'writings'> | CollectionEntry<'archive'> | CollectionEntry<'drafts'>;
 const cache = new Map<string, Promise<ArticleCounts>>();
 
 async function calculate(article: Article): Promise<ArticleCounts> {

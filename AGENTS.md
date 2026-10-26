@@ -4,7 +4,8 @@ Read [README.md](README.md) for the repository overview and [site/README.md](sit
 for Astro development and publishing. This repository follows Pinglab's Astro/MDX
 presentation structure, with Neonfeedback's own content and experiment code.
 
-1. Active writings live in `md/writings/`; archived writings live in `md/archive/`.
+1. Active writings live in `md/writings/`; drafts live in `md/drafts/`;
+   archived writings live in `md/archive/`.
    Use short title-based filenames. Existing `id` frontmatter keeps public URLs
    stable when files are renamed.
 2. Experiments live in `experiments/expNNN/`, with `main.py`, `report/report.mdx`,

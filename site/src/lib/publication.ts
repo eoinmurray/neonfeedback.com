@@ -12,18 +12,18 @@ export function isArchived(data: PublicationData, source = ''): boolean {
   return source === 'archive' || data.archived === true || normalizeCollections(data.collection).includes('archive');
 }
 
-export function isDraft(data: PublicationData): boolean {
-  return data.status?.toLowerCase() === 'draft' || normalizeCollections(data.collection).includes('drafts');
+export function isDraft(data: PublicationData, source = ''): boolean {
+  return source === 'drafts' || data.status?.toLowerCase() === 'draft' || normalizeCollections(data.collection).includes('drafts');
 }
 
 export function isLocalOnly(data: PublicationData, source = ''): boolean {
-  return isArchived(data, source) || isDraft(data);
+  return isArchived(data, source) || isDraft(data, source);
 }
 
 export function articleCollections(data: PublicationData, source = ''): string[] {
   return normalizeCollections([
     ...normalizeCollections(data.collection),
-    ...(isDraft(data) ? ['drafts'] : []),
+    ...(isDraft(data, source) ? ['drafts'] : []),
     ...(isArchived(data, source) ? ['archive'] : []),
   ]);
 }

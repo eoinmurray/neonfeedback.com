@@ -19,7 +19,7 @@ bun run preview --port 3002
 
 ## Content
 
-1. Write MDX in `../md/writings/` or `../md/archive/`, using short title-based
+1. Write MDX in `../md/writings/`, `../md/drafts/`, or `../md/archive/`, using short title-based
    filenames such as `doubtbound.mdx` and `programmer-and-priest.mdx`.
 2. Experiment reports use `../experiments/expNNN/report/report.mdx`; import data and
    images from the experiment's `artifacts/` directory.
@@ -28,11 +28,12 @@ bun run preview --port 3002
    Experiment reports also require `id`; `tags` defaults to an empty array.
 4. Dates use quoted UTC datetimes (`2026-10-26T12:00:00Z`); historical date-only
    entries remain supported for both dates. Preserve historical dates during format-only migrations.
-5. Public article IDs must be unique across writings, archive, and experiments.
+5. Public article IDs must be unique across writings, drafts, archive, and experiments.
    Optional `id` frontmatter preserves an existing URL independently of the
    filename; without it, the filename determines the ID. Existing article URLs
    remain at the root (`/ar001`, `/exp001`).
-6. Writings and Essays share the Essays collection (`essays`). Drafts use `drafts`;
+6. Writings and Essays share the Essays collection (`essays`). Files in `md/drafts/`
+   always belong to Drafts and remain local-only. Drafts use `drafts`;
    `status: draft` also adds that membership automatically. Archive membership follows
    `md/archive/`, `archived: true`, or an explicit `archive` collection.
    Drafts and archived content appear only in local development, including their
