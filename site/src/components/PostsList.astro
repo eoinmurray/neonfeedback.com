@@ -16,7 +16,6 @@ const { posts } = Astro.props;
           </a>
           <div class="post-details">
             <span class="published-date"><ArticleDate date={report.data.updated_at} compact /></span>
-            {report.data.archived && <span class="archive-label">Archive</span>}
           </div>
         </div>
       </li>
@@ -29,5 +28,5 @@ const { posts } = Astro.props;
   .post-link { display: block; color: inherit; text-decoration: none; }
   .post-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
   .post-details { display: flex; align-items: center; flex-wrap: wrap; gap: .5em 1em; margin-top: calc(12px * var(--listing-scale)); font-size: calc(12px * var(--listing-scale)); line-height: 1.4; }
-  .published-date, .archive-label { color: var(--listing-muted); }
+  .published-date { color: var(--listing-muted); }
 </style>
