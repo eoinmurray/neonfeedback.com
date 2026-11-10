@@ -1,0 +1,1377 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><script>
+  (() => {
+    const key = 'neonfeedback-theme';
+    const system = window.matchMedia('(prefers-color-scheme: dark)');
+    const readPreference = () => {
+      try {
+        const saved = localStorage.getItem(key);
+        return saved === 'light' || saved === 'dark' ? saved : 'system';
+      } catch { return 'system'; }
+    };
+    let preference = readPreference();
+    const apply = () => {
+      const theme = preference === 'system' ? (system.matches ? 'dark' : 'light') : preference;
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.themePreference = preference;
+      const button = document.getElementById('theme-toggle');
+      if (button) {
+        const next = preference === 'system' ? 'light' : preference === 'light' ? 'dark' : 'system';
+        const label = `Theme: ${preference === 'system' ? `system (${theme})` : preference}. Switch to ${next} theme`;
+        button.setAttribute('aria-label', label);
+        button.setAttribute('title', label);
+      }
+    };
+    // Apply in the head so a saved or system dark theme is ready before paint.
+    apply();
+    document.addEventListener('DOMContentLoaded', apply);
+    document.addEventListener('astro:page-load', apply);
+    system.addEventListener('change', () => { if (preference === 'system') apply(); });
+    window.addEventListener('storage', (event) => {
+      if (event.key === key || event.key === null) { preference = readPreference(); apply(); }
+    });
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element) || !event.target.closest('#theme-toggle')) return;
+      preference = preference === 'system' ? 'light' : preference === 'light' ? 'dark' : 'system';
+      try {
+        if (preference === 'system') localStorage.removeItem(key);
+        else localStorage.setItem(key, preference);
+      } catch { /* The toggle still works when storage is unavailable. */ }
+      apply();
+    });
+  })();
+</script><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content><link rel="canonical" href="https://neonfeedback.com/exp001"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>How does anarchism typically die · Neonfeedback</title><style id="distill-prerendered-styles">/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html {
+  font-size: 14px;
+	line-height: 1.6em;
+  /* font-family: "Libre Franklin", "Helvetica Neue", sans-serif; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  /*, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media(min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: var(--link);
+}
+
+figure {
+  margin: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table th {
+	text-align: left;
+}
+
+table thead {
+  border-bottom: 1px solid rgb(var(--ink) / 0.05);
+}
+
+table thead th {
+  padding-bottom: 0.5em;
+}
+
+table tbody :first-child td {
+  padding-top: 0.5em;
+}
+
+pre {
+  overflow: auto;
+  max-width: 100%;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  line-height: 1em;
+}
+
+sub {
+  top: 0.4em;
+}
+
+.kicker,
+.marker {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(var(--ink) / 0.5);
+}
+
+
+/* Headline */
+
+@media(min-width: 1024px) {
+  d-title h1 span {
+    display: block;
+  }
+}
+
+/* Figure */
+
+figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+figcaption+figure {
+
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figure svg text,
+figure svg tspan {
+}
+
+figcaption,
+.figcaption {
+  color: rgb(var(--ink) / 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+@media(min-width: 1024px) {
+figcaption,
+.figcaption {
+    font-size: 13px;
+  }
+}
+
+figure.external img {
+  background: white;
+  border: 1px solid rgb(var(--ink) / 0.1);
+  box-shadow: 0 1px 8px rgb(var(--ink) / 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+figcaption a {
+  color: rgb(var(--ink) / 0.6);
+}
+
+figcaption b,
+figcaption strong, {
+  font-weight: 600;
+  color: rgb(var(--ink) / 1.0);
+}
+/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@supports not (display: grid) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    display: block;
+    padding: 8px;
+  }
+}
+
+.base-grid,
+distill-header,
+d-title,
+d-abstract,
+d-article,
+d-appendix,
+distill-appendix,
+d-byline,
+d-footnote-list,
+d-citation-list,
+distill-footer {
+  display: grid;
+  justify-items: stretch;
+  grid-template-columns: [screen-start] 8px [page-start kicker-start text-start gutter-start middle-start] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 8px [screen-end];
+  grid-column-gap: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 8px;
+}
+
+@media(min-width: 768px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 45px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+}
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 50px 50px 50px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+
+
+.base-grid {
+  grid-column: screen;
+}
+
+/* .l-body,
+d-article > *  {
+  grid-column: text;
+}
+
+.l-page,
+d-title > *,
+d-figure {
+  grid-column: page;
+} */
+
+.l-gutter {
+  grid-column: gutter;
+}
+
+.l-text,
+.l-body {
+  grid-column: text;
+}
+
+.l-page {
+  grid-column: page;
+}
+
+.l-body-outset {
+  grid-column: middle;
+}
+
+.l-page-outset {
+  grid-column: page;
+}
+
+.l-screen {
+  grid-column: screen;
+}
+
+.l-screen-inset {
+  grid-column: screen;
+  padding-left: 16px;
+  padding-left: 16px;
+}
+
+
+/* Aside */
+
+d-article aside {
+  grid-column: gutter;
+  font-size: 12px;
+  line-height: 1.6em;
+  color: rgb(var(--ink) / 0.6)
+}
+
+@media(min-width: 768px) {
+  aside {
+    grid-column: gutter;
+  }
+
+  .side {
+    grid-column: gutter;
+  }
+}
+/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+d-title {
+  padding: 2rem 0 1.5rem;
+  contain: layout style;
+  overflow-x: hidden;
+}
+
+@media(min-width: 768px) {
+  d-title {
+    padding: 4rem 0 1.5rem;
+  }
+}
+
+d-title h1 {
+  grid-column: text;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+@media(min-width: 768px) {
+  d-title h1 {
+    font-size: 50px;
+  }
+}
+
+d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  grid-column: text;
+}
+
+d-title .status {
+  margin-top: 0px;
+  font-size: 12px;
+  color: #009688;
+  opacity: 0.8;
+  grid-column: kicker;
+}
+
+d-title .status span {
+  line-height: 1;
+  display: inline-block;
+  padding: 6px 0;
+  border-bottom: 1px solid #80cbc4;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+d-byline {
+  contain: style;
+  overflow: hidden;
+  border-top: 1px solid rgb(var(--ink) / 0.1);
+  font-size: 0.8rem;
+  line-height: 1.8em;
+  padding: 1.5rem 0;
+  min-height: 1.8em;
+}
+
+
+d-byline .byline {
+  grid-template-columns: 1fr 1fr;
+  grid-column: text;
+}
+
+@media(min-width: 768px) {
+  d-byline .byline {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+d-byline .authors-affiliations {
+  grid-column-end: span 2;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1em;
+}
+
+@media(min-width: 768px) {
+  d-byline .authors-affiliations {
+    margin-bottom: 0;
+  }
+}
+
+d-byline h3 {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgb(var(--ink) / 0.5);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+d-byline p {
+  margin: 0;
+}
+
+d-byline a,
+d-article d-byline a {
+  color: rgb(var(--ink) / 0.8);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+d-article d-byline a:hover {
+  text-decoration: underline;
+  border-bottom: none;
+}
+
+d-byline p.author {
+  font-weight: 500;
+}
+
+d-byline .affiliations {
+
+}
+/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+d-article {
+  contain: layout style;
+  overflow-x: hidden;
+  border-top: 1px solid rgb(var(--ink) / 0.1);
+  padding-top: 2rem;
+  color: rgb(var(--ink) / 0.8);
+}
+
+d-article > * {
+  grid-column: text;
+}
+
+@media(min-width: 768px) {
+  d-article {
+    font-size: 16px;
+  }
+}
+
+@media(min-width: 1024px) {
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+}
+
+
+/* H2 */
+
+
+d-article .marker {
+  text-decoration: none;
+  border: none;
+  counter-reset: section;
+  grid-column: kicker;
+  line-height: 1.7em;
+}
+
+d-article .marker:hover {
+  border: none;
+}
+
+d-article .marker span {
+  padding: 0 3px 4px;
+  border-bottom: 1px solid rgb(var(--ink) / 0.2);
+  position: relative;
+  top: 4px;
+}
+
+d-article .marker:hover span {
+  color: rgb(var(--ink) / 0.7);
+  border-bottom: 1px solid rgb(var(--ink) / 0.7);
+}
+
+d-article h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25em;
+  margin: 2rem 0 1.5rem 0;
+  border-bottom: 1px solid rgb(var(--ink) / 0.1);
+  padding-bottom: 1rem;
+}
+
+@media(min-width: 1024px) {
+  d-article h2 {
+    font-size: 36px;
+  }
+}
+
+/* H3 */
+
+d-article h3 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+
+@media(min-width: 1024px) {
+  d-article h3 {
+    font-size: 20px;
+  }
+}
+
+/* H4 */
+
+d-article h4 {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+d-article a {
+  color: inherit;
+}
+
+d-article p,
+d-article ul,
+d-article ol,
+d-article blockquote {
+  margin-top: 0;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+d-article blockquote {
+  border-left: 2px solid rgb(var(--ink) / 0.2);
+  padding-left: 2em;
+  font-style: italic;
+  color: rgb(var(--ink) / 0.6);
+}
+
+d-article a {
+  border-bottom: 1px solid rgb(var(--ink) / 0.4);
+  text-decoration: none;
+}
+
+d-article a:hover {
+  border-bottom: 1px solid rgb(var(--ink) / 0.8);
+}
+
+d-article .link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+d-article ul,
+d-article ol {
+  padding-left: 24px;
+}
+
+d-article li {
+  margin-bottom: 1em;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+d-article li:last-child {
+  margin-bottom: 0;
+}
+
+d-article pre {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 20px 24px;
+  border: 1px solid rgb(var(--ink) / .15);
+  border-radius: 8px;
+  background: var(--code-background);
+  color: var(--code-foreground);
+  font-size: 14px;
+  line-height: 1.65;
+  tab-size: 4;
+  margin-bottom: 20px;
+}
+
+d-article pre.astro-code {
+  background-color: var(--code-background) !important;
+}
+
+d-article pre code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+@media (max-width: 767px) {
+  d-article pre {
+    padding: 16px;
+    font-size: 13px;
+  }
+}
+
+d-article hr {
+  grid-column: screen;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(var(--ink) / 0.1);
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+d-article section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+d-article span.equation-mimic {
+  font-family: georgia;
+  font-size: 115%;
+  font-style: italic;
+}
+
+d-article > d-code,
+d-article section > d-code  {
+  display: block;
+}
+
+d-article > d-math[block],
+d-article section > d-math[block]  {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  d-article > d-code,
+  d-article section > d-code,
+  d-article > d-math[block],
+  d-article section > d-math[block] {
+      overflow-x: scroll;
+      -ms-overflow-style: none;  // IE 10+
+      overflow: -moz-scrollbars-none;  // Firefox
+  }
+
+  d-article > d-code::-webkit-scrollbar,
+  d-article section > d-code::-webkit-scrollbar,
+  d-article > d-math[block]::-webkit-scrollbar,
+  d-article section > d-math[block]::-webkit-scrollbar {
+    display: none;  // Safari and Chrome
+  }
+}
+
+d-article .citation {
+  color: var(--link);
+  cursor: pointer;
+}
+
+d-include {
+  width: auto;
+  display: block;
+}
+
+d-figure {
+  contain: layout style;
+}
+
+/* KaTeX */
+
+.katex, .katex-prerendered {
+  contain: style;
+  display: inline-block;
+}
+
+/* Tables */
+
+d-article table {
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(var(--ink) / 0.2);
+}
+
+d-article table th {
+  border-bottom: 1px solid rgb(var(--ink) / 0.2);
+}
+
+d-article table td {
+  border-bottom: 1px solid rgb(var(--ink) / 0.05);
+}
+
+d-article table tr:last-of-type td {
+  border-bottom: none;
+}
+
+d-article table th,
+d-article table td {
+  font-size: 15px;
+  padding: 2px 8px;
+}
+
+d-article table tbody :first-child td {
+  padding-top: 2px;
+}
+/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+span.katex-display {
+  text-align: left;
+  padding: 8px 0 8px 0;
+  margin: 0.5em 0 0.5em 1em;
+}
+
+span.katex {
+  -webkit-font-smoothing: antialiased;
+  color: rgb(var(--ink) / 0.8);
+  font-size: 1.18em;
+}
+/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+d-appendix {
+  contain: layout style;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-top: 60px;
+  margin-bottom: 0;
+  border-top: 1px solid rgb(var(--ink) / 0.1);
+  color: rgb(var(--ink) / 0.5);
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+d-appendix h3 {
+  grid-column: page-start / text-start;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0;
+  color: rgb(var(--ink) / 0.65);
+}
+
+d-appendix h3 + * {
+  margin-top: 1em;
+}
+
+d-appendix ol {
+  padding: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  d-appendix ol {
+    padding: 0 0 0 30px;
+    margin-left: -30px;
+  }
+}
+
+d-appendix li {
+  margin-bottom: 1em;
+}
+
+d-appendix a {
+  color: rgb(var(--ink) / 0.6);
+}
+
+d-appendix > * {
+  grid-column: text;
+}
+
+d-appendix > d-footnote-list,
+d-appendix > d-citation-list,
+d-appendix > distill-appendix {
+  grid-column: screen;
+}
+
+/*
+ * Copyright 2018 The Distill Template Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@media print {
+
+  @page {
+    size: 8in 11in;
+    @bottom-right {
+      content: counter(page) " of " counter(pages);
+    }
+  }
+
+  html {
+    /* no general margins -- CSS Grid takes care of those */
+  }
+
+  p, code {
+    page-break-inside: avoid;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  d-header {
+    visibility: hidden;
+  }
+
+  d-footer {
+    display: none!important;
+  }
+
+}
+</style><script src="/vendor/distill/template.v2.js"></script><style>span[data-astro-cid-x5abnrcl]{white-space:nowrap;display:block}.compact[data-astro-cid-x5abnrcl]{white-space:nowrap;gap:.35em;display:inline-flex}
+</style><link rel="stylesheet" href="/_astro/Page.Gvwv3b2j.css"><style>d-title .article-date{color:rgb(var(--ink) / .6);margin:.5rem 0 0;font-size:.8rem;font-weight:400}d-appendix{background:var(--surface);color:rgb(var(--ink) / .65)}@media print{d-appendix{background:#fff}}.report-appendix{display:contents}.report-appendix>*{grid-column:text;min-width:0}.report-appendix>:is(h2,h3){grid-column:text}.report-appendix[data-heading-depth="2"]>h2,.report-appendix[data-heading-depth="3"]>h3{color:rgb(var(--ink) / .65);grid-column:page-start/text-start;margin-top:1em;margin-bottom:0;font-size:15px;font-weight:500}d-article>.source-table{grid-column:text}:is(d-article,d-appendix) figcaption{margin-top:1.25rem}:is(d-article,d-appendix) figcaption>p:first-of-type{margin:0;display:inline}.report-body{--report-content-top:4rem;position:relative}.report-body>d-article{min-width:0;padding-top:var(--report-content-top);grid-column:screen}.report-body>d-article>:first-child{margin-top:0}.report-abstract{grid-column:text}.report-abstract h2{margin-top:0}:is(d-article,d-appendix) [id]{scroll-margin-top:24px}d-appendix .parameters{min-width:0;margin-bottom:2rem}d-appendix .parameters table{border-collapse:collapse;width:100%;font-size:inherit;line-height:inherit;margin-top:0}d-appendix .parameters th,d-appendix .parameters td{text-align:left;border-bottom:1px solid rgb(var(--ink) / .1);vertical-align:top;padding:.6em .65em}d-appendix .parameters th:first-child,d-appendix .parameters td:first-child{width:30%;padding-left:0}d-appendix .parameters th:last-child,d-appendix .parameters td:last-child{padding-right:0}@media (width<=999px){d-appendix h3,.report-appendix[data-heading-depth="2"]>h2,.report-appendix[data-heading-depth="3"]>h3{grid-column:text;margin-bottom:1em}}.draft-notes{color:#c62828}html[data-theme=dark] .draft-notes{color:#ff8a80}.poem{white-space:normal}d-article table{border-collapse:collapse;max-width:100%;font-size:14px;display:block;overflow-x:auto}d-article th,d-article td{border-bottom:1px solid rgb(var(--ink) / .15);text-align:left;vertical-align:top;min-width:100px;padding:.6em}d-article .source-note{color:rgb(var(--ink) / .6);font-size:.85em}
+</style></head><body distill-prerendered><d-front-matter><script type="application/json">{"title":"How does anarchism typically die","description":"","authors":[{"author":"Eoin Murray","affiliations":[]}]}</script></d-front-matter><header class="site-header base-grid"><nav class="l-page" aria-label="Site"><a href="/">Neonfeedback</a><div class="nav-links"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Change colour theme" title="Change colour theme"><svg class="theme-system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg><svg class="theme-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5"></path></svg><svg class="theme-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 13.2A9 9 0 0 1 10.8 3.2a9 9 0 1 0 10 10Z"></path></svg></button></div></nav></header><main><script type="module">function e(){let e=new Intl.DateTimeFormat(`en-GB`,{month:`short`});document.querySelectorAll(`time[data-local-date]`).forEach(t=>{if(/^\d{4}-\d{2}-\d{2}$/.test(t.dateTime))return;let n=new Date(t.dateTime);if(Number.isNaN(n.getTime()))return;let r=n.getDate(),i=r%100>=11&&r%100<=13?`th`:[`th`,`st`,`nd`,`rd`][r%10]??`th`,a=n.getHours(),o=String(n.getMinutes()).padStart(2,`0`);t.querySelector(`[data-date-time]`).textContent=`${a%12||12}:${o}${a<12?`am`:`pm`}`;let s=String(n.getFullYear()).slice(-2);t.querySelector(`[data-date-label]`).textContent=`${r}${i} ${e.format(n)} ${s}`})}e(),document.addEventListener(`astro:page-load`,e);</script><d-title><h1>How does anarchism typically die</h1><p class="article-date"><time data-local-date data-compact="true" class="compact" datetime="2026-06-21" data-astro-cid-x5abnrcl><span data-date-time data-astro-cid-x5abnrcl></span><span data-date-label data-astro-cid-x5abnrcl>21 Jun 26</span></time></p></d-title><div class="report-body base-grid"><d-article role="article" aria-label="How does anarchism typically die"><p>Anarchism is often said never to have been tried, or to be internally unstable. It has been tried, several times, at some scale. This is no study, the record is too thin and the sample too hand-picked for that; it is only a narrow attempt to refute the second charge: that anarchism dies of its own contradictions, at its own hand.</p>
+<p>A word on what counts, before the tally. The test here is functional, not a label:</p>
+<blockquote>
+<p>A case qualifies if it governed a population and territory, however briefly, through stateless, federated self-organization: directly-democratic assemblies or councils, recallable delegates, no standing state and no vanguard party over the whole, and existed with a population of 2,500 or more.</p>
+</blockquote>
+<p>What follows is that <em>sample</em>: the 22 cases in the appendix below, not exhaustive but enough to suggest a shape. Sorted by cause of death, they fall unevenly.</p>
+<figure><a class="figure-image" href="/_astro/deaths.DM7wD-jw.png"><img src="/_astro/deaths.DM7wD-jw.png" width="2200" height="1040" alt="Bar chart of the recorded causes of death and ongoing cases"/></a><figcaption>Figure 1: How the 22 anarchist experiments ended, tallied by cause. Crushed by a state is the most common ending; collapse from within is the least.</figcaption></figure>
+<p>Of the 18 experiments that ended, only 2 actually <em>collapsed</em> from within. The other 16 were killed: 13 crushed by an enemy state, 3 betrayed by the authoritarian left they had fought alongside. The remaining 4 are still alive, and nearly all of them are small.</p>
+<p>This runs against the usual explanation. Anarchism is generally expected to fail because it cannot scale. Without a state, the thinking goes, it dissolves into disorder. In this sample, though, collapse from within is the rarest ending. More often the experiments were ended from outside: usually by a state, and in the two largest cases by the authoritarian left they had allied with. Makhno’s Free Territory and revolutionary Catalonia, the biggest on the list, were dismantled by the Bolsheviks and Stalinists rather than by their declared enemies.</p>
+<p>One caveat carries most of the weight. Counting only experiments that grew large enough to govern territory selects on the outcome: it conditions the sample on having already survived the fragile early phase where internal collapse does most of its killing: schism, drift, economic failure, exhaustion. Most anarchist projects die there, small and unrecorded, at no hand but their own, and almost none of them reach this table. So the honest claim is the narrow one: <em>once</em> an experiment is large enough to rule, it is far likelier to be crushed than to collapse. That is a fact about the survivors, not about anarchism as such.</p>
+<p>Whether a case called itself “anarchist” is neither necessary nor sufficient. That functional test keeps assembly-run cases anarchists merely joined, like Oaxaca and Cherán, on the strength of their form, and drops self-styled ones that kept a state or a strongman. Cases that meet the form only halfway, with a dominant party or a mixed governing council, are marked † and treated as borderline. Whether the survivors represent endurance or retreat is left open.</p>
+<h2 id="appendix">Appendix</h2>
+<p>The full record behind the chart, sorted by peak scale.</p>
+<p>The <strong>bold</strong> phrase in <em>How it ended</em> is the load-bearing claim each source is cited for — the manner of death (or survival) that the chart and the central argument rest on. Start there when checking a reference.</p>
+<p><em>† Borderline on the functional test — meets the form only halfway: a dominant party over the councils (Rojava’s PYD, Bakur’s PKK), a governing council with non-anarchist majorities (the Paris Commune, Bavaria’s second phase), or federal-republican rather than anarchist leadership (Cartagena, where the anarchist FRE-AIT abstained). Korea sits here too: fronted by a nationalist general, its self-governing programme is thinly evidenced, and the “2 million” is the Manchurian Korean diaspora, not the number it actually governed. Counted, but flagged. Iceland is the pre-modern outlier: stateless but chieftain-ranked rather than assembly-run, and cited mostly by anarcho-capitalists.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Experiment</th><th>Where / when / how long</th><th>Scale</th><th>Death</th><th>How it ended</th><th>Source</th></tr></thead><tbody><tr><td>Revolutionary Catalonia &amp; Aragon</td><td>Spain, 1936–1939 · 3 yrs</td><td>≈5–8 million in collectives</td><td>Betrayed</td><td><strong>Undermined by Stalinist allies</strong>, then defeated by Franco</td><td><a href="https://doi.org/10.1177/026569148701700402">source</a></td></tr><tr><td>Free Territory (Makhnovshchina)</td><td>Ukraine, 1918–1921 · 3 yrs</td><td>Up to ≈7 million</td><td>Betrayed</td><td>Used then <strong>liquidated by the Bolsheviks</strong> once the Whites were beaten</td><td><a href="https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921">source</a></td></tr><tr><td>Rojava (AANES) †</td><td>North-east Syria, 2012–present · 14 yrs</td><td>≈2–4 million</td><td>Alive</td><td><strong>Survives</strong> under constant military threat from Turkey and others</td><td><a href="https://doi.org/10.1080/21520844.2024.2314447">source</a></td></tr><tr><td>Hungarian workers’ councils</td><td>Hungary, 1956 · ≈3 months</td><td>Millions, briefly</td><td>Crushed</td><td><strong>Crushed by Soviet tanks</strong> within weeks</td><td><a href="https://doi.org/10.1177/088832540201600208">source</a></td></tr><tr><td>Paris Commune †</td><td>Paris, 1871 · 72 days</td><td>≈2 million</td><td>Crushed</td><td><strong>Crushed by the French Army</strong>; ≈10,000–20,000 killed in the <em>semaine sanglante</em> (toll disputed)</td><td><a href="https://doi.org/10.4000/rh19.78">source</a></td></tr><tr><td>Korean People’s Association †</td><td>Manchuria, 1929–1931 · 2 yrs</td><td>Unknown; ≈2M diaspora</td><td>Crushed</td><td><strong>Caught between Japanese imperial forces and Stalinists</strong></td><td><a href="https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria">source</a></td></tr><tr><td>Gwangju Commune</td><td>Gwangju, South Korea, 1980 · ≈6 days</td><td>≈730,000</td><td>Crushed</td><td><strong>Retaken by army paratroopers</strong> at dawn after ≈6 days of self-rule</td><td><a href="https://libcom.org/article/gwangju-uprising-1980">source</a></td></tr><tr><td>Bavarian Council Republic †</td><td>Munich, 1919 · ≈4 weeks</td><td>≈600,000</td><td>Crushed</td><td><strong>Stormed by the Freikorps</strong>; Landauer murdered</td><td><a href="https://doi.org/10.1163/1477285X-12341309">source</a></td></tr><tr><td>Asturian Commune</td><td>Asturias, Spain, 1934 · ≈2 weeks</td><td>≈500,000</td><td>Crushed</td><td><strong>Crushed by the Army of Africa</strong> after ≈2 weeks</td><td><a href="https://doi.org/10.14296/920.9781912702534">source</a></td></tr><tr><td>Bakur self-rule †</td><td>South-east Turkey, 2015–2016 · ≈8 months</td><td>≈400,000</td><td>Crushed</td><td><strong>Turkish military operations</strong>; districts destroyed, trustees imposed</td><td><a href="https://doi.org/10.1080/13608746.2023.2255017">source</a></td></tr><tr><td>Zapatistas (EZLN)</td><td>Chiapas, Mexico, 1994–present · 32 yrs</td><td>≈300,000</td><td>Alive</td><td><strong>Survives</strong>, encircled and pressured by the Mexican state</td><td><a href="https://doi.org/10.1177/0022002709341173">source</a></td></tr><tr><td>Oaxaca Commune (APPO)</td><td>Oaxaca, Mexico, 2006 · ≈6 months</td><td>≈200,000</td><td>Crushed</td><td><strong>Federal police (PFP) crushed the Commune</strong></td><td><a href="https://doi.org/10.1093/acrefore/9780199366439.013.752">source</a></td></tr><tr><td>Icelandic Commonwealth</td><td>Iceland, 930–1262 · 332 yrs</td><td>≈50,000</td><td>Collapsed</td><td><strong>Collapsed into feuding chieftains</strong>; absorbed by Norway</td><td><a href="https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/">source</a></td></tr><tr><td>Strandzha Commune</td><td>Ottoman Thrace, 1903 · ≈20 days</td><td>Tens of thousands</td><td>Crushed</td><td><strong>Crushed by the Ottoman army</strong> after ≈20 days</td><td><a href="https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation">source</a></td></tr><tr><td>Cartagena Canton †</td><td>Spain, 1873–1874 · ≈6 months</td><td>≈26,000</td><td>Crushed</td><td><strong>Besieged and crushed by the central army</strong>, Jan 1874</td><td><a href="https://doi.org/10.4000/rh19.7784">source</a></td></tr><tr><td>Kronstadt Soviet</td><td>Russia, 1921 · ≈16 days</td><td>≈18,000</td><td>Betrayed</td><td><strong>Stormed by the Red Army</strong>; rebels executed or exiled</td><td><a href="https://doi.org/10.2307/2492031">source</a></td></tr><tr><td>Cherán</td><td>Michoacán, Mexico, 2011–present · 15 yrs</td><td>≈16,000</td><td>Alive</td><td><strong>Survives</strong>, legally recognised indigenous autonomy</td><td><a href="https://journals.sagepub.com/doi/full/10.1177/0094582X20975004">source</a></td></tr><tr><td>Alcoy insurrection</td><td>Alcoy, Spain, 1873 · ≈5 days</td><td>≈10,000</td><td>Crushed</td><td><strong>Retaken by the federal army</strong> within days</td><td><a href="https://doi.org/10.4000/rh19.7784">source</a></td></tr><tr><td>Magonista Baja California</td><td>Mexico, 1911 · ≈6 months</td><td>Thousands</td><td>Crushed</td><td><strong>Defeated by federal troops</strong>; the PLM suppressed</td><td><a href="https://sandiegohistory.org/journal/1999/january/magonista/">source</a></td></tr><tr><td>Alt Llobregat rising</td><td>Catalonia, Spain, 1932 · ≈6 days</td><td>≈3,000</td><td>Crushed</td><td><strong>Retaken by army and Civil Guard</strong>; militants deported</td><td><a href="https://doi.org/10.4000/framespa.4436">source</a></td></tr><tr><td>CHAZ / CHOP</td><td>Seattle, USA, 2020 · ≈3 weeks</td><td>A few thousand</td><td>Collapsed</td><td><strong>Collapsed in ≈3 weeks</strong>; cleared by police</td><td><a href="https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf">source</a></td></tr><tr><td>Marinaleda</td><td>Spain, 1979–present · 47 yrs</td><td>≈2,700</td><td>Alive</td><td><strong>Survives</strong> as a functioning cooperative</td><td><a href="https://doi.org/10.14288/acme.v19i3.1998">source</a></td></tr></tbody></table>
+<h2 id="grounding-the-sources">Grounding the sources</h2>
+<p>A claim-verification companion built with the demolab <a href="https://github.com/eoinmurray/demolab/blob/main/demolab_cli/runbooks/GROUND-CLAIMS.md"><em>ground-claims</em> runbook</a>: for each cited source I could retrieve, the verbatim sentence(s) that back that row’s manner-of-death claim. Quotes are agent-located pointers, self-checked for verbatim match but <strong>not</strong> independently verified — confirm against the source before citing.</p>
+<h3 id="lawrence-d-taylor-1999--the-magonista-revolt-in-baja-california">Lawrence D. Taylor (1999) — The Magonista Revolt in Baja California</h3>
+<p><a href="https://sandiegohistory.org/journal/1999/january/magonista/">Journal of San Diego History (1999)</a></p>
+<p><strong>Summary.</strong> A narrative history of the 1911 PLM (“Magonista”) armed incursion into Baja California — the Liberal columns’ capture of Mexicali and Tijuana, the movement’s internal fragmentation, and its military defeat by Mexican federal forces. Taylor weighs and rejects the “filibuster / capitalist conspiracy” reading, treating it as a genuine if disorganised revolutionary episode.</p>
+<p><strong>Claim it supports.</strong> <em>“Defeated by federal troops; the PLM suppressed”</em> (Magonista Baja California).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“After a three-hour combat, the small Liberal force, outnumbered and outmaneuvered by the federals, was routed.”</em> (§ the June 1911 defeat at Tijuana) — the federal military defeat the claim names.</li>
+<li><em>“With the defeat of the Second Division, the formal Magonista campaign in Baja California came to an end, even though armed Liberal parties continued to stage cross-border raids into the territory up until early 1914.”</em> (§ end of the campaign) — the suppression of the PLM campaign.</li>
+</ol>
+<h3 id="seattle-office-of-inspector-general-2021--sentinel-event-review-wave-3">Seattle Office of Inspector General (2021) — Sentinel Event Review, Wave 3</h3>
+<p><a href="https://www.seattle.gov/documents/departments/oig/sentinel%20event%20review/wave3reportfinal.pdf">seattle.gov · OIG Sentinel Event Review, Wave 3 (PDF)</a></p>
+<p><strong>Summary.</strong> The report reviews the Seattle Police Department’s response to protests from 8 June to 1 July 2020, when SPD vacated the East Precinct and the Capitol Hill Organized Protest (CHOP) — originally the Capitol Hill Autonomous Zone (CHAZ) — was established. The zone persisted 23 days until the Mayor ordered police to clear it following several shootings.</p>
+<p><strong>Claim it supports.</strong> <em>“Collapsed in ≈3 weeks; cleared by police”</em> (CHAZ / CHOP).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“The CHOP existed for the next 23 days.”</em> (p. 11) — the ≈3-week (23-day) duration.</li>
+<li><em>“The CHOP existed until July 1, 2020, during which time several shootings occurred, prompting the Mayor to order SPD to clear the area.”</em> (p. 6) — the end date and the police clearing.</li>
+</ol>
+<h3 id="candón-mena--domínguez-jaime-2020--la-autoconstrucción-de-viviendas-en-marinaleda">Candón-Mena &amp; Domínguez-Jaime (2020) — La Autoconstrucción de Viviendas en Marinaleda</h3>
+<p><a href="https://doi.org/10.14288/acme.v19i3.1998">ACME: An International Journal for Critical Geographies (2020)</a></p>
+<p><strong>Summary.</strong> Analyses Marinaleda’s (Andalusia) self-built housing programme through Ostrom’s commons-governance framework, as a case of the Social Production of Habitat built on self-management, mutual aid, and collective property. From long-term fieldwork, it argues the scheme functions as a self-governed common good sustained by an organised community. (Quotes are in the original Spanish.)</p>
+<p><strong>Claim it supports.</strong> <em>“Survives as a functioning cooperative”</em> (Marinaleda).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“el pueblo se ha caracterizado por mantener durante años una intensa movilización que se ha materializado en grandes logros sociales, sobre todo en materia de empleo (Cooperativa El Humoso, Escuela Taller) y de vivienda (autoconstrucción)”</em> (p. 690) — years of sustained mobilisation yielding lasting cooperative achievements in work and housing.</li>
+<li><em>“el papel preponderante de las formas de autogestión (asamblea del pueblo y de beneficiarios); el principio de ayuda mutua (recursos públicos cedidos por el Ayuntamiento y trabajo voluntario de la comunidad); y la propiedad colectiva”</em> (p. 698) — the case is defined by ongoing self-management, mutual aid, and collective property.</li>
+</ol>
+<h3 id="julián-casanova-1987--anarchism-and-revolution-in-the-spanish-civil-war-the-case-of-aragon">Julián Casanova (1987) — Anarchism and Revolution in the Spanish Civil War: The Case of Aragon</h3>
+<p><a href="https://doi.org/10.1177/026569148701700402">European History Quarterly 17(4) (1987)</a></p>
+<p><strong>Summary.</strong> A study of the roughly 450 CNT/anarcho-syndicalist agrarian collectives set up in Republican Aragón after July 1936. Casanova argues the experiment was destroyed not by Franco but from within the Republican camp — dissolved by decree in August 1937 and broken by the Communist-led XI Division under Líster.</p>
+<p><strong>Claim it supports.</strong> <em>“Undermined by Stalinist allies, then defeated by Franco”</em> (Revolutionary Catalonia &amp; Aragon).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“The preparation of a Republican offensive on the Aragon front justified the deployment there of the XI Division, commanded by the Communist Enrique Lister.”</em> (p. 443) — the Communist military instrument turned on the anarchist Council of Aragon.</li>
+<li><em>“On 11 August 1937, the Gaceta de la República published the decree dissolving the Council and relieving of their posts the Government Delegate in Aragon, Joaquin Ascaso, and the remaining members of the Council.”</em> (p. 443) — the Republican government’s formal dissolution of the collectives’ governing body.</li>
+<li><em>“similar methods were used to dismantle the new organization being tried out by the anarchists. In both cases, armed groups from outside - first the Catalan militias and then Lister’s XI Division burst violently into Aragon.”</em> (p. 446) — the armed dismantling of the collectives before Franco’s victory.</li>
+</ol>
+<h3 id="peter-arshinov-1921--history-of-the-makhnovist-movement-19181921">Peter Arshinov (1921) — History of the Makhnovist Movement, 1918–1921</h3>
+<p><a href="https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921">theanarchistlibrary.org · Arshinov (1921)</a></p>
+<p><strong>Summary.</strong> A participant history by Peter Arshinov, himself a Makhnovist, of Makhno’s anarchist insurgency in Ukraine. It documents the October 1920 military-political pact with the Soviet government against Wrangel, the Whites’ November defeat, and the Bolsheviks’ 26 November surprise attack that destroyed the Makhnovists once they were no longer needed. <span class="source-note">(A committed partisan source — it asserts Bolshevik bad faith throughout — used because the neutral scholarly article was paywalled and unavailable.)</span></p>
+<p><strong>Claim it supports.</strong> <em>“Used then liquidated by the Bolsheviks once the Whites were beaten”</em> (Free Territory (Makhnovshchina)).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“This was said on November 16, and on November 26th the Bolsheviks treacherously attacked the Makhnovist staff and troops in the Crimea and in Gulyai-Polye”</em> (p. 105) — the Bolshevik surprise attack, days after Wrangel’s rout.</li>
+<li><em>“For the Bolsheviks this agreement was nothing more than a military and strategic step calculated to last at most a month or two — the time needed to defeat Wrangel. Once this was accomplished, they were determined to resume slandering the Makhnovists as bandits and counter-revolutionaries, and under this pretext to make war on them.”</em> (p. 106) — the “used” half: a cynical alliance meant only to last until Wrangel fell.</li>
+<li><em>“Thus the agreement between the Makhnovists and the Bolsheviks was doomed from the very beginning and could not have lasted after the defeat of Wrangel.”</em> (p. 106) — ties the betrayal directly to the Whites’ defeat.</li>
+</ol>
+<h3 id="ahmad-mactavish--christie-2024--the-de-facto-autonomous-governance-and-stability-in-the-middle-east-the-case-of-kurds-in-rojava">Ahmad, MacTavish &amp; Christie (2024) — The de facto Autonomous Governance and Stability in the Middle East: The Case of Kurds in Rojava</h3>
+<p><a href="https://doi.org/10.1080/21520844.2024.2314447">Journal of the Middle East and Africa 15(1) (2024)</a></p>
+<p><strong>Summary.</strong> Argues the Kurdish-led de facto autonomous region of Rojava, established after ISIS created a power vacuum in north-east Syria, offers a comparatively stable, multicultural model of governance — while cataloguing the risks that threaten it: foreign intervention (especially Turkish incursions), isolation, and detention-camp crises.</p>
+<p><strong>Claim it supports.</strong> <em>“Survives under constant military threat from Turkey and others”</em> (Rojava (AANES)).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“Although Rojava Self-Administration was declared in 2013, one of the region’s biggest obstacles, as noted by Saleh Moslem, is being under constant threat from foreign intervention.”</em> (p. 104) — constant external threat as the chief obstacle to the surviving administration.</li>
+<li><em>“the Turkish incursion after the withdrawal of a majority of US support emboldened Turkish-backed armed groups such as Suleiman Shah Brigade and Hamza Division”</em> (p. 104) — Turkish incursion and Turkish-backed forces specifically.</li>
+<li><em>“Open border points are also subject to closures due to pressures from other foreign actors, such as Turkey and Russian forces, on behalf of the Syrian regime.”</em> (p. 105) — threats from Turkey “and others”.</li>
+</ol>
+<h3 id="johanna-granville-2002--from-the-archives-of-warsaw-and-budapest-a-comparison-of-the-events-of-1956">Johanna Granville (2002) — From the Archives of Warsaw and Budapest: A Comparison of the Events of 1956</h3>
+<p><a href="https://doi.org/10.1177/088832540201600208">East European Politics and Societies 16(2) (2002)</a></p>
+<p><strong>Summary.</strong> Uses declassified archives to compare the 1956 crises and explain why the USSR intervened militarily in Hungary but not Poland, tracing events between 23 October and the second Soviet invasion of 4 November 1956. (This source was a scanned PDF; the quote below is OCR-transcribed.)</p>
+<p><strong>Claim it supports.</strong> <em>“Crushed by Soviet tanks within weeks”</em> (Hungarian workers’ councils).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“the final crackdown of 4 November”</em> (OCR-transcribed — verify against the scan) — names the 4 November 1956 second Soviet intervention that ended the revolution, weeks after the 23 October uprising.</li>
+</ol>
+<h3 id="cohen-skalli--pisano-2020--farewell-to-revolution-gustav-landauers-death-and-the-funerary-shaping-of-his-legacy">Cohen-Skalli &amp; Pisano (2020) — Farewell to Revolution! Gustav Landauer’s Death and the Funerary Shaping of His Legacy</h3>
+<p><a href="https://doi.org/10.1163/1477285X-12341309">The Journal of Jewish Thought and Philosophy 28(2) (2020)</a></p>
+<p><strong>Summary.</strong> Centres on the violent death of the anarchist Gustav Landauer in May 1919 at the collapse of Munich’s Räterepublik, and how his friends reshaped the killing into martyrdom, read against his anarchist theory of revolution.</p>
+<p><strong>Claim it supports.</strong> <em>“Stormed by the Freikorps; Landauer murdered”</em> (Bavarian Council Republic).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“The execution of Landauer by the Freikorps rendered vivid the disparity between the expectations of Landauer as he threw himself into the Munich Revolution in late 1918, and the conflicted reactions of his close companions”</em> (p. 185) — names the Freikorps as his killers.</li>
+<li><em>“They shot and beat Landauer to death.”</em> (p. 185) — the murder itself, from an eyewitness account.</li>
+</ol>
+<h3 id="reşat-bayer-and-özge-kemahlıoğlu-2023--democratic-backsliding-conflict-and-partisan-mobilisation-of-ethnic-groups">Reşat Bayer and Özge Kemahlıoğlu (2023) — Democratic Backsliding, Conflict, and Partisan Mobilisation of Ethnic Groups</h3>
+<p><a href="https://doi.org/10.1080/13608746.2023.2255017">South European Society and Politics 28(1) (2023)</a></p>
+<p><strong>Summary.</strong> Studies how democratic backsliding and renewed PKK conflict in 2015–2018 curtailed the pro-Kurdish party’s control of south-eastern municipalities: after local self-governance declarations, the state answered with military operations, destruction, and the replacement of elected mayors by appointed trustees (kayyum).</p>
+<p><strong>Claim it supports.</strong> <em>“Turkish military operations; districts destroyed, trustees imposed”</em> (Bakur self-rule).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“The state responded with military operations. In addition to fatalities including civilians, urban armed conflict caused civilian dislocation and physical destruction.”</em> (pp. 27–28) — the state’s military response, causing destruction and displacement.</li>
+<li><em>“mayors from the pro-Kurdish parties were replaced by government-appointed trustees”</em> (p. 28) — elected mayors replaced by imposed trustees.</li>
+<li><em>“Executive decree #674 of September 2016 granted the central government the right to appoint non-elected trustees in the case of mayors’ removal due to terrorism-related reasons.”</em> (p. 32) — the legal mechanism for imposing trustees.</li>
+</ol>
+<h3 id="maría-de-la-luz-inclán-2009--repressive-threats-procedural-concessions-and-the-zapatista-cycle-of-protests-19942003">María de la Luz Inclán (2009) — Repressive Threats, Procedural Concessions, and the Zapatista Cycle of Protests, 1994–2003</h3>
+<p><a href="https://doi.org/10.1177/0022002709341173">Journal of Conflict Resolution (2009)</a></p>
+<p><strong>Summary.</strong> Models how repressive threats and procedural concessions shaped the 1994–2003 Zapatista protest cycle. After the 1994 uprising and ceasefire, the Mexican state kept a military siege while alternating concessions and repressive threats against the EZLN and Zapatista communities.</p>
+<p><strong>Claim it supports.</strong> <em>“Survives, encircled and pressured by the Mexican state”</em> (Zapatistas (EZLN)).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“it kept a military siege around Zapatista headquarters in the Lacandon Jungle”</em> (p. 2) — ongoing military encirclement by the state.</li>
+<li><em>“the Mexican government granted procedural concessions and applied repressive threats to the EZLN and the Zapatista communities”</em> (p. 2) — sustained state pressure. <span class="source-note">(The article’s window is 1994–2003; “survives” to the present is beyond what it quotes — the encirclement and pressure are directly supported.)</span></li>
+</ol>
+<h3 id="estrada-saavedra-2020--the-popular-assembly-of-the-peoples-of-oaxaca-appo">Estrada Saavedra (2020) — The Popular Assembly of the Peoples of Oaxaca (APPO)</h3>
+<p><a href="https://doi.org/10.1093/acrefore/9780199366439.013.752">Oxford Research Encyclopedia of Latin American History (2020)</a></p>
+<p><strong>Summary.</strong> In 2006 a teachers’ union dispute in Oaxaca escalated into the APPO, which took territorial control of the state capital through barricades, seized media, and a self-managed popular government (the Oaxaca Commune). After failed negotiations, the federal government deployed the Federal Preventive Police (PFP); the experience ended in violent repression.</p>
+<p><strong>Claim it supports.</strong> <em>“Federal police (PFP) crushed the Commune”</em> (Oaxaca Commune (APPO)).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“the federal government decided to send in the PFP to pacify the state, with assistance from the army and navy”</em> (p. 8) — the federal Preventive Police deployed to end the uprising.</li>
+<li><em>“On November 25, one week before the swearing-in of the new President, the police operation began that would come to a bloody end with the Oaxaca Commune”</em> (p. 8) — the police operation that violently terminated the Commune.</li>
+</ol>
+<h3 id="daniels-1951--the-kronstadt-revolt-of-1921-a-study-in-the-dynamics-of-revolution">Daniels (1951) — The Kronstadt Revolt of 1921: A Study in the Dynamics of Revolution</h3>
+<p><a href="https://doi.org/10.2307/2492031">American Slavic and East European Review (1951)</a></p>
+<p><strong>Summary.</strong> Analyses the March 1921 Kronstadt rising as a left-wing revolt against Communist rule, growing out of Petrograd strikes and fleet discontent; the regime denounced it as a White plot and crushed it by armed assault, pushing Lenin toward the NEP.</p>
+<p><strong>Claim it supports.</strong> <em>“Stormed by the Red Army; rebels executed or exiled”</em> (Kronstadt Soviet).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“a resolution appearing in the last number of the Izvestija published before Kronstadt was stormed and captured on March 17”</em> (p. 248) — dates the storming and capture.</li>
+<li><em>“The main body of troops employed were kursanty (‘officer cadets’) from Red Army training schools, and Cheka men: the assault on Kronstadt was officered by the top officialdom of the Communist Party”</em> (p. 248) — the attacking force: Red Army cadets and Cheka.</li>
+<li><em>“From an interview with Kozlovskij after his escape to Finland”</em> (p. 245, n. 18) — the rebel commander’s flight into exile. <span class="source-note">(This political analysis anchors the storming and the exile; the mass executions of the sailors — standard in the wider historiography — are not tabulated here.)</span></li>
+</ol>
+<h3 id="gasparello-2021--communal-responses-to-structural-violence-and-dispossession-in-cherán-mexico">Gasparello (2021) — Communal Responses to Structural Violence and Dispossession in Cherán, Mexico</h3>
+<p><a href="https://doi.org/10.1177/0094582X20975004">Latin American Perspectives (2021)</a></p>
+<p><strong>Summary.</strong> After illegal logging and criminal violence, the Purépecha community of Cherán rose up in 2011 and rebuilt its government around communal self-organization — abolishing political parties and, through a legal process, instituting a council-and-assembly structure governing by usos y costumbres.</p>
+<p><strong>Claim it supports.</strong> <em>“Survives, legally recognised indigenous autonomy”</em> (Cherán).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“After a legal process in November 2011, the indigenous people of Cherán were able to appoint their authorities according to their usos y costumbres: the party system of local politics disappeared, and a council structure was promoted in its stead”</em> (p. 12) — the court-won right to self-govern by customary law.</li>
+<li><em>“Cherán currently has a capillary structure for discussion and decisions that guides and controls the Communal Government”</em> (p. 12) — the ongoing assembly-based communal government.</li>
+</ol>
+<h3 id="moisand-2021---cantonards--et--communeux--la-révolution-cantonale-espagnole-dans-lombre-de-la-commune-1873">Moisand (2021) — « Cantonards » et « communeux ». La révolution cantonale espagnole dans l’ombre de la Commune (1873)</h3>
+<p><a href="https://doi.org/10.4000/rh19.7784">Revue d’histoire du XIXe siècle (2021)</a></p>
+<p><strong>Summary.</strong> Reads Spain’s 1873 cantonal revolution against the shadow of the Paris Commune: dozens of towns declared autonomous “cantons,” run by revolutionary juntas and militias acting without Madrid, and monarchist generals of the regular army crushed them within weeks — bar Cartagena, which held out six months. The FRE-AIT (anarchist International) judged only Alcoy (revolt of 9–13 July 1873) a genuinely social movement; from the federal-republican-led cantons it largely stood aside.</p>
+<p><strong>Claim it supports.</strong> <em>“Retaken by the federal army within days”</em> (Alcoy insurrection) and <em>“Besieged and crushed by the central army, Jan 1874”</em> (Cartagena Canton).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“Ces derniers abattent les Républiques cantonales en quelques semaines, mais ne parviennent à défaire celle de Carthagène, où se sont réfugiés les insurgés d’autres villes, qu’après six mois de résistance.”</em> (p. 58) — the army crushed the cantonal republics within weeks; only Cartagena held out, and only after six months’ siege — the Cartagena manner of death.</li>
+<li><em>“la milice de Carthagène se soulève sans attendre les consignes du Comité de salut public de Madrid”</em> (Moisand 2021) — Cartagena’s own militia rose and governed without waiting on Madrid: the self-governing form. <span class="source-note">(Federal-republican-led, not anarchist — the FRE-AIT abstained — so Cartagena is counted on the functional test and flagged †.)</span></li>
+<li><em>“seul le canton d’Alcoy (une ville textile dont les ouvriers s’étaient révoltés entre le 9 et le 13 juillet 1873) pouvait être interprété comme un mouvement social.”</em> (p. 60) — dates the Alcoy rising to a four-day span (9–13 July). <span class="source-note">(The article centres on Cartagena; it dates and situates Alcoy’s brief rising but has no sentence narrating its specific recapture.)</span></li>
+</ol>
+<h3 id="matthew-kerry-2020--unite-proletarian-brothers-radicalism-and-revolution-in-the-spanish-second-republic">Matthew Kerry (2020) — Unite, Proletarian Brothers! Radicalism and Revolution in the Spanish Second Republic</h3>
+<p><a href="https://doi.org/10.14296/920.9781912702534">University of London Press (2020) · open access</a></p>
+<p><strong>Summary.</strong> An open-access academic monograph on radicalism in the Spanish Second Republic, centred on the October 1934 Asturian insurrection, when miners and workers seized the coalfield towns and ran them through revolutionary committees before the state crushed the rising with the Army of Africa.</p>
+<p><strong>Claim it supports.</strong> <em>“Crushed by the Army of Africa after ≈2 weeks”</em> (Asturian Commune).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“The towns and villages of the narrow, steep-sided coal valleys lay in the hands of revolutionary committees staffed by local politicians and trade unionists drawn from the ranks of the socialists, anarchists and communists.”</em> (Introduction) — the self-governing form: committees running the mining basin.</li>
+<li><em>“After two weeks, the movement was defeated by the Spanish army.”</em> (Introduction) — the two-week duration and defeat.</li>
+<li><em>“the Army of Africa was drafted in to crush the insurrection, as it was believed to be more trustworthy and less tainted by domestic politics than the forces on the mainland.”</em> (concluding analysis) — the manner of death: crushed by the state’s colonial troops. <span class="source-note">(Agent-located in the open-access PDF; page numbers approximate — the governance and defeat quotes sit in the Introduction, the Army-of-Africa quote in the concluding chapter.)</span></li>
+</ol>
+<h3 id="lee-jae-eui-1999--gwangju-diary-beyond-death-beyond-the-darkness-of-the-age">Lee Jae-eui (1999) — Gwangju Diary: Beyond Death, Beyond the Darkness of the Age</h3>
+<p><a href="https://libcom.org/article/gwangju-uprising-1980">Gwangju Diary (trans. Seol &amp; Mamatas) · full text via libcom.org</a></p>
+<p><strong>Summary.</strong> The canonical documentary account of the May 1980 Gwangju uprising, compiled from participant testimony with the May 18 Memorial Foundation. After paratroopers were driven out on 21 May, the city of ≈730,000 governed itself for roughly six days through mass rallies and a Citizens’ Settlement Committee, until martial-law forces stormed it before dawn on 27 May. <span class="source-note">(An eyewitness/movement source, not peer-reviewed scholarship, but the standard primary account and fully open-access. Gwangju was a citizens’ democratic uprising, not a self-described anarchist one — it is here on the functional test, not the label.)</span></p>
+<p><strong>Claim it supports.</strong> <em>“Retaken by army paratroopers at dawn after ≈6 days of self-rule”</em> (Gwangju Commune).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“In the absence of an administrative state, people relied on one another.”</em> (ch. 3) — self-organisation without a state.</li>
+<li><em>“Power, water, and city telephone lines operated normally; there was no looting, no bank robberies, and low rates of crime.”</em> (ch. 3) — the liberated city functioning under citizen self-rule.</li>
+<li><em>“At first, state forces shot their M-16s indiscriminately, at any sign of life, even in residential areas.”</em> (ch. 4) — the army’s assault retaking the city on 27 May.</li>
+</ol>
+<h3 id="francesco-dalessandro-2020--the-forgotten-anarchist-commune-in-manchuria">Francesco D’Alessandro (2020) — The Forgotten Anarchist Commune in Manchuria</h3>
+<p><a href="https://theanarchistlibrary.org/library/francesco-dalessandro-the-forgotten-anarchist-commune-in-manchuria">theanarchistlibrary.org · D’Alessandro (2020)</a></p>
+<p><strong>Summary.</strong> After Japan’s 1910 annexation of Korea, exiled Korean anarchists built autonomous self-governing districts in Manchuria (the Shinmin district among them), defended by the Army of the North under Kim Jwa-jin. This Manchurian commune of the late 1920s was destroyed by the early 1930s under combined assault from Japanese imperial troops and Moscow-directed Korean communists who assassinated its leaders. <span class="source-note">(A movement-sympathetic source. It says “communists directed from Moscow” (≈ Stalinists) and also names Chinese troops, so the row’s “between Japanese and Stalinists” simplifies a fuller multi-party account. The one peer-reviewed study — Dongyoun Hwang, <em>Anarchism in Korea</em> (SUNY, 2016) — is far more cautious: the governing body was “strictly speaking, not an anarchist organization,” was fronted by the nationalist general Kim Jwa-jin, and its programme may have “existed only on paper”; the ≈2 million is the Korean population of Manchuria, not the number governed, which Hwang says is unknown. Hence the † and the “Unknown” scale.)</span></p>
+<p><strong>Claim it supports.</strong> <em>“Caught between Japanese imperial forces and Stalinists”</em> (Korean People’s Association).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“The Japanese government sent 35,000 imperial troops into Manchuria and installed a puppet government, the Manchukuo in 1931.”</em> (§ “by the beginning of the 1930s”) — the Japanese imperial-forces pressure.</li>
+<li><em>“At the same time, the Korean Communist Party, directed from Moscow, began infiltrating the Commune and systematically assassinating its anarchist leaders. Kim Jwa-jin was murdered in January 1930.”</em> — the communist / Stalinist pressure.</li>
+<li><em>“Together, the Japanese Army, the North Korean Communist Army, and the Communist Party infiltrators, along with some Chinese troops surrounded the Commune from the outside and inside and eventually destroyed it.”</em> — the two-front destruction.</li>
+</ol>
+<h3 id="georgi-khadzhiev-1992--down-with-the-sultan-long-live-the-balkan-federation">Georgi Khadzhiev (1992) — Down with the Sultan, Long Live the Balkan Federation</h3>
+<p><a href="https://theanarchistlibrary.org/library/georgi-khadzhiev-down-with-the-sultan-long-live-the-balkan-federation">theanarchistlibrary.org · Khadzhiev (1992)</a></p>
+<p><strong>Summary.</strong> A partisan anarchist history of the Macedonian and Thracian liberation movement, recounting the 1903 Preobrazhenie (Transfiguration) Uprising in Ottoman Thrace and framing the short-lived “Strandzha Commune” as a spontaneous experiment in libertarian communism, led in part by anarchists like Gerdzhikov. <span class="source-note">(A celebratory, ideological account, not neutral scholarship.)</span></p>
+<p><strong>Claim it supports.</strong> <em>“Crushed by the Ottoman army after ≈20 days”</em> (Strandzha Commune).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“The Strandzha Commune lived and pulsated for more than 20 days in conditions of true communism”</em> (§ The Transfiguration Uprising and the “Strandzha Commune”) — the roughly-20-day duration.</li>
+<li><em>“This reign of free communism was set up on the first day of the uprising and continued through until 21st August 1903, in some places until the end of the month, until it was crushed militarily by a 40,000-strong Ottoman army of infantry, cavalry and artillery”</em> — crushed militarily by the Ottoman army.</li>
+</ol>
+<h3 id="ángel-herrerín-lópez-2017--el-movimiento-de-enero-de-1932">Ángel Herrerín López (2017) — El movimiento de enero de 1932</h3>
+<p><a href="https://doi.org/10.4000/framespa.4436">Les Cahiers de Framespa 25 (2017)</a></p>
+<p><strong>Summary.</strong> Reassesses the January 1932 CNT rising in the Alt Llobregat mining valley (Catalonia) — a spontaneous cenetista insurrection, or an anarchist (FAI) bid for control of the union? Herrerín traces the Fígols-centred revolt, its rapid military suppression, and the mass arrests and deportations that followed, which swept up well-known militants regardless of their actual involvement. (Quotes in the original Spanish.)</p>
+<p><strong>Claim it supports.</strong> <em>“Retaken by army and Civil Guard; militants deported”</em> (Alt Llobregat rising).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“los soldados y la guardia civil habían entrado en los pueblos poniendo fin al levantamiento, salvo en la barriada de San Cornelio, en Fígols”</em> (§ the suppression) — the soldiers and the Civil Guard entered the villages and ended the rising (bar the San Cornelio district of Fígols).</li>
+<li><em>“militantes anarquistas que no habían participado en el movimiento pero que estaban fichados por la policía y eran de sobra conocidos, como Buenaventura Durruti o los hermanos Francisco y Domingo Ascaso”</em> (§ the arrests) — well-known anarchist militants (Durruti, the Ascaso brothers) were among those seized, even without having taken part.</li>
+<li><em>“uno de los anarquistas deportados en el vapor Buenos Aires”</em> (§ the deportations) — the detainees were deported on the steamship Buenos Aires.</li>
+</ol>
+<h3 id="robert-tombs-1994--victimes-et-bourreaux-de-la-semaine-sanglante">Robert Tombs (1994) — Victimes et bourreaux de la Semaine sanglante</h3>
+<p><a href="https://doi.org/10.4000/rh19.78">Revue d’histoire du XIXe siècle 10 (1994)</a></p>
+<p><strong>Summary.</strong> Tombs re-examines the death toll of the 1871 Bloody Week, when the Versaillais army retook Paris and executed Communards. He traces how a high figure entered republican historiography (the ≈17,000 consensus; Pelletan’s higher counts) and argues it was inflated, proposing a downward estimate of roughly 10,000 — most of them victims of organised, quasi-legal mass killings. (In French.)</p>
+<p><strong>Claim it supports.</strong> <em>“Crushed by the French Army; ≈10,000–20,000 killed in the semaine sanglante (toll disputed)”</em> (Paris Commune).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“Avec Seignobos et Lavisse se dessine un consensus républicain, la répression entre dans les livres d’histoire et les manuels et l’on retient le chiffre de 17 000 morts.”</em> (§ the historiography) — the traditional republican figure of ≈17,000 dead.</li>
+<li><em>“il est possible de faire une estimation approximative de 10 000 victimes”</em> (§ Tombs’ estimate) — Tombs’ own downward revision to ≈10,000, i.e. the toll is contested.</li>
+<li><em>“il apparaît qu’une très importante proportion des morts de la Semaine sanglante, voire la majorité des exécutés, aient été les victimes de tueries organisées et quasi-légales”</em> (§ the killings) — the mass, organised killings by the Versaillais forces.</li>
+</ol>
+<h3 id="jesse-l-byock-2001--viking-age-iceland">Jesse L. Byock (2001) — Viking Age Iceland</h3>
+<p><a href="https://www.penguinrandomhouse.com/books/333339/viking-age-iceland-by-jesse-l-byock/">Byock, Viking Age Iceland (Penguin, 2001)</a></p>
+<p><strong>Summary.</strong> Byock’s study of the Icelandic Free State (c. 930–1264) as a stateless, feud-regulated society without king or army. Its final phase saw a new elite of “big chieftains” contend for overlordship as endemic feuding escalated into open warfare — the turmoil that ended the Free State in the thirteenth century. <span class="source-note">(Grounded from a partial, OCR’d scan: the “feuding chieftains” half is anchored below in clean English, but the source’s narrative of the 1262–4 submission to Norway sits in a later chapter absent from the provided excerpt, so the “absorbed by Norway” half is left unanchored, pending a full text-based copy.)</span></p>
+<p><strong>Claim it supports.</strong> <em>“Collapsed into feuding chieftains; absorbed by Norway”</em> (Icelandic Commonwealth).</p>
+<p><strong>Quotes.</strong></p>
+<ol>
+<li><em>“In the last phase of the Free State, the older two-tiered system of chieftains and farmers gave way to a more complex three-tiered political structure of big chieftains, big farmers and farmers.”</em> (§ Introduction) — power concentrating in a rising class of big chieftains at the end of the Free State.</li>
+<li><em>“Only at the very end of the Free State did the endemic feuding reach the level of open warfare, and even then random violence was sporadic”</em> (p. 76) — the chronic feuding escalating to open warfare at the state’s collapse.</li>
+</ol></d-article></div><script type="application/json" class="js-hypothesis-config">
+    {
+      "showHighlights": true,
+      "openSidebar": false
+    }
+  </script><script async src="https://hypothes.is/embed.js"></script></main><dialog class="figure-lightbox" aria-label="Enlarged figure"><button type="button" class="figure-lightbox-close" autofocus aria-label="Close enlarged figure">×</button><img class="figure-lightbox-image" alt=""></dialog><script type="module">var e=document.querySelector(`.figure-lightbox`),t=e.querySelector(`img`),n=null;document.addEventListener(`click`,r=>{if(r.defaultPrevented||r.button!==0||r.metaKey||r.ctrlKey||r.shiftKey||r.altKey||!(r.target instanceof Element))return;let i=r.target.closest(`figure a.figure-image`),a=i?.querySelector(`img`);i&&a&&(r.preventDefault(),n=i,t.src=i.href,t.alt=a.alt,e.showModal(),document.documentElement.classList.add(`figure-lightbox-open`))}),e.addEventListener(`click`,()=>e.close()),e.addEventListener(`close`,()=>{document.documentElement.classList.remove(`figure-lightbox-open`),t.removeAttribute(`src`),t.alt=``,n?.focus({preventScroll:!0}),n=null});</script><script type="module">var e,t,n=document.createElement(`aside`);n.className=`citation-preview`,n.id=`citation-preview`,n.setAttribute(`role`,`tooltip`),n.hidden=!0,document.body.append(n);function r(){clearTimeout(t),n.hidden=!0,e?.removeAttribute(`aria-describedby`),e=void 0}function i(){t=setTimeout(r,180)}function a(r){clearTimeout(t),e?.removeAttribute(`aria-describedby`);let i=document.getElementById(decodeURIComponent(r.hash.slice(1))),a=i?.closest(`li`)??i?.parentElement;if(!a)return;e=r,n.replaceChildren(...Array.from(a.childNodes).map(e=>e.cloneNode(!0))),n.querySelectorAll(`[id]`).forEach(e=>e.removeAttribute(`id`)),n.hidden=!1,r.setAttribute(`aria-describedby`,n.id);let o=r.getBoundingClientRect(),s=n.getBoundingClientRect().width;n.style.left=`${Math.max(12,Math.min(o.left,innerWidth-s-12))}px`,n.style.top=`${Math.min(o.bottom+8,Math.max(12,innerHeight-n.offsetHeight-12))}px`}for(let e of document.querySelectorAll(`d-article a[href^="#ref-"]`))e.addEventListener(`mouseenter`,()=>a(e)),e.addEventListener(`focus`,()=>a(e)),e.addEventListener(`mouseleave`,i),e.addEventListener(`blur`,i);n.addEventListener(`mouseenter`,()=>clearTimeout(t)),n.addEventListener(`mouseleave`,i),n.addEventListener(`focusin`,()=>clearTimeout(t)),n.addEventListener(`focusout`,i),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&r()}),window.addEventListener(`scroll`,r,{passive:!0});</script></body></html>
